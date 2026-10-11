@@ -7,27 +7,27 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- External CSS Link -->
+    <!-- External CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between">
 
     <!-- Header & Sticky Navbar -->
-    <header class="bg-slate-800/95 border-b border-slate-700 sticky top-0 z-40 py-3 px-4 md:px-8 shadow-md">
+    <header class="bg-slate-800/95 border-b border-slate-700 sticky top-0 z-40 py-3 px-3 md:px-8 shadow-md">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-2 md:space-x-3">
                 <button onclick="toggleSidebar()" class="text-slate-300 hover:text-white text-xl focus:outline-none p-1">
                     <i class="fa-solid fa-bars"></i>
                 </button>
                 <div class="flex items-center space-x-2 cursor-pointer" onclick="switchPlatform('home')">
                     <i class="fa-solid fa-cloud-arrow-down text-blue-500 text-2xl"></i>
-                    <span class="text-xl md:text-2xl font-bold tracking-wide">Any<span class="text-blue-500">Saver</span></span>
+                    <span class="text-lg md:text-2xl font-bold tracking-wide">Any<span class="text-blue-500">Saver</span></span>
                 </div>
             </div>
 
-            <!-- Language & Auth Controls -->
-            <div class="flex items-center space-x-2 md:space-x-3">
-                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-700 text-xs py-1.5 px-2 rounded-lg text-slate-200 border border-slate-600 focus:outline-none">
+            <!-- Language & Profile Icon Button (Fixed Layout) -->
+            <div class="flex items-center space-x-2">
+                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-700 text-[11px] md:text-xs py-1 px-1.5 md:px-2 rounded-lg text-slate-200 border border-slate-600 focus:outline-none">
                     <option value="en">English</option>
                     <option value="bn">বাংলা</option>
                     <option value="es">Español</option>
@@ -49,14 +49,15 @@
                     <option value="zh">简体中文</option>
                 </select>
 
-                <button onclick="openAuthModal('login')" id="authNavBtn" class="text-xs bg-blue-600 hover:bg-blue-500 px-3 py-1.5 rounded-lg font-semibold text-white transition flex items-center space-x-1.5 shadow">
-                    <i class="fa-solid fa-user"></i> <span id="authBtnText">Login / Signup</span>
+                <!-- Profile Icon Button -->
+                <button onclick="openAuthModal('login')" id="profileIconBtn" class="bg-blue-600 hover:bg-blue-500 text-white w-9 h-9 rounded-full flex items-center justify-center transition shadow-lg focus:outline-none" title="User Profile / Login">
+                    <i class="fa-solid fa-user text-sm"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Sidebar Menu (All Resources from Screenshots) -->
+    <!-- Sidebar Menu (Fully Interactive) -->
     <div id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-slate-800 border-r border-slate-700 transform -translate-x-full transition-transform duration-300 z-50 p-6 overflow-y-auto shadow-2xl">
         <div class="flex justify-between items-center mb-6">
             <h3 class="font-bold text-lg text-white">All Resources</h3>
@@ -109,8 +110,8 @@
     <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
         <!-- Dynamic Header -->
         <div class="text-center mb-6">
-            <h1 id="pageTitle" class="text-3xl md:text-5xl font-extrabold mb-3">Free Online Video Downloader</h1>
-            <p id="pageSubtitle" class="text-slate-400 text-sm md:text-base">Download videos in 4K, 1080p, HD & MP3 from all major social media platforms instantly.</p>
+            <h1 id="pageTitle" class="text-2xl md:text-5xl font-extrabold mb-3">Free Online Video Downloader</h1>
+            <p id="pageSubtitle" class="text-slate-400 text-xs md:text-base">Download videos in 4K, 1080p, HD & MP3 from all major social media platforms instantly.</p>
         </div>
 
         <!-- Input Box Section -->
@@ -120,9 +121,9 @@
                     <i class="fa-solid fa-link"></i>
                 </span>
                 <input type="url" id="videoUrl" placeholder="Paste link here (YouTube, Facebook, Instagram, TikTok)..." 
-                    class="w-full pl-11 pr-4 py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500">
+                    class="w-full pl-11 pr-4 py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-xs md:text-sm">
             </div>
-            <button onclick="handleDownload()" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-blue-600/30">
+            <button onclick="handleDownload()" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-blue-600/30 text-xs md:text-sm">
                 <span>Download</span>
                 <i class="fa-solid fa-arrow-right"></i>
             </button>
@@ -158,146 +159,4 @@
                             <a id="btn4k" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-xs px-3.5 py-1.5 rounded-lg font-semibold">Download</a>
                         </div>
                         <div class="flex justify-between items-center bg-slate-900 px-4 py-2.5 rounded-xl border border-slate-700">
-                            <span class="text-xs font-medium"><i class="fa-solid fa-video text-purple-400 mr-2"></i> Full HD (1080p)</span>
-                            <a id="btn1080p" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-xs px-3.5 py-1.5 rounded-lg font-semibold">Download</a>
-                        </div>
-                        <div class="flex justify-between items-center bg-slate-900 px-4 py-2.5 rounded-xl border border-slate-700">
-                            <span class="text-xs font-medium"><i class="fa-solid fa-music text-amber-400 mr-2"></i> High Quality Audio (MP3)</span>
-                            <a id="btnMp3" href="#" target="_blank" class="bg-amber-600 hover:bg-amber-500 text-xs px-3.5 py-1.5 rounded-lg font-semibold">Download</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Hidden Ad Banner Slot Middle -->
-        <div id="middleAdContainer" class="my-6 hidden">
-            <div id="adMiddleSlot"></div>
-        </div>
-
-        <!-- Export Advanced Tools (VMEG Style) -->
-        <div class="mt-14">
-            <h2 class="text-xl font-bold mb-6 text-center">Export Advanced Tools</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-xl flex justify-between items-center hover:border-blue-500 transition cursor-pointer">
-                    <div class="flex items-center space-x-3">
-                        <i class="fa-solid fa-language text-blue-400 text-xl"></i>
-                        <span class="font-semibold text-xs">Video Translator & Subtitles</span>
-                    </div>
-                    <span class="text-[10px] bg-purple-600/30 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded font-bold">HOT</span>
-                </div>
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-xl flex justify-between items-center hover:border-blue-500 transition cursor-pointer">
-                    <div class="flex items-center space-x-3">
-                        <i class="fa-solid fa-closed-captioning text-emerald-400 text-xl"></i>
-                        <span class="font-semibold text-xs">Facebook & YouTube SRT Extractor</span>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-slate-500 text-xs"></i>
-                </div>
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-xl flex justify-between items-center hover:border-blue-500 transition cursor-pointer">
-                    <div class="flex items-center space-x-3">
-                        <i class="fa-solid fa-microphone text-amber-400 text-xl"></i>
-                        <span class="font-semibold text-xs">Audio to Text Converter</span>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-slate-500 text-xs"></i>
-                </div>
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-xl flex justify-between items-center hover:border-blue-500 transition cursor-pointer">
-                    <div class="flex items-center space-x-3">
-                        <i class="fa-solid fa-wand-magic-sparkles text-pink-400 text-xl"></i>
-                        <span class="font-semibold text-xs">AI Dubbing & Voiceover</span>
-                    </div>
-                    <span class="text-[10px] bg-purple-600/30 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded font-bold">HOT</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Comprehensive FAQ Accordion (From Screenshots) -->
-        <div class="mt-14">
-            <h2 class="text-xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
-            <div class="space-y-3">
-                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer text-xs">
-                    <summary class="font-semibold">How can I download private Facebook videos?</summary>
-                    <p class="text-slate-400 mt-2">Paste the valid video link or page source URL into the search box above to extract private video streams.</p>
-                </details>
-                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer text-xs">
-                    <summary class="font-semibold">Where are downloaded videos stored?</summary>
-                    <p class="text-slate-400 mt-2">Files are automatically saved in your browser or device's default "Downloads" folder.</p>
-                </details>
-                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer text-xs">
-                    <summary class="font-semibold">Can I download live Facebook videos?</summary>
-                    <p class="text-slate-400 mt-2">Live broadcasts can be downloaded once the live session has ended and processing is complete.</p>
-                </details>
-                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer text-xs">
-                    <summary class="font-semibold">Is this video downloader service completely free?</summary>
-                    <p class="text-slate-400 mt-2">Yes, 100% free with unlimited 4K, 1080p and MP3 downloads.</p>
-                </details>
-                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer text-xs">
-                    <summary class="font-semibold">What video qualities are supported?</summary>
-                    <p class="text-slate-400 mt-2">We support SD, 720p HD, 1080p Full HD, 4K Ultra HD video formats, and high-quality MP3 audio.</p>
-                </details>
-            </div>
-        </div>
-
-        <!-- User Reviews & Custom Review Form -->
-        <div class="mt-14 bg-slate-800/40 border border-slate-800 rounded-2xl p-6">
-            <div class="text-center mb-6">
-                <h2 class="text-lg font-bold mb-2">User Reviews & Ratings</h2>
-                <div class="flex items-center justify-center space-x-2">
-                    <div class="text-amber-400 text-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <span class="font-bold text-sm">4.8 / 5</span>
-                </div>
-                <p class="text-xs text-slate-400">Based on over 55,196 verified user feedback.</p>
-            </div>
-
-            <!-- Custom Review Form Box -->
-            <div class="bg-slate-800 border border-slate-700 p-4 rounded-xl mb-6 text-xs">
-                <h3 class="font-bold text-white mb-2">Leave Your Feedback</h3>
-                <div class="space-y-3">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span class="text-slate-400">Rating:</span>
-                        <select id="reviewRating" class="bg-slate-900 border border-slate-700 p-1.5 rounded text-amber-400 focus:outline-none">
-                            <option value="5">⭐⭐⭐⭐⭐ (5 Stars)</option>
-                            <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
-                            <option value="3">⭐⭐⭐ (3 Stars)</option>
-                        </select>
-                    </div>
-                    <textarea id="reviewMessage" rows="2" placeholder="Write your review message here..." class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white focus:outline-none focus:border-blue-500"></textarea>
-                    <button onclick="submitCustomReview()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-lg transition shadow">Submit Review</button>
-                </div>
-            </div>
-
-            <!-- Review Cards Grid -->
-            <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left text-xs">
-                <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-bold text-slate-200">Alex M.</span>
-                        <span class="text-amber-400"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
-                    </div>
-                    <p class="text-slate-400">"Super fast 4K downloads! Best downloader I have used."</p>
-                </div>
-                <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-bold text-slate-200">Tanvir H.</span>
-                        <span class="text-amber-400"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
-                    </div>
-                    <p class="text-slate-400">"Works like magic for Facebook and YouTube. Very clean UI!"</p>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Comprehensive Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-10 px-4 mt-12 text-xs text-slate-400">
-        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6">
-            <div>
-                <h4 class="font-bold text-white mb-3">Platforms</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" onclick="switchPlatform('YouTube')" class="hover:text-white">YouTube Downloader</a></li>
-                    <li><a href="#" onclick="switchPlatform('Facebook')" class="hover:text-white">Facebook Downloader</a></li>
-                    <li><a href="#" onclick="switchPlatform('Instagram')" class="hover:text-white">Instagram Reels</a></li>
-                    <li><a href="#" onclick="switchPlatform('TikTok')" class="hover:text-white">TikTok No Watermark</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class
+                            <span class="text-xs font-medium"><i class="fa-solid fa-video text-
