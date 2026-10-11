@@ -9,7 +9,7 @@ body {
 
 /* Ensure Modals and Popups Never Overflow on Mobile Screens */
 #authModal > div, #adminModal > div {
-    max-width: 95% !important;
+    max-width: 92% !important;
     margin: auto;
 }
 
@@ -23,7 +23,4 @@ body {
 ::-webkit-scrollbar-thumb {
     background: #334155;
     border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #475569;
 }
