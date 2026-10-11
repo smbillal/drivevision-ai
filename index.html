@@ -7,10 +7,10 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- External CSS -->
+    <!-- External CSS Link -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between">
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden">
 
     <!-- Header & Sticky Navbar -->
     <header class="bg-slate-800/95 border-b border-slate-700 sticky top-0 z-40 py-3 px-3 md:px-8 shadow-md">
@@ -27,11 +27,26 @@
 
             <!-- Language & Profile Icon Button -->
             <div class="flex items-center space-x-2">
-                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-700 text-[11px] md:text-xs py-1 px-1.5 md:px-2 rounded-lg text-slate-200 border border-slate-600 focus:outline-none">
+                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-700 text-[11px] md:text-xs py-1.5 px-2 rounded-lg text-slate-200 border border-slate-600 focus:outline-none">
                     <option value="en">English</option>
                     <option value="bn">বাংলা</option>
                     <option value="es">Español</option>
                     <option value="ar">العربية</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="id">Bahasa Indonesia</option>
+                    <option value="it">Italiano</option>
+                    <option value="ja">日本語</option>
+                    <option value="ko">한국어</option>
+                    <option value="pl">Polski</option>
+                    <option value="pt">Português</option>
+                    <option value="ru">Русский</option>
+                    <option value="th">ไทย</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="uk">Українська</option>
+                    <option value="vi">Tiếng Việt</option>
+                    <option value="zh">简体中文</option>
                 </select>
 
                 <button onclick="openAuthModal('login')" class="bg-blue-600 hover:bg-blue-500 text-white w-9 h-9 rounded-full flex items-center justify-center transition shadow-lg focus:outline-none" title="User Profile / Login">
@@ -41,7 +56,7 @@
         </div>
     </header>
 
-    <!-- Sidebar Menu (Fully Interactive) -->
+    <!-- Sidebar Menu (Interactive All Resources) -->
     <div id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-slate-800 border-r border-slate-700 transform -translate-x-full transition-transform duration-300 z-50 p-6 overflow-y-auto shadow-2xl">
         <div class="flex justify-between items-center mb-6">
             <h3 class="font-bold text-lg text-white">All Resources</h3>
@@ -49,32 +64,28 @@
         </div>
         <div class="space-y-6 text-xs text-slate-300">
             <div>
-                <p class="font-bold text-blue-400 uppercase tracking-wider mb-2">Supported Platforms</p>
-                <ul class="space-y-2.5 pl-2">
-                    <li><a href="#" onclick="switchPlatform('YouTube')" class="hover:text-white flex items-center"><i class="fa-brands fa-youtube text-red-500 mr-2.5 w-4"></i> YouTube Downloader</a></li>
-                    <li><a href="#" onclick="switchPlatform('Facebook')" class="hover:text-white flex items-center"><i class="fa-brands fa-facebook text-blue-500 mr-2.5 w-4"></i> Facebook Downloader</a></li>
-                    <li><a href="#" onclick="switchPlatform('Instagram')" class="hover:text-white flex items-center"><i class="fa-brands fa-instagram text-pink-500 mr-2.5 w-4"></i> Instagram Reels</a></li>
-                    <li><a href="#" onclick="switchPlatform('TikTok')" class="hover:text-white flex items-center"><i class="fa-brands fa-tiktok text-teal-400 mr-2.5 w-4"></i> TikTok No Watermark</a></li>
-                    <li><a href="#" onclick="switchPlatform('Reddit')" class="hover:text-white flex items-center"><i class="fa-brands fa-reddit text-orange-500 mr-2.5 w-4"></i> Reddit Downloader</a></li>
-                    <li><a href="#" onclick="switchPlatform('Vimeo')" class="hover:text-white flex items-center"><i class="fa-brands fa-vimeo text-cyan-400 mr-2.5 w-4"></i> Vimeo Downloader</a></li>
-                    <li><a href="#" onclick="switchPlatform('Dailymotion')" class="hover:text-white flex items-center"><i class="fa-brands fa-dailymotion text-blue-400 mr-2.5 w-4"></i> Dailymotion</a></li>
-                </ul>
-            </div>
-            <div>
-                <p class="font-bold text-blue-400 uppercase tracking-wider mb-2">Converters</p>
-                <ul class="space-y-2.5 pl-2">
-                    <li><a href="#" class="hover:text-white">MP4 Converter</a></li>
-                    <li><a href="#" class="hover:text-white">MP4 to MP3</a></li>
-                    <li><a href="#" class="hover:text-white">MOV to MP4</a></li>
-                    <li><a href="#" class="hover:text-white">MKV to MP4</a></li>
-                </ul>
-            </div>
-            <div>
-                <p class="font-bold text-blue-400 uppercase tracking-wider mb-2">AI & Subtitles</p>
-                <ul class="space-y-2.5 pl-2">
-                    <li><a href="#" class="hover:text-white">YouTube Transcript</a></li>
-                    <li><a href="#" class="hover:text-white">YouTube Subtitles</a></li>
+                <p class="font-bold text-blue-400 uppercase tracking-wider mb-2">Products & Tools</p>
+                <ul class="space-y-2 pl-2">
+                    <li><a href="#" onclick="switchPlatform('YouTube')" class="hover:text-white">YouTube Downloader</a></li>
+                    <li><a href="#" onclick="switchPlatform('Facebook')" class="hover:text-white">Facebook Downloader</a></li>
+                    <li><a href="#" onclick="switchPlatform('Instagram')" class="hover:text-white">Instagram Reels</a></li>
+                    <li><a href="#" onclick="switchPlatform('TikTok')" class="hover:text-white">TikTok No Watermark</a></li>
                     <li><a href="#" class="hover:text-white">Video Translator</a></li>
+                    <li><a href="#" class="hover:text-white">AI Dubbing</a></li>
+                    <li><a href="#" class="hover:text-white">Audio Translator</a></li>
+                    <li><a href="#" class="hover:text-white">Subtitle Generator</a></li>
+                    <li><a href="#" class="hover:text-white">Video to Text</a></li>
+                    <li><a href="#" class="hover:text-white">Text to Speech</a></li>
+                    <li><a href="#" class="hover:text-white">Voice Cloning</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-bold text-blue-400 uppercase tracking-wider mb-2">Solutions</p>
+                <ul class="space-y-2 pl-2">
+                    <li><a href="#" class="hover:text-white">Enterprises</a></li>
+                    <li><a href="#" class="hover:text-white">Agencies</a></li>
+                    <li><a href="#" class="hover:text-white">Creators</a></li>
+                    <li><a href="#" class="hover:text-white">E-learning</a></li>
                 </ul>
             </div>
         </div>
@@ -123,7 +134,7 @@
             </button>
         </div>
 
-        <!-- Result Section -->
+        <!-- Download Result Section -->
         <div id="resultSection" class="hidden mt-8 bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl">
             <div class="flex flex-col md:flex-row gap-6 items-start">
                 <div class="w-full md:w-1/3 bg-slate-900 rounded-xl h-44 overflow-hidden relative">
@@ -169,66 +180,184 @@
             </div>
         </div>
 
-        <!-- User Reviews & Custom Review Form -->
+        <!-- Real-Time Dynamic User Reviews & Ratings -->
         <div class="mt-14 bg-slate-800/40 border border-slate-800 rounded-2xl p-6">
             <div class="text-center mb-6">
                 <h2 class="text-lg font-bold mb-2">User Reviews & Ratings</h2>
                 <div class="flex items-center justify-center space-x-2 text-amber-400 text-sm">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                    <span class="font-bold text-sm text-white ml-2">4.8 / 5</span>
+                    <span id="starDisplay">⭐⭐⭐⭐⭐</span>
+                    <span id="averageScore" class="font-bold text-sm text-white ml-2">5.0 / 5</span>
                 </div>
+                <p class="text-xs text-slate-400 mt-1">Based on <span id="reviewCount" class="font-bold text-blue-400">2</span> verified ratings.</p>
             </div>
 
-            <!-- Custom Review Form Box -->
+            <!-- Custom Review Form Box (1 to 5 Stars) -->
             <div class="bg-slate-800 border border-slate-700 p-4 rounded-xl mb-6 text-xs">
                 <h3 class="font-bold text-white mb-2">Leave Your Feedback</h3>
                 <div class="space-y-3">
-                    <select id="reviewRating" class="bg-slate-900 border border-slate-700 p-1.5 rounded text-amber-400 focus:outline-none">
-                        <option value="5">⭐⭐⭐⭐⭐ (5 Stars)</option>
-                        <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
-                    </select>
-                    <textarea id="reviewMessage" rows="2" placeholder="Write your review..." class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white focus:outline-none"></textarea>
-                    <button onclick="submitCustomReview()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-lg transition">Submit Review</button>
+                    <div>
+                        <label class="block text-slate-400 mb-1">Select Star Rating:</label>
+                        <select id="reviewRating" class="bg-slate-900 border border-slate-700 p-2 rounded text-amber-400 focus:outline-none w-full">
+                            <option value="5">⭐⭐⭐⭐⭐ (5 Stars - Excellent)</option>
+                            <option value="4">⭐⭐⭐⭐ (4 Stars - Good)</option>
+                            <option value="3">⭐⭐⭐ (3 Stars - Average)</option>
+                            <option value="2">⭐⭐ (2 Stars - Poor)</option>
+                            <option value="1">⭐ (1 Star - Very Bad)</option>
+                        </select>
+                    </div>
+                    <textarea id="reviewMessage" rows="3" placeholder="Write your feedback..." class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white focus:outline-none focus:border-blue-500"></textarea>
+                    <button onclick="submitCustomReview()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-lg transition shadow">Submit Review</button>
                 </div>
             </div>
 
+            <!-- Review Cards Grid -->
             <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left text-xs">
                 <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                    <span class="font-bold text-slate-200">Alex M.</span>
-                    <p class="text-slate-400 mt-1">"Super fast 4K downloads! Best downloader."</p>
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold text-slate-200">Alex M.</span>
+                        <span class="text-amber-400">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="text-slate-400">"Super fast 4K downloads! Best downloader."</p>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold text-slate-200">Tanvir H.</span>
+                        <span class="text-amber-400">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="text-slate-400">"Works like magic for Facebook and YouTube."</p>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-8 px-4 text-xs text-slate-400 text-center">
-        <p>&copy; 2026 AnySaver. All rights reserved. | <a href="about.html" class="hover:text-white">About Us</a> | <a href="privacy.html" class="hover:text-white">Privacy Policy</a></p>
+    <!-- Comprehensive VMEG & SaveFrom Style Extended Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12 px-4 mt-12 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8">
+            <!-- Column 1: Products -->
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">Products</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white">Video Translator</a></li>
+                    <li><a href="#" class="hover:text-white">AI Dubbing</a></li>
+                    <li><a href="#" class="hover:text-white">Audio Translator</a></li>
+                    <li><a href="#" class="hover:text-white">Subtitle Generator</a></li>
+                    <li><a href="#" class="hover:text-white">Video to Text</a></li>
+                    <li><a href="#" class="hover:text-white">PPT to Video</a></li>
+                    <li><a href="#" class="hover:text-white">Text to Speech</a></li>
+                    <li><a href="#" class="hover:text-white">Voice Cloning</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Solutions -->
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">Solutions</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white">Enterprises</a></li>
+                    <li><a href="#" class="hover:text-white">Agencies</a></li>
+                    <li><a href="#" class="hover:text-white">Creators</a></li>
+                    <li><a href="#" class="hover:text-white">E-learning</a></li>
+                    <li><a href="#" onclick="switchPlatform('YouTube')" class="hover:text-white">YouTube Downloader</a></li>
+                    <li><a href="#" onclick="switchPlatform('Facebook')" class="hover:text-white">Facebook Downloader</a></li>
+                    <li><a href="#" onclick="switchPlatform('Instagram')" class="hover:text-white">Instagram Reels</a></li>
+                    <li><a href="#" onclick="switchPlatform('TikTok')" class="hover:text-white">TikTok No Watermark</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Compare -->
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">Compare</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white">VMEG vs HeyGen</a></li>
+                    <li><a href="#" class="hover:text-white">VMEG vs Synthesia</a></li>
+                    <li><a href="#" class="hover:text-white">VMEG vs VEED</a></li>
+                    <li><a href="#" class="hover:text-white">VMEG vs Akool</a></li>
+                    <li><a href="#" class="hover:text-white">VMEG vs Rask AI</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: About & Trust -->
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">About</h4>
+                <ul class="space-y-2">
+                    <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white">Trust Center</a></li>
+                    <li><a href="#" class="hover:text-white">Creator Fund</a></li>
+                    <li><a href="#" class="hover:text-white">Partnerships</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 5: Legal & Policy -->
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">Legal</h4>
+                <ul class="space-y-2">
+                    <li><a href="privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-white">Cookies Notice</a></li>
+                    <li><a href="#" class="hover:text-white">EULA</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="text-center mt-10 border-t border-slate-900 pt-6">
+            <p>&copy; 2026 AnySaver. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- User Auth Modal -->
+    <!-- User Auth Modal (Separate Login & Signup Buttons) -->
     <div id="authModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
-        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full max-w-sm shadow-2xl relative">
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full max-w-sm shadow-2xl relative my-auto">
             <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">&times;</button>
+            
             <div class="flex border-b border-slate-700 mb-4 text-xs font-bold">
                 <button onclick="switchAuthTab('login')" id="loginTabBtn" class="flex-1 py-2 text-blue-400 border-b-2 border-blue-500">Login</button>
                 <button onclick="switchAuthTab('signup')" id="signupTabBtn" class="flex-1 py-2 text-slate-400">Sign Up</button>
             </div>
+
+            <!-- Login View -->
             <div id="loginView" class="space-y-3 text-xs">
-                <input type="text" id="loginId" placeholder="Email or User ID" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
-                <input type="password" id="loginPass" placeholder="Password" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
-                <button onclick="loginUser()" class="w-full bg-blue-600 hover:bg-blue-500 py-2.5 rounded font-bold text-white">Login</button>
+                <div>
+                    <label class="block text-slate-400 mb-1">Email / 5-Digit ID</label>
+                    <input type="text" id="loginId" placeholder="Enter Email or User ID" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-slate-400 mb-1">Password</label>
+                    <input type="password" id="loginPass" placeholder="Enter Password" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white focus:outline-none">
+                </div>
+                <button onclick="loginUser()" class="w-full bg-blue-600 hover:bg-blue-500 py-2.5 rounded font-bold text-white transition">Login</button>
             </div>
+
+            <!-- Sign Up View -->
             <div id="signupView" class="hidden space-y-3 text-xs">
-                <input type="text" id="regName" placeholder="Full Name" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
-                <input type="email" id="regEmail" placeholder="Email" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
-                <input type="password" id="regPass" placeholder="Password" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
-                <button onclick="registerUser()" class="w-full bg-blue-600 hover:bg-blue-500 py-2.5 rounded font-bold text-white">Create Account</button>
+                <div>
+                    <label class="block text-slate-400 mb-1">Full Name</label>
+                    <input type="text" id="regName" placeholder="Full Name" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
+                </div>
+                <div>
+                    <label class="block text-slate-400 mb-1">Email Address</label>
+                    <input type="email" id="regEmail" placeholder="Email Address" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
+                </div>
+                <div>
+                    <label class="block text-slate-400 mb-1">Country</label>
+                    <select id="regCountry" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="United States">United States</option>
+                        <option value="Other">Other Country</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-slate-400 mb-1">Password</label>
+                    <input type="password" id="regPass" placeholder="Password" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
+                </div>
+                <button onclick="registerUser()" class="w-full bg-blue-600 hover:bg-blue-500 py-2.5 rounded font-bold text-white transition">Create Account</button>
             </div>
+
+            <!-- Profile Dashboard View -->
             <div id="userProfileView" class="hidden space-y-4 text-xs text-center">
                 <p id="profileName" class="font-bold text-white text-sm"></p>
-                <span id="uniqueCode" class="text-xl font-mono font-bold text-emerald-400 bg-slate-900 px-3 py-1 rounded border border-slate-700 inline-block">-----</span>
-                <button onclick="logoutUser()" class="w-full bg-red-600 py-2 rounded text-white font-semibold">Log Out</button>
+                <p class="text-slate-400 text-[11px]">Your Unique User ID:</p>
+                <span id="uniqueCode" class="text-2xl font-mono font-bold text-emerald-400 bg-slate-900 px-3 py-1 rounded border border-slate-700 inline-block">-----</span>
+                <button onclick="logoutUser()" class="w-full bg-red-600 hover:bg-red-500 py-2.5 rounded font-semibold text-white transition">Log Out</button>
             </div>
         </div>
     </div>
@@ -242,10 +371,14 @@
         }
         function openAuthModal(t) { document.getElementById('authModal').classList.remove('hidden'); switchAuthTab(t); }
         function closeAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
+        
         function switchAuthTab(t) {
             document.getElementById('loginView').classList.toggle('hidden', t !== 'login');
             document.getElementById('signupView').classList.toggle('hidden', t !== 'signup');
+            document.getElementById('loginTabBtn').className = t === 'login' ? "flex-1 py-2 text-blue-400 border-b-2 border-blue-500" : "flex-1 py-2 text-slate-400";
+            document.getElementById('signupTabBtn').className = t === 'signup' ? "flex-1 py-2 text-blue-400 border-b-2 border-blue-500" : "flex-1 py-2 text-slate-400";
         }
+
         function registerUser() {
             const name = document.getElementById('regName').value.trim();
             if(!name) return alert('Enter name');
@@ -266,27 +399,48 @@
             document.getElementById('uniqueCode').innerText = c;
         }
         function logoutUser() { localStorage.clear(); location.reload(); }
-        window.onload = function() {
-            if(localStorage.getItem('name')) loginUser();
-        }
+
+        // Live Real-time Review Calculation
+        let ratings = [5, 5]; // Default scores
         function submitCustomReview() {
             const msg = document.getElementById('reviewMessage').value.trim();
-            if(!msg) return alert('Write message');
+            const ratingVal = parseInt(document.getElementById('reviewRating').value);
+            if(!msg) return alert('Write feedback message');
+
+            ratings.push(ratingVal);
+            const count = ratings.length;
+            const sum = ratings.reduce((a, b) => a + b, 0);
+            const avg = (sum / count).toFixed(1);
+
+            document.getElementById('reviewCount').innerText = count;
+            document.getElementById('averageScore').innerText = `${avg} / 5`;
+
             const grid = document.getElementById('reviewsGrid');
             const card = document.createElement('div');
             card.className = "bg-slate-800 p-4 rounded-xl border border-slate-700";
-            card.innerHTML = `<span class="font-bold text-slate-200">${localStorage.getItem('name') || 'User'}</span><p class="text-slate-400 mt-1">"${msg}"</p>`;
+            card.innerHTML = `
+                <div class="flex items-center justify-between mb-1">
+                    <span class="font-bold text-slate-200">${localStorage.getItem('name') || 'Anonymous User'}</span>
+                    <span class="text-amber-400">${'⭐'.repeat(ratingVal)}</span>
+                </div>
+                <p class="text-slate-400">"${msg}"</p>
+            `;
             grid.prepend(card);
             document.getElementById('reviewMessage').value = '';
-            alert('Review submitted!');
+            alert('Review submitted successfully!');
         }
+
         async function handleDownload() {
             const url = document.getElementById('videoUrl').value.trim();
             if(!url) return alert('Enter URL');
-            document.getElementById('videoTitle').innerText = "Sample Video - 4K HD";
+            document.getElementById('videoTitle').innerText = "Sample Video Stream - 4K Supported";
             document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
             document.getElementById('resultSection').classList.remove('hidden');
         }
+
+        window.onload = function() {
+            if(localStorage.getItem('name')) loginUser();
+        }
     </script>
 </body>
-                        </html>
+                    </html>
