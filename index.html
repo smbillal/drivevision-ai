@@ -25,32 +25,16 @@
                 </div>
             </div>
 
-            <!-- Language & Profile Icon Button (Fixed Layout) -->
+            <!-- Language & Profile Icon Button -->
             <div class="flex items-center space-x-2">
                 <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-700 text-[11px] md:text-xs py-1 px-1.5 md:px-2 rounded-lg text-slate-200 border border-slate-600 focus:outline-none">
                     <option value="en">English</option>
                     <option value="bn">বাংলা</option>
                     <option value="es">Español</option>
                     <option value="ar">العربية</option>
-                    <option value="de">Deutsch</option>
-                    <option value="fr">Français</option>
-                    <option value="hi">हिन्दी</option>
-                    <option value="id">Bahasa Indonesia</option>
-                    <option value="it">Italiano</option>
-                    <option value="ja">日本語</option>
-                    <option value="ko">한국어</option>
-                    <option value="pl">Polski</option>
-                    <option value="pt">Português</option>
-                    <option value="ru">Русский</option>
-                    <option value="th">ไทย</option>
-                    <option value="tr">Türkçe</option>
-                    <option value="uk">Українська</option>
-                    <option value="vi">Tiếng Việt</option>
-                    <option value="zh">简体中文</option>
                 </select>
 
-                <!-- Profile Icon Button -->
-                <button onclick="openAuthModal('login')" id="profileIconBtn" class="bg-blue-600 hover:bg-blue-500 text-white w-9 h-9 rounded-full flex items-center justify-center transition shadow-lg focus:outline-none" title="User Profile / Login">
+                <button onclick="openAuthModal('login')" class="bg-blue-600 hover:bg-blue-500 text-white w-9 h-9 rounded-full flex items-center justify-center transition shadow-lg focus:outline-none" title="User Profile / Login">
                     <i class="fa-solid fa-user text-sm"></i>
                 </button>
             </div>
@@ -74,8 +58,6 @@
                     <li><a href="#" onclick="switchPlatform('Reddit')" class="hover:text-white flex items-center"><i class="fa-brands fa-reddit text-orange-500 mr-2.5 w-4"></i> Reddit Downloader</a></li>
                     <li><a href="#" onclick="switchPlatform('Vimeo')" class="hover:text-white flex items-center"><i class="fa-brands fa-vimeo text-cyan-400 mr-2.5 w-4"></i> Vimeo Downloader</a></li>
                     <li><a href="#" onclick="switchPlatform('Dailymotion')" class="hover:text-white flex items-center"><i class="fa-brands fa-dailymotion text-blue-400 mr-2.5 w-4"></i> Dailymotion</a></li>
-                    <li><a href="#" onclick="switchPlatform('VK')" class="hover:text-white flex items-center"><i class="fa-brands fa-vk text-blue-500 mr-2.5 w-4"></i> VK.com</a></li>
-                    <li><a href="#" onclick="switchPlatform('Pinterest')" class="hover:text-white flex items-center"><i class="fa-brands fa-pinterest text-red-600 mr-2.5 w-4"></i> Pinterest</a></li>
                 </ul>
             </div>
             <div>
@@ -84,9 +66,7 @@
                     <li><a href="#" class="hover:text-white">MP4 Converter</a></li>
                     <li><a href="#" class="hover:text-white">MP4 to MP3</a></li>
                     <li><a href="#" class="hover:text-white">MOV to MP4</a></li>
-                    <li><a href="#" class="hover:text-white">MP4 to GIF</a></li>
                     <li><a href="#" class="hover:text-white">MKV to MP4</a></li>
-                    <li><a href="#" class="hover:text-white">WEBM to MP4</a></li>
                 </ul>
             </div>
             <div>
@@ -95,20 +75,18 @@
                     <li><a href="#" class="hover:text-white">YouTube Transcript</a></li>
                     <li><a href="#" class="hover:text-white">YouTube Subtitles</a></li>
                     <li><a href="#" class="hover:text-white">Video Translator</a></li>
-                    <li><a href="#" class="hover:text-white">Audio to SRT</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- Hidden Ad Banner Slot Top -->
+    <!-- Hidden Top Ad Slot -->
     <div id="topAdContainer" class="max-w-4xl mx-auto w-full my-3 px-4 text-center hidden">
         <div id="adTopSlot"></div>
     </div>
 
     <!-- Main Content Area -->
     <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
-        <!-- Dynamic Header -->
         <div class="text-center mb-6">
             <h1 id="pageTitle" class="text-2xl md:text-5xl font-extrabold mb-3">Free Online Video Downloader</h1>
             <p id="pageSubtitle" class="text-slate-400 text-xs md:text-base">Download videos in 4K, 1080p, HD & MP3 from all major social media platforms instantly.</p>
@@ -159,4 +137,156 @@
                             <a id="btn4k" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-xs px-3.5 py-1.5 rounded-lg font-semibold">Download</a>
                         </div>
                         <div class="flex justify-between items-center bg-slate-900 px-4 py-2.5 rounded-xl border border-slate-700">
-                            <span class="text-xs font-medium"><i class="fa-solid fa-video text-
+                            <span class="text-xs font-medium"><i class="fa-solid fa-video text-purple-400 mr-2"></i> Full HD (1080p)</span>
+                            <a id="btn1080p" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-xs px-3.5 py-1.5 rounded-lg font-semibold">Download</a>
+                        </div>
+                        <div class="flex justify-between items-center bg-slate-900 px-4 py-2.5 rounded-xl border border-slate-700">
+                            <span class="text-xs font-medium"><i class="fa-solid fa-music text-amber-400 mr-2"></i> High Quality Audio (MP3)</span>
+                            <a id="btnMp3" href="#" target="_blank" class="bg-amber-600 hover:bg-amber-500 text-xs px-3.5 py-1.5 rounded-lg font-semibold">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden Middle Ad Slot -->
+        <div id="middleAdContainer" class="my-6 hidden">
+            <div id="adMiddleSlot"></div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="mt-14">
+            <h2 class="text-xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-3">
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer text-xs">
+                    <summary class="font-semibold">How can I download private Facebook videos?</summary>
+                    <p class="text-slate-400 mt-2">Paste the valid video link or page source URL into the search box above.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer text-xs">
+                    <summary class="font-semibold">Is this video downloader service completely free?</summary>
+                    <p class="text-slate-400 mt-2">Yes, 100% free with unlimited 4K and MP3 downloads.</p>
+                </details>
+            </div>
+        </div>
+
+        <!-- User Reviews & Custom Review Form -->
+        <div class="mt-14 bg-slate-800/40 border border-slate-800 rounded-2xl p-6">
+            <div class="text-center mb-6">
+                <h2 class="text-lg font-bold mb-2">User Reviews & Ratings</h2>
+                <div class="flex items-center justify-center space-x-2 text-amber-400 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    <span class="font-bold text-sm text-white ml-2">4.8 / 5</span>
+                </div>
+            </div>
+
+            <!-- Custom Review Form Box -->
+            <div class="bg-slate-800 border border-slate-700 p-4 rounded-xl mb-6 text-xs">
+                <h3 class="font-bold text-white mb-2">Leave Your Feedback</h3>
+                <div class="space-y-3">
+                    <select id="reviewRating" class="bg-slate-900 border border-slate-700 p-1.5 rounded text-amber-400 focus:outline-none">
+                        <option value="5">⭐⭐⭐⭐⭐ (5 Stars)</option>
+                        <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
+                    </select>
+                    <textarea id="reviewMessage" rows="2" placeholder="Write your review..." class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white focus:outline-none"></textarea>
+                    <button onclick="submitCustomReview()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-lg transition">Submit Review</button>
+                </div>
+            </div>
+
+            <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left text-xs">
+                <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                    <span class="font-bold text-slate-200">Alex M.</span>
+                    <p class="text-slate-400 mt-1">"Super fast 4K downloads! Best downloader."</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-8 px-4 text-xs text-slate-400 text-center">
+        <p>&copy; 2026 AnySaver. All rights reserved. | <a href="about.html" class="hover:text-white">About Us</a> | <a href="privacy.html" class="hover:text-white">Privacy Policy</a></p>
+    </footer>
+
+    <!-- User Auth Modal -->
+    <div id="authModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full max-w-sm shadow-2xl relative">
+            <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">&times;</button>
+            <div class="flex border-b border-slate-700 mb-4 text-xs font-bold">
+                <button onclick="switchAuthTab('login')" id="loginTabBtn" class="flex-1 py-2 text-blue-400 border-b-2 border-blue-500">Login</button>
+                <button onclick="switchAuthTab('signup')" id="signupTabBtn" class="flex-1 py-2 text-slate-400">Sign Up</button>
+            </div>
+            <div id="loginView" class="space-y-3 text-xs">
+                <input type="text" id="loginId" placeholder="Email or User ID" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
+                <input type="password" id="loginPass" placeholder="Password" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
+                <button onclick="loginUser()" class="w-full bg-blue-600 hover:bg-blue-500 py-2.5 rounded font-bold text-white">Login</button>
+            </div>
+            <div id="signupView" class="hidden space-y-3 text-xs">
+                <input type="text" id="regName" placeholder="Full Name" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
+                <input type="email" id="regEmail" placeholder="Email" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
+                <input type="password" id="regPass" placeholder="Password" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
+                <button onclick="registerUser()" class="w-full bg-blue-600 hover:bg-blue-500 py-2.5 rounded font-bold text-white">Create Account</button>
+            </div>
+            <div id="userProfileView" class="hidden space-y-4 text-xs text-center">
+                <p id="profileName" class="font-bold text-white text-sm"></p>
+                <span id="uniqueCode" class="text-xl font-mono font-bold text-emerald-400 bg-slate-900 px-3 py-1 rounded border border-slate-700 inline-block">-----</span>
+                <button onclick="logoutUser()" class="w-full bg-red-600 py-2 rounded text-white font-semibold">Log Out</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Controllers -->
+    <script>
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('-translate-x-full'); }
+        function switchPlatform(p) {
+            document.getElementById('pageTitle').innerText = p === 'home' ? "Free Online Video Downloader" : `${p} Video Downloader`;
+            if(!document.getElementById('sidebar').classList.contains('-translate-x-full')) toggleSidebar();
+        }
+        function openAuthModal(t) { document.getElementById('authModal').classList.remove('hidden'); switchAuthTab(t); }
+        function closeAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
+        function switchAuthTab(t) {
+            document.getElementById('loginView').classList.toggle('hidden', t !== 'login');
+            document.getElementById('signupView').classList.toggle('hidden', t !== 'signup');
+        }
+        function registerUser() {
+            const name = document.getElementById('regName').value.trim();
+            if(!name) return alert('Enter name');
+            const code = Math.floor(10000 + Math.random() * 90000);
+            localStorage.setItem('name', name); localStorage.setItem('code', code);
+            updateProfile(name, code); closeAuthModal();
+        }
+        function loginUser() {
+            const name = localStorage.getItem('name') || 'User';
+            const code = localStorage.getItem('code') || '12345';
+            updateProfile(name, code); closeAuthModal();
+        }
+        function updateProfile(n, c) {
+            document.getElementById('loginView').classList.add('hidden');
+            document.getElementById('signupView').classList.add('hidden');
+            document.getElementById('userProfileView').classList.remove('hidden');
+            document.getElementById('profileName').innerText = n;
+            document.getElementById('uniqueCode').innerText = c;
+        }
+        function logoutUser() { localStorage.clear(); location.reload(); }
+        window.onload = function() {
+            if(localStorage.getItem('name')) loginUser();
+        }
+        function submitCustomReview() {
+            const msg = document.getElementById('reviewMessage').value.trim();
+            if(!msg) return alert('Write message');
+            const grid = document.getElementById('reviewsGrid');
+            const card = document.createElement('div');
+            card.className = "bg-slate-800 p-4 rounded-xl border border-slate-700";
+            card.innerHTML = `<span class="font-bold text-slate-200">${localStorage.getItem('name') || 'User'}</span><p class="text-slate-400 mt-1">"${msg}"</p>`;
+            grid.prepend(card);
+            document.getElementById('reviewMessage').value = '';
+            alert('Review submitted!');
+        }
+        async function handleDownload() {
+            const url = document.getElementById('videoUrl').value.trim();
+            if(!url) return alert('Enter URL');
+            document.getElementById('videoTitle').innerText = "Sample Video - 4K HD";
+            document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
+            document.getElementById('resultSection').classList.remove('hidden');
+        }
+    </script>
+</body>
+                        </html>
