@@ -3,54 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal Video Downloader - SaveFrom Style</title>
+    <title>AnySaver - Universal Video Downloader & Tools</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between">
 
-    <!-- Navbar & Language Selector -->
+    <!-- Header & Navbar -->
     <header class="bg-slate-800/90 border-b border-slate-700 sticky top-0 z-50 py-3 px-4 md:px-8">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <i class="fa-solid fa-cloud-arrow-down text-blue-500 text-2xl"></i>
-                <span class="text-2xl font-bold tracking-wide">Any<span class="text-blue-500">Saver</span></span>
+                <button onclick="toggleSidebar()" class="text-slate-300 hover:text-white text-xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-cloud-arrow-down text-blue-500 text-2xl"></i>
+                    <span class="text-2xl font-bold tracking-wide">Any<span class="text-blue-500">Saver</span></span>
+                </div>
             </div>
 
-            <!-- Header Menu & Language Picker -->
-            <div class="flex items-center space-x-4">
-                <div class="relative">
-                    <select id="langSelect" class="bg-slate-700 text-xs py-1.5 px-3 rounded-lg text-slate-200 border border-slate-600 focus:outline-none">
-                        <option value="en">🌐 English</option>
-                        <option value="bn">🌐 বাংলা</option>
-                        <option value="es">🌐 Español</option>
-                        <option value="ar">🌐 العربية</option>
-                    </select>
-                </div>
+            <!-- Language, User Auth & Admin Panel Buttons -->
+            <div class="flex items-center space-x-3">
+                <select id="langSelect" class="bg-slate-700 text-xs py-1.5 px-2 rounded-lg text-slate-200 border border-slate-600 focus:outline-none">
+                    <option value="en">English</option>
+                    <option value="bn">বাংলা</option>
+                    <option value="es">Español</option>
+                    <option value="ar">العربية</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="id">Bahasa Indonesia</option>
+                    <option value="it">Italiano</option>
+                    <option value="ja">日本語</option>
+                    <option value="ko">한국어</option>
+                    <option value="pl">Polski</option>
+                    <option value="pt">Português</option>
+                    <option value="ru">Русский</option>
+                    <option value="th">ไทย</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="uk">Українська</option>
+                    <option value="vi">Tiếng Việt</option>
+                    <option value="zh">简体中文</option>
+                </select>
+
+                <button onclick="openAuthModal()" class="text-xs bg-blue-600 hover:bg-blue-500 px-3 py-1.5 rounded-lg font-semibold text-white">
+                    <i class="fa-solid fa-user"></i> <span id="authBtnText">Login / Signup</span>
+                </button>
+                
                 <button onclick="openAdminModal()" class="text-xs bg-slate-700 hover:bg-slate-600 border border-slate-600 px-3 py-1.5 rounded-lg text-slate-300">
-                    <i class="fa-solid fa-user-shield"></i> Admin Panel
+                    <i class="fa-solid fa-user-shield"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Top Header Ad Banner Space -->
-    <div class="max-w-4xl mx-auto w-full my-4 px-4 text-center">
-        <div id="adTopSlot" class="bg-slate-800 border border-dashed border-slate-700 rounded-xl p-3 min-h-[90px] flex items-center justify-center text-xs text-slate-500">
-            <!-- Google AdSense / Custom Banner Ad Slot -->
-            <span>[ Advertisement Space - Insert Google AdSense Code ]</span>
+    <!-- Sidebar Menu (SaveFrom Style) -->
+    <div id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-slate-800 border-r border-slate-700 transform -translate-x-full transition-transform duration-300 z-50 p-6 overflow-y-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="font-bold text-lg text-white">All Resources</h3>
+            <button onclick="toggleSidebar()" class="text-slate-400 hover:text-white text-lg">&times;</button>
+        </div>
+        <div class="space-y-6 text-xs text-slate-300">
+            <div>
+                <p class="font-bold text-blue-400 uppercase tracking-wider mb-2">Platforms</p>
+                <ul class="space-y-2 pl-2">
+                    <li><a href="#" class="hover:text-white"><i class="fa-brands fa-youtube text-red-500 mr-2"></i> YouTube</a></li>
+                    <li><a href="#" class="hover:text-white"><i class="fa-brands fa-facebook text-blue-500 mr-2"></i> Facebook</a></li>
+                    <li><a href="#" class="hover:text-white"><i class="fa-brands fa-instagram text-pink-500 mr-2"></i> Instagram</a></li>
+                    <li><a href="#" class="hover:text-white"><i class="fa-brands fa-tiktok text-teal-400 mr-2"></i> TikTok</a></li>
+                    <li><a href="#" class="hover:text-white"><i class="fa-brands fa-reddit text-orange-500 mr-2"></i> Reddit</a></li>
+                    <li><a href="#" class="hover:text-white"><i class="fa-brands fa-vimeo text-cyan-400 mr-2"></i> Vimeo</a></li>
+                    <li><a href="#" class="hover:text-white"><i class="fa-brands fa-dailymotion text-blue-400 mr-2"></i> Dailymotion</a></li>
+                    <li><a href="#" class="hover:text-white"><i class="fa-brands fa-vk text-blue-500 mr-2"></i> VK.com</a></li>
+                    <li><a href="#" class="hover:text-white"><i class="fa-brands fa-pinterest text-red-600 mr-2"></i> Pinterest</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-bold text-blue-400 uppercase tracking-wider mb-2">Converters</p>
+                <ul class="space-y-2 pl-2">
+                    <li><a href="#" class="hover:text-white">MP4 Converter</a></li>
+                    <li><a href="#" class="hover:text-white">MP4 to MP3</a></li>
+                    <li><a href="#" class="hover:text-white">MOV to MP4</a></li>
+                    <li><a href="#" class="hover:text-white">MP4 to GIF</a></li>
+                    <li><a href="#" class="hover:text-white">MKV to MP4</a></li>
+                    <li><a href="#" class="hover:text-white">WEBM to MP4</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-bold text-blue-400 uppercase tracking-wider mb-2">AI & Subtitles</p>
+                <ul class="space-y-2 pl-2">
+                    <li><a href="#" class="hover:text-white">YouTube Transcript</a></li>
+                    <li><a href="#" class="hover:text-white">YouTube Subtitles</a></li>
+                    <li><a href="#" class="hover:text-white">Video Translator</a></li>
+                    <li><a href="#" class="hover:text-white">Audio to SRT</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-4 py-6 flex-grow w-full">
-        <!-- Hero Title -->
+    <!-- Top Advertisement Slot (Hidden by default until ad is added) -->
+    <div id="topAdContainer" class="max-w-4xl mx-auto w-full my-4 px-4 text-center hidden">
+        <div id="adTopSlot" class="bg-slate-800 border border-slate-700 rounded-xl p-3 min-h-[90px] flex items-center justify-center text-xs text-slate-500"></div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
         <div class="text-center mb-6">
             <h1 class="text-3xl md:text-5xl font-extrabold mb-3">Free Online Video Downloader</h1>
-            <p class="text-slate-400 text-sm">Download videos in 4K, 1080p & MP3 from Facebook, YouTube, TikTok, IG & 40+ sites.</p>
+            <p class="text-slate-400 text-sm">Download videos in 4K, 1080p, HD & MP3 from all major social media platforms instantly.</p>
         </div>
 
-        <!-- Input Box -->
+        <!-- Input Box Section -->
         <div class="bg-slate-800 p-3 md:p-4 rounded-2xl shadow-xl border border-slate-700 flex flex-col md:flex-row gap-3">
             <div class="relative flex-grow">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
@@ -65,7 +128,23 @@
             </button>
         </div>
 
-        <!-- Result / Quality Section -->
+        <!-- Quick Platform Selectors -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+            <button class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2">
+                <i class="fa-brands fa-facebook text-blue-500 text-lg"></i><span>Facebook</span>
+            </button>
+            <button class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2">
+                <i class="fa-brands fa-youtube text-red-500 text-lg"></i><span>YouTube</span>
+            </button>
+            <button class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2">
+                <i class="fa-brands fa-instagram text-pink-500 text-lg"></i><span>Instagram</span>
+            </button>
+            <button class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2">
+                <i class="fa-brands fa-tiktok text-teal-400 text-lg"></i><span>TikTok</span>
+            </button>
+        </div>
+
+        <!-- Result Section -->
         <div id="resultSection" class="hidden mt-8 bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl">
             <div class="flex flex-col md:flex-row gap-6 items-start">
                 <div class="w-full md:w-1/3 bg-slate-900 rounded-xl h-44 overflow-hidden relative">
@@ -91,152 +170,162 @@
             </div>
         </div>
 
-        <!-- Middle Custom Ad Space -->
-        <div class="my-8">
-            <div id="adMiddleSlot" class="bg-slate-800 border border-dashed border-slate-700 rounded-xl p-4 text-center min-h-[120px] flex items-center justify-center text-xs text-slate-500">
-                <span>[ Native Custom Banner Ad Slot ]</span>
-            </div>
+        <!-- Middle Advertisement Slot (Hidden by default until ad is added) -->
+        <div id="middleAdContainer" class="my-8 hidden">
+            <div id="adMiddleSlot" class="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center min-h-[120px] flex items-center justify-center text-xs text-slate-500"></div>
         </div>
 
-        <!-- How to Download Guide (Screenshot Style) -->
-        <div class="mt-12 bg-slate-800/40 border border-slate-800 rounded-2xl p-6">
-            <h2 class="text-xl font-bold mb-4 text-center">How to Download Videos in 3 Easy Steps</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center text-xs">
-                <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                    <div class="text-blue-500 text-2xl font-bold mb-2">1</div>
-                    <p class="font-semibold text-slate-200 mb-1">Copy Video Link</p>
-                    <p class="text-slate-400">Copy the link of the video from Facebook, YouTube or TikTok.</p>
-                </div>
-                <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                    <div class="text-blue-500 text-2xl font-bold mb-2">2</div>
-                    <p class="font-semibold text-slate-200 mb-1">Paste into Input Field</p>
-                    <p class="text-slate-400">Paste the URL in the search box above and click Download.</p>
-                </div>
-                <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
-                    <div class="text-blue-500 text-2xl font-bold mb-2">3</div>
-                    <p class="font-semibold text-slate-200 mb-1">Choose Format & Save</p>
-                    <p class="text-slate-400">Select 4K, 1080p or MP3 format and save to your device.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- FAQ Section (SaveFrom Style) -->
+        <!-- FAQ Section -->
         <div class="mt-12">
-            <h2 class="text-xl font-bold mb-6 text-center">Frequently Asked Questions (FAQ)</h2>
+            <h2 class="text-xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
             <div class="space-y-3">
-                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
-                    <summary class="font-semibold text-sm">Is this video downloader completely free?</summary>
-                    <p class="text-xs text-slate-400 mt-2">Yes, our tool is 100% free to use with no limits on downloads.</p>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer text-xs">
+                    <summary class="font-semibold">Is this video downloader completely free?</summary>
+                    <p class="text-slate-400 mt-2">Yes, 100% free with unlimited 4K and MP3 downloads.</p>
                 </details>
-                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
-                    <summary class="font-semibold text-sm">What video qualities are supported?</summary>
-                    <p class="text-xs text-slate-400 mt-2">We support SD, 720p HD, 1080p Full HD, 4K resolution, and MP3 audio downloads.</p>
-                </details>
-                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
-                    <summary class="font-semibold text-sm">Can I download private Facebook videos?</summary>
-                    <p class="text-xs text-slate-400 mt-2">Yes, simply paste the source code or valid link to extract private video media.</p>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer text-xs">
+                    <summary class="font-semibold">What video qualities are supported?</summary>
+                    <p class="text-slate-400 mt-2">SD, 720p, 1080p Full HD, and 4K Ultra HD formats.</p>
                 </details>
             </div>
         </div>
     </main>
 
-    <!-- Comprehensive Dynamic Footer (All Resources from Screenshots) -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-10 px-4 mt-12 text-xs text-slate-400">
-        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6">
-            <div>
-                <h4 class="font-bold text-white mb-3">Supported Platforms</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-white">YouTube Downloader</a></li>
-                    <li><a href="#" class="hover:text-white">Facebook Downloader</a></li>
-                    <li><a href="#" class="hover:text-white">Instagram Reels</a></li>
-                    <li><a href="#" class="hover:text-white">TikTok No Watermark</a></li>
-                    <li><a href="#" class="hover:text-white">Reddit & Twitter/X</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold text-white mb-3">Converters</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-white">MP4 Converter</a></li>
-                    <li><a href="#" class="hover:text-white">MP4 to MP3</a></li>
-                    <li><a href="#" class="hover:text-white">MOV to MP4</a></li>
-                    <li><a href="#" class="hover:text-white">MKV to MP4</a></li>
-                    <li><a href="#" class="hover:text-white">WEBM to MP4</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold text-white mb-3">Subtitles & Tools</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-white">YouTube Subtitles</a></li>
-                    <li><a href="#" class="hover:text-white">YouTube Transcript</a></li>
-                    <li><a href="#" class="hover:text-white">Audio to Text SRT</a></li>
-                    <li><a href="#" class="hover:text-white">AI Dubbing</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold text-white mb-3">Company & Info</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-white">About Us</a></li>
-                    <li><a href="#" class="hover:text-white">For Webmasters / API</a></li>
-                    <li><a href="#" class="hover:text-white">Advertising</a></li>
-                    <li><a href="#" class="hover:text-white">Feedback</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold text-white mb-3">Legal</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-white">Terms of Service</a></li>
-                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-white">EULA</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="text-center mt-10 border-t border-slate-900 pt-6">
-            <p>&copy; 2026 AnySaver. All rights reserved.</p>
-        </div>
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-8 px-4 text-xs text-slate-400 text-center">
+        <p>&copy; 2026 AnySaver. All rights reserved.</p>
     </footer>
 
-    <!-- Admin Panel Modal -->
-    <div id="adminModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
-        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full max-w-md shadow-2xl">
+    <!-- User Sign-Up / Login Modal with Unique 5-Digit Code Generation -->
+    <div id="authModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full max-w-sm shadow-2xl text-center">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-bold">Admin Monetization Panel</h3>
-                <button onclick="closeAdminModal()" class="text-slate-400 hover:text-white">&times;</button>
+                <h3 class="text-base font-bold text-white">User Account</h3>
+                <button onclick="closeAuthModal()" class="text-slate-400 hover:text-white">&times;</button>
             </div>
-            <div class="space-y-4 text-xs">
-                <div>
-                    <label class="block mb-1 font-semibold text-slate-300">Top Header Ad HTML / AdSense Code:</label>
-                    <textarea id="topAdInput" rows="3" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white" placeholder="Paste AdSense Script here..."></textarea>
+            <div id="authFormView" class="space-y-3 text-xs text-left">
+                <input type="text" id="userName" placeholder="Your Name" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
+                <input type="email" id="userEmail" placeholder="Email Address" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white">
+                <button onclick="registerUser()" class="w-full bg-blue-600 hover:bg-blue-500 py-2.5 rounded font-bold text-white">Sign Up / Login</button>
+            </div>
+            <div id="userProfileView" class="hidden space-y-3 text-xs">
+                <p class="text-slate-300">Welcome, <span id="profileName" class="font-bold text-white"></span>!</p>
+                <div class="bg-slate-900 border border-slate-700 p-3 rounded-xl">
+                    <p class="text-slate-400 mb-1">Your Unique User Code:</p>
+                    <span id="uniqueCode" class="text-xl font-mono font-bold text-emerald-400 tracking-widest">-----</span>
                 </div>
-                <div>
-                    <label class="block mb-1 font-semibold text-slate-300">Middle Custom Ad HTML / Image Link:</label>
-                    <textarea id="middleAdInput" rows="3" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white" placeholder="Paste Custom Banner HTML here..."></textarea>
-                </div>
-                <button onclick="saveAdSettings()" class="w-full bg-blue-600 hover:bg-blue-500 py-2.5 rounded-lg font-bold text-white">Save Changes</button>
+                <button onclick="logoutUser()" class="w-full bg-red-600/80 hover:bg-red-600 py-2 rounded font-semibold text-white">Log Out</button>
             </div>
         </div>
     </div>
 
-    <!-- Frontend Script -->
+    <!-- Admin Panel Modal (Hidden for regular users) -->
+    <div id="adminModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full max-w-md shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold text-white">Admin Monetization Panel</h3>
+                <button onclick="closeAdminModal()" class="text-slate-400 hover:text-white">&times;</button>
+            </div>
+            <div class="space-y-4 text-xs">
+                <div>
+                    <label class="block mb-1 font-semibold text-slate-300">Top Banner Ad Code (Leave empty to hide):</label>
+                    <textarea id="topAdInput" rows="3" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white" placeholder="Paste Google AdSense / Banner HTML..."></textarea>
+                </div>
+                <div>
+                    <label class="block mb-1 font-semibold text-slate-300">Middle Banner Ad Code (Leave empty to hide):</label>
+                    <textarea id="middleAdInput" rows="3" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white" placeholder="Paste Custom Banner HTML..."></textarea>
+                </div>
+                <button onclick="saveAds()" class="w-full bg-blue-600 hover:bg-blue-500 py-2.5 rounded-lg font-bold text-white">Save & Update Ads</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Controls -->
     <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('-translate-x-full');
+        }
+
+        function openAuthModal() { document.getElementById('authModal').classList.remove('hidden'); }
+        function closeAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
         function openAdminModal() { document.getElementById('adminModal').classList.remove('hidden'); }
         function closeAdminModal() { document.getElementById('adminModal').classList.add('hidden'); }
 
-        function saveAdSettings() {
-            const topAd = document.getElementById('topAdInput').value;
-            const middleAd = document.getElementById('middleAdInput').value;
+        // Unique 5-digit code generation on Sign Up
+        function registerUser() {
+            const name = document.getElementById('userName').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            if(!name || !email) {
+                alert('Please fill in all details!');
+                return;
+            }
+            
+            // Generate unique 5-digit code
+            const uniqueCode = Math.floor(10000 + Math.random() * 90000);
+            
+            localStorage.setItem('saved_user_name', name);
+            localStorage.setItem('saved_unique_code', uniqueCode);
 
-            if(topAd) document.getElementById('adTopSlot').innerHTML = topAd;
-            if(middleAd) document.getElementById('adMiddleSlot').innerHTML = middleAd;
+            updateAuthUI(name, uniqueCode);
+        }
 
-            alert('Monetization Ads Updated Successfully!');
-                closeAdminModal();
+        function updateAuthUI(name, code) {
+            document.getElementById('authFormView').classList.add('hidden');
+            document.getElementById('userProfileView').classList.remove('hidden');
+            document.getElementById('profileName').innerText = name;
+            document.getElementById('uniqueCode').innerText = code;
+            document.getElementById('authBtnText').innerText = name.split(' ')[0];
+        }
+
+        function logoutUser() {
+            localStorage.clear();
+            document.getElementById('userProfileView').classList.add('hidden');
+            document.getElementById('authFormView').classList.remove('hidden');
+            document.getElementById('authBtnText').innerText = 'Login / Signup';
+            document.getElementById('userName').value = '';
+            document.getElementById('userEmail').value = '';
+        }
+
+        // Check login on load
+        window.onload = function() {
+            const savedName = localStorage.getItem('saved_user_name');
+            const savedCode = localStorage.getItem('saved_unique_code');
+            if(savedName && savedCode) {
+                updateAuthUI(savedName, savedCode);
+            }
+        }
+
+        // Ad management: hide container if empty, show if ad code provided
+        function saveAds() {
+            const topAdHTML = document.getElementById('topAdInput').value.trim();
+            const middleAdHTML = document.getElementById('middleAdInput').value.trim();
+
+            const topContainer = document.getElementById('topAdContainer');
+            const middleContainer = document.getElementById('middleAdContainer');
+
+            if(topAdHTML) {
+                document.getElementById('adTopSlot').innerHTML = topAdHTML;
+                topContainer.classList.remove('hidden');
+            } else {
+                topContainer.classList.add('hidden');
+            }
+
+            if(middleAdHTML) {
+                document.getElementById('adMiddleSlot').innerHTML = middleAdHTML;
+                middleContainer.classList.remove('hidden');
+            } else {
+                middleContainer.classList.add('hidden');
+            }
+
+            alert('Advertisement slots updated successfully!');
+            closeAdminModal();
         }
 
         async function handleDownload() {
             const url = document.getElementById('videoUrl').value.trim();
-            if(!url) return alert('Paste a valid URL!');
+            if(!url) return alert('Please paste a valid video URL!');
 
-            // Connection to Python Backend on Oracle Cloud
             try {
                 const res = await fetch(`http://YOUR_ORACLE_IP:5000/api/download?url=${encodeURIComponent(url)}`);
                 const data = await res.json();
@@ -249,7 +338,7 @@
                     document.getElementById('resultSection').classList.remove('hidden');
                 }
             } catch(e) {
-                alert('Server Error or Backend Offline!');
+                alert('Backend server is offline or connection failed!');
             }
         }
     </script>
