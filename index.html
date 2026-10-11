@@ -12,7 +12,7 @@
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden">
 
-    <!-- Header & Sticky Navbar (No Login/Signup) -->
+    <!-- Header & Sticky Navbar -->
     <header class="bg-slate-800/95 border-b border-slate-700 sticky top-0 z-40 py-3 px-3 md:px-8 shadow-md">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-3">
@@ -47,14 +47,13 @@
         </div>
     </header>
 
-    <!-- Sidebar Menu (Only Requested Features) -->
+    <!-- Sidebar Menu -->
     <div id="sidebar" class="fixed inset-y-0 left-0 w-80 bg-slate-800 border-r border-slate-700 transform -translate-x-full transition-transform duration-300 z-50 p-6 overflow-y-auto shadow-2xl">
         <div class="flex justify-between items-center mb-6">
             <h3 class="font-bold text-lg text-white">All Tools & Services</h3>
             <button onclick="toggleSidebar()" class="text-slate-400 hover:text-white text-xl">&times;</button>
         </div>
         <div class="space-y-6 text-xs text-slate-300">
-            <!-- 1. Primary Downloaders -->
             <div>
                 <p class="font-bold text-blue-400 uppercase tracking-wider mb-3">Primary Downloaders</p>
                 <ul class="space-y-2.5 pl-1">
@@ -64,8 +63,6 @@
                     <li><a href="#" onclick="switchTool('tt', 'TikTok Video Downloader')" class="hover:text-white flex items-center"><i class="fa-brands fa-tiktok text-teal-400 mr-3 text-sm w-4"></i> TikTok Video Downloader</a></li>
                 </ul>
             </div>
-
-            <!-- 2. Video Utilities & Tools -->
             <div>
                 <p class="font-bold text-blue-400 uppercase tracking-wider mb-3">Video Tools & Utilities</p>
                 <ul class="space-y-2.5 pl-1">
@@ -75,13 +72,11 @@
                     <li><a href="#" onclick="switchTool('story_grabber', 'Story & Highlight Grabber')" class="hover:text-white flex items-center"><i class="fa-solid fa-layer-group text-emerald-400 mr-3 text-sm w-4"></i> Story & Highlight Grabber</a></li>
                     <li><a href="#" onclick="switchTool('tags_extractor', 'Video Tags Extractor')" class="hover:text-white flex items-center"><i class="fa-solid fa-tags text-orange-400 mr-3 text-sm w-4"></i> Video Tags Extractor</a></li>
                     <li><a href="#" onclick="switchTool('mp3_downloader', 'Link Video to MP3 / Audio Downloader')" class="hover:text-white flex items-center"><i class="fa-solid fa-music text-yellow-400 mr-3 text-sm w-4"></i> Video to MP3 Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('multi_res', 'Multi-Resolution Downloader (1080p-360p)')" class="hover:text-white flex items-center"><i class="fa-solid fa-sliders text-indigo-400 mr-3 text-sm w-4"></i> Multi-Resolution Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('multi_res', 'Multi-Resolution Downloader')" class="hover:text-white flex items-center"><i class="fa-solid fa-sliders text-indigo-400 mr-3 text-sm w-4"></i> Multi-Resolution Downloader</a></li>
                     <li><a href="#" onclick="switchTool('thumb_grabber', 'Link to HD Thumbnail Grabber')" class="hover:text-white flex items-center"><i class="fa-solid fa-image text-pink-400 mr-3 text-sm w-4"></i> HD Thumbnail Grabber</a></li>
                     <li><a href="#" onclick="switchTool('qr_gen', 'QR Code Generator')" class="hover:text-white flex items-center"><i class="fa-solid fa-qrcode text-blue-400 mr-3 text-sm w-4"></i> QR Code Generator</a></li>
                 </ul>
             </div>
-
-            <!-- 3. Profile Picture Downloaders -->
             <div>
                 <p class="font-bold text-blue-400 uppercase tracking-wider mb-3">Profile Picture Downloaders</p>
                 <ul class="space-y-2.5 pl-1">
@@ -91,11 +86,6 @@
                 </ul>
             </div>
         </div>
-    </div>
-
-    <!-- Hidden Top Ad Slot -->
-    <div id="topAdContainer" class="max-w-4xl mx-auto w-full my-3 px-4 text-center hidden">
-        <div id="adTopSlot"></div>
     </div>
 
     <!-- Main Content Area -->
@@ -136,82 +126,56 @@
             </button>
         </div>
 
-        <!-- Result Section with Built-in Media Player Preview & Multi-Resolution Links -->
+        <!-- Result Section (Oracle Cloud API Hook Ready) -->
         <div id="resultSection" class="hidden mt-8 bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl">
             <div class="flex flex-col md:flex-row gap-6 items-start">
-                <!-- Media Preview Area -->
                 <div class="w-full md:w-1/3 bg-slate-900 rounded-xl overflow-hidden border border-slate-700 relative">
                     <img id="videoThumbnail" src="" class="w-full h-44 object-cover">
-                    <!-- Built-in Media Player Preview -->
                     <video id="mediaPlayer" controls class="w-full hidden h-44 bg-black"></video>
                 </div>
-
                 <div class="w-full md:w-2/3 space-y-3">
                     <h3 id="videoTitle" class="text-base font-bold text-white">Video Title</h3>
-                    <p id="videoDesc" class="text-xs text-slate-400 line-clamp-2">Description preview will appear here...</p>
-
-                    <!-- Multi-Resolution Downloads (1080p, 720p, 480p, 360p) -->
-                    <div class="space-y-2 pt-2">
-                        <div class="flex justify-between items-center bg-slate-900 px-4 py-2 rounded-xl border border-slate-700">
-                            <span class="text-xs font-medium"><i class="fa-solid fa-film text-yellow-400 mr-2"></i> 1080p Full HD</span>
-                            <a id="dl1080" href="#" download class="bg-emerald-600 hover:bg-emerald-500 text-xs px-3 py-1 rounded-lg font-semibold">Download</a>
-                        </div>
-                        <div class="flex justify-between items-center bg-slate-900 px-4 py-2 rounded-xl border border-slate-700">
-                            <span class="text-xs font-medium"><i class="fa-solid fa-video text-purple-400 mr-2"></i> 720p HD</span>
-                            <a id="dl720" href="#" download class="bg-emerald-600 hover:bg-emerald-500 text-xs px-3 py-1 rounded-lg font-semibold">Download</a>
-                        </div>
-                        <div class="flex justify-between items-center bg-slate-900 px-4 py-2 rounded-xl border border-slate-700">
-                            <span class="text-xs font-medium"><i class="fa-solid fa-compress text-blue-400 mr-2"></i> 480p / 360p</span>
-                            <a id="dl360" href="#" download class="bg-emerald-600 hover:bg-emerald-500 text-xs px-3 py-1 rounded-lg font-semibold">Download</a>
-                        </div>
-                        <div class="flex justify-between items-center bg-slate-900 px-4 py-2 rounded-xl border border-slate-700">
-                            <span class="text-xs font-medium"><i class="fa-solid fa-music text-amber-400 mr-2"></i> Audio MP3</span>
-                            <a id="dlMp3" href="#" download class="bg-amber-600 hover:bg-amber-500 text-xs px-3 py-1 rounded-lg font-semibold">Download MP3</a>
-                        </div>
+                    <p id="videoDesc" class="text-xs text-slate-400 line-clamp-2">Description...</p>
+                    <div class="space-y-2 pt-2" id="resolutionList">
+                        <!-- Dynamic resolution links from Oracle backend -->
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Trending Downloads Widget (Firebase Caching 24h Real-Time) -->
+        <!-- Trending Downloads Widget (Firebase Real-Time Caching Ready) -->
         <div class="mt-12 bg-slate-800/60 border border-slate-700/80 rounded-2xl p-6 shadow-xl">
             <div class="flex justify-between items-center mb-4">
                 <div>
                     <h2 class="text-lg font-bold text-white flex items-center">
-                        <i class="fa-solid fa-fire text-amber-500 mr-2 animate-bounce"></i>
+                        <i class="fa-solid fa-fire text-amber-500 mr-2"></i>
                         Trending Downloads (Last 24 Hours)
                     </h2>
-                    <p class="text-xs text-slate-400">Most downloaded links by global users in real-time</p>
+                    <p class="text-xs text-slate-400">Real-time live feed via Firebase Database Caching</p>
                 </div>
                 <span class="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded-full font-mono flex items-center">
-                    <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-1.5 animate-ping"></span> Live Cache
+                    <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-1.5 animate-ping"></span> Live
                 </span>
             </div>
 
-            <!-- List Container (10 Items Initially) -->
+            <!-- Empty Container: Ready for Firebase Real-Time Data -->
             <div id="trendingList" class="space-y-2.5 text-xs">
-                <!-- Dynamically populated via Firebase cache -->
+                <p class="text-slate-500 text-center py-4">Connecting to Firebase Real-time Database...</p>
             </div>
 
-            <!-- Load More Button -->
+            <!-- Load More Option -->
             <div class="text-center mt-5">
-                <button onclick="loadMoreTrending()" id="loadMoreBtn" class="bg-slate-700 hover:bg-slate-600 text-white font-semibold text-xs px-5 py-2.5 rounded-xl transition flex items-center justify-center space-x-2 mx-auto">
+                <button onclick="loadMoreFirebaseTrending()" id="loadMoreBtn" class="bg-slate-700 hover:bg-slate-600 text-white font-semibold text-xs px-5 py-2.5 rounded-xl transition hidden">
                     <span>Load More (+10)</span>
-                    <i class="fa-solid fa-chevron-down text-xs"></i>
                 </button>
             </div>
         </div>
-
-        <!-- Hidden Middle Ad Slot -->
-        <div id="middleAdContainer" class="my-6 hidden">
-            <div id="adMiddleSlot"></div>
-        </div>
     </main>
 
-    <!-- Clean Extended Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-10 px-4 mt-12 text-xs text-slate-400">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Col 1: Downloaders -->
+    <!-- Extended Footer with Solutions & Services -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12 px-4 mt-12 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+            <!-- Col 1: Primary Downloaders -->
             <div>
                 <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">Primary Downloaders</h4>
                 <ul class="space-y-2">
@@ -222,17 +186,28 @@
                 </ul>
             </div>
 
-            <!-- Col 2: Profile Picture Downloaders -->
+            <!-- Col 2: Solutions -->
             <div>
-                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">Profile Picture Downloaders</h4>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">Solutions</h4>
                 <ul class="space-y-2">
-                    <li><a href="#" onclick="switchTool('fb_dp', 'Facebook Profile Picture Downloader')" class="hover:text-white">Facebook Profile Picture Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('ig_dp', 'Instagram Profile Picture Downloader')" class="hover:text-white">Instagram Profile Picture Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('tt_dp', 'TikTok Profile Picture Downloader')" class="hover:text-white">TikTok Profile Picture Downloader</a></li>
+                    <li><a href="#" class="hover:text-white">Content Creators & Vloggers</a></li>
+                    <li><a href="#" class="hover:text-white">Social Media Managers</a></li>
+                    <li><a href="#" class="hover:text-white">Agencies & Enterprises</a></li>
+                    <li><a href="#" class="hover:text-white">E-Learning & Educators</a></li>
                 </ul>
             </div>
 
-            <!-- Col 3: Legal & Pages -->
+            <!-- Col 3: Profile Picture Downloaders -->
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">DP Downloaders</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white">Facebook Profile Picture Downloader</a></li>
+                    <li><a href="#" class="hover:text-white">Instagram Profile Picture Downloader</a></li>
+                    <li><a href="#" class="hover:text-white">TikTok Profile Picture Downloader</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Legal & Information -->
             <div>
                 <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">Information & Legal</h4>
                 <ul class="space-y-2">
@@ -259,11 +234,9 @@
             if(!document.getElementById('sidebar').classList.contains('-translate-x-full')) toggleSidebar();
         }
 
-        // Multi-Language Support
         const translations = {
             en: { title: "Unlimited Media Downloader", subtitle: "Paste any link to download 4K videos, MP3 audio, HD thumbnails, or extract video tags instantly." },
-            bn: { title: "আনলিমিটেড মিডিয়া ডাউনলোডার", subtitle: "যে কোনো লিঙ্ক পেস্ট করে ভিডিও, এমপি৩ অডিও, এইচডি থাম্বনেল বা ট্যাগ ডাউনলোড করুন।" },
-            es: { title: "Descargador de Medios Ilimitado", subtitle: "Pega cualquier enlace para descargar videos 4K, audio MP3 y miniaturas HD." }
+            bn: { title: "আনলিমিটেড মিডিয়া ডাউনলোডার", subtitle: "যেকোনো লিঙ্ক পেস্ট করে ভিডিও, এমপি৩ অডিও, এইচডি থাম্বনেল বা ট্যাগ ডাউনলোড করুন।" }
         };
 
         function changeLanguage(lang) {
@@ -272,86 +245,37 @@
             document.getElementById('pageSubtitle').innerText = data.subtitle;
         }
 
-        // Mock Real-Time 24h Trending Downloads (Firebase Caching Simulation)
-        const initialTrending = [
-            { title: "Viral Reels Video 2026 #1", url: "https://www.instagram.com/reel/C3x9L0xP2aM/", downloads: 4120 },
-            { title: "Trending TikTok Dance Stream", url: "https://www.tiktok.com/@user/video/7321893012", downloads: 3890 },
-            { title: "4K Nature Relaxing Video HD", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", downloads: 3100 },
-            { title: "Facebook Live Stream Broadcast", url: "https://www.facebook.com/watch/?v=109283741", downloads: 2840 },
-            { title: "Tech News Update Podcast MP3", url: "https://www.youtube.com/watch?v=tech2026", downloads: 2450 },
-            { title: "Shorts Motivation Clip No Watermark", url: "https://www.youtube.com/shorts/sample123", downloads: 2190 },
-            { title: "Gaming Tournament Highlights", url: "https://www.twitch.tv/videos/987654321", downloads: 1980 },
-            { title: "Lo-Fi Chill Beats Audio Track", url: "https://www.youtube.com/watch?v=music4k", downloads: 1850 },
-            { title: "Viral Meme Video Collection", url: "https://www.instagram.com/reel/C4mK2p1L9z0/", downloads: 1620 },
-            { title: "4K Travel Vlog Switzerland", url: "https://www.youtube.com/watch?v=switzerland4k", downloads: 1450 }
-        ];
-
-        const extraTrending = [
-            { title: "AI Voice & Song Cover Stream", url: "https://www.tiktok.com/@user/video/8821039", downloads: 1300 },
-            { title: "Tutorial: Python Automation Script", url: "https://www.youtube.com/watch?v=python2026", downloads: 1210 },
-            { title: "Unboxing Flagship Smartphone 2026", url: "https://www.facebook.com/watch/?v=3381920", downloads: 1140 },
-            { title: "Top 10 Cyber Security Tips 2026", url: "https://www.youtube.com/watch?v=cybersec", downloads: 1050 },
-            { title: "Fitness Workout Challenge Reel", url: "https://www.instagram.com/reel/C5pK1p2M3x1/", downloads: 980 },
-            { title: "HD Wallpaper & Thumbnail Asset", url: "https://images.unsplash.com/photo-1618005182384", downloads: 890 },
-            { title: "Cyberpunk Anime Music Video", url: "https://www.youtube.com/watch?v=anime4k", downloads: 820 },
-            { title: "Cooking Masterclass Recipe Stream", url: "https://www.facebook.com/watch/?v=994821", downloads: 760 },
-            { title: "Drone Footages 4K UHD Coastal", url: "https://www.youtube.com/watch?v=drone4k", downloads: 710 },
-            { title: "Street Food Tour HD Special", url: "https://www.tiktok.com/@user/video/553819", downloads: 650 }
-        ];
-
-        function renderTrending(items) {
-            const container = document.getElementById('trendingList');
-            items.forEach((item, index) => {
-                const row = document.createElement('div');
-                row.className = "bg-slate-900 border border-slate-700/70 p-3 rounded-xl flex items-center justify-between hover:border-blue-500 transition";
-                row.innerHTML = `
-                    <div class="flex items-center space-x-3 truncate pr-2">
-                        <span class="font-bold text-slate-400 text-xs w-5 text-center">#${container.children.length + 1}</span>
-                        <div class="truncate">
-                            <p class="font-semibold text-slate-200 truncate">${item.title}</p>
-                            <p class="text-[10px] text-slate-500 font-mono truncate">${item.url}</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-2 flex-shrink-0">
-                        <span class="text-[10px] bg-blue-600/20 text-blue-400 px-2 py-0.5 rounded border border-blue-500/20 font-mono">${item.downloads} dl</span>
-                        <button onclick="copyLink('${item.url}')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 p-1.5 rounded-lg border border-slate-600 transition" title="Copy Link">
-                            <i class="fa-solid fa-copy text-xs"></i>
-                        </button>
-                    </div>
-                `;
-                container.appendChild(row);
-            });
+        // ==========================================
+        // FIREBASE REAL-TIME TRENDING & CACHING HOOK
+        // ==========================================
+        function fetchFirebaseTrending() {
+            // TODO: Firebase Real-time Database থেকে ডেটা ফেচ করে #trendingList এ রেন্ডার করার কোড এখানে বসাবেন
         }
 
-        function copyLink(link) {
-            navigator.clipboard.writeText(link);
-            alert('Link copied to clipboard!');
-        }
-
-        function loadMoreTrending() {
-            renderTrending(extraTrending);
-            document.getElementById('loadMoreBtn').classList.add('hidden');
-        }
-
-        // Process Link Action (Connects to Node.js / Python yt-dlp API)
+        // ==========================================
+        // ORACLE CLOUD + YT-DLP BACKEND API HOOK
+        // ==========================================
         async function handleProcess() {
             const url = document.getElementById('videoUrl').value.trim();
             if(!url) return alert('Please enter or paste a valid link!');
 
             try {
-                document.getElementById('videoTitle').innerText = "Sample Processed Media - 1080p HD Ready";
-                document.getElementById('videoDesc').innerText = "Processed via Node.js + yt-dlp backend server. Ready for high-speed download.";
+                // TODO: Oracle Cloud Server (Node.js + Python yt-dlp) API Call
+                // const response = await fetch(`http://YOUR_ORACLE_IP:PORT/api/process?url=${encodeURIComponent(url)}`);
+                // const data = await response.json();
+
+                document.getElementById('videoTitle').innerText = "Processed Media Stream (Ready for Backend)";
+                document.getElementById('videoDesc').innerText = "Linked via Oracle Cloud yt-dlp backend.";
                 document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
-                
                 document.getElementById('resultSection').classList.remove('hidden');
             } catch(e) {
-                alert('Processing error.');
+                alert('Backend server connection error.');
             }
         }
 
         window.onload = function() {
-            renderTrending(initialTrending);
+            fetchFirebaseTrending();
         };
     </script>
 </body>
-                        </html>
+    </html>
