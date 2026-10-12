@@ -7,7 +7,6 @@
     <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden">
 
@@ -15,10 +14,10 @@
     <header class="bg-slate-800/95 border-b border-slate-700 sticky top-0 z-40 py-3 px-3 md:px-8 shadow-md">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-2 md:space-x-3">
-                <button onclick="toggleSidebar()" class="text-slate-300 hover:text-white text-xl focus:outline-none p-1">
+                <button onclick="toggleSidebar()" class="text-slate-300 hover:text-white text-xl focus:outline-none p-1 cursor-pointer">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <div class="flex items-center space-x-2 cursor-pointer" onclick="switchTool('home', 'Unlimited Video Downloader')">
+                <div class="flex items-center space-x-2 cursor-pointer" onclick="switchTool('home', 'Unlimited Media Downloader')">
                     <i class="fa-solid fa-cloud-arrow-down text-blue-500 text-xl md:text-2xl"></i>
                     <span class="text-base md:text-2xl font-bold tracking-wide">Any<span class="text-blue-500">Saver</span></span>
                 </div>
@@ -31,7 +30,7 @@
                     <span class="hidden sm:inline">Live:</span> <strong id="liveVisitorCount" class="text-white">1,248</strong>
                 </div>
 
-                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-700 text-[10px] md:text-xs py-1.5 px-1.5 md:px-2 rounded-lg text-slate-200 border border-slate-600 focus:outline-none">
+                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-700 text-[10px] md:text-xs py-1.5 px-1.5 md:px-2 rounded-lg text-slate-200 border border-slate-600 focus:outline-none cursor-pointer">
                     <option value="en">English</option>
                     <option value="bn">বাংলা</option>
                     <option value="es">Español</option>
@@ -55,7 +54,7 @@
     <div id="sidebar" class="fixed inset-y-0 left-0 w-80 bg-slate-800 border-r border-slate-700 transform -translate-x-full transition-transform duration-300 z-50 p-6 overflow-y-auto shadow-2xl">
         <div class="flex justify-between items-center mb-6">
             <h3 class="font-bold text-lg text-white">All Tools & Services</h3>
-            <button onclick="toggleSidebar()" class="text-slate-400 hover:text-white text-xl">&times;</button>
+            <button onclick="toggleSidebar()" class="text-slate-400 hover:text-white text-xl cursor-pointer">&times;</button>
         </div>
         <div class="space-y-6 text-xs text-slate-300">
             <div>
@@ -108,7 +107,7 @@
                 <input type="url" id="videoUrl" placeholder="Paste link here (YouTube, Facebook, Instagram, TikTok)..." 
                     class="w-full pl-11 pr-4 py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-xs md:text-sm">
             </div>
-            <button onclick="handleProcess()" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-blue-600/30 text-xs md:text-sm">
+            <button onclick="handleProcess()" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-blue-600/30 text-xs md:text-sm cursor-pointer">
                 <span>Process Link</span>
                 <i class="fa-solid fa-arrow-right"></i>
             </button>
@@ -116,16 +115,16 @@
 
         <!-- Quick Platform Shortcuts -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
-            <button onclick="switchTool('yt', 'YouTube Downloader')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2 transition">
+            <button onclick="switchTool('yt', 'YouTube Downloader')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2 transition cursor-pointer">
                 <i class="fa-brands fa-youtube text-red-500 text-lg"></i><span>YouTube</span>
             </button>
-            <button onclick="switchTool('fb', 'Facebook Downloader')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2 transition">
+            <button onclick="switchTool('fb', 'Facebook Downloader')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2 transition cursor-pointer">
                 <i class="fa-brands fa-facebook text-blue-500 text-lg"></i><span>Facebook</span>
             </button>
-            <button onclick="switchTool('ig', 'Instagram Video Downloader')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2 transition">
+            <button onclick="switchTool('ig', 'Instagram Video Downloader')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2 transition cursor-pointer">
                 <i class="fa-brands fa-instagram text-pink-500 text-lg"></i><span>Instagram</span>
             </button>
-            <button onclick="switchTool('tt', 'TikTok Video Downloader')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2 transition">
+            <button onclick="switchTool('tt', 'TikTok Video Downloader')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2 transition cursor-pointer">
                 <i class="fa-brands fa-tiktok text-teal-400 text-lg"></i><span>TikTok</span>
             </button>
         </div>
@@ -212,7 +211,7 @@
         </div>
     </main>
 
-    <!-- Extended Footer -->
+    <!-- Extended Footer with Information & Legal Links -->
     <footer class="bg-slate-950 border-t border-slate-800 py-12 px-4 mt-12 text-xs text-slate-400">
         <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
@@ -249,7 +248,7 @@
                     <li><a href="privacy.html" class="hover:text-white">Privacy Policy</a></li>
                     <li><a href="terms.html" class="hover:text-white">Terms of Service</a></li>
                     <li class="pt-2">
-                        <button onclick="openFeedbackModal()" class="bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 border border-blue-500/30 px-3 py-1.5 rounded-lg transition font-semibold flex items-center space-x-1.5">
+                        <button onclick="openFeedbackModal()" class="bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 border border-blue-500/30 px-3 py-1.5 rounded-lg transition font-semibold flex items-center space-x-1.5 cursor-pointer">
                             <i class="fa-solid fa-comment-dots"></i>
                             <span>Send Direct Feedback</span>
                         </button>
@@ -265,12 +264,12 @@
 
     <!-- Direct Email Feedback Pop-up Modal -->
     <div id="feedbackModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-slate-800 border border-slate-700 w-full max-w-md rounded-2xl p-6 shadow-2xl relative animate-fadeIn">
+        <div class="bg-slate-800 border border-slate-700 w-full max-w-md rounded-2xl p-6 shadow-2xl relative">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-sm font-bold text-white flex items-center">
                     <i class="fa-solid fa-envelope text-blue-500 mr-2"></i> Send Feedback to Email
                 </h3>
-                <button onclick="closeFeedbackModal()" class="text-slate-400 hover:text-white text-xl">&times;</button>
+                <button onclick="closeFeedbackModal()" class="text-slate-400 hover:text-white text-xl cursor-pointer">&times;</button>
             </div>
             
             <form action="https://formsubmit.co/smshakilco@gmail.com" method="POST" class="space-y-3 text-xs">
@@ -295,18 +294,77 @@
                     <label class="block text-slate-400 mb-1">Feedback Comment:</label>
                     <textarea name="Message" required rows="3" placeholder="Write your feedback..." class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-lg text-white focus:outline-none"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-xl transition shadow-lg shadow-blue-600/30">
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-xl transition shadow-lg shadow-blue-600/30 cursor-pointer">
                     Send to smshakilco@gmail.com
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- EXTERNAL SEPARATE JAVASCRIPT FILES -->
-    <script src="js/config.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/process.js"></script>
-    <script src="js/trending.js"></script>
-    <script src="js/feedback.js"></script>
+    <!-- JavaScript Controllers -->
+    <script>
+        function toggleSidebar() { 
+            const sidebar = document.getElementById('sidebar');
+            if(sidebar) sidebar.classList.toggle('-translate-x-full'); 
+        }
+
+        function switchTool(id, name) {
+            const pageTitle = document.getElementById('pageTitle');
+            const videoUrl = document.getElementById('videoUrl');
+            if(pageTitle) pageTitle.innerText = name;
+            if(videoUrl) videoUrl.placeholder = `Paste link for ${name}...`;
+            
+            const sidebar = document.getElementById('sidebar');
+            if(sidebar && !sidebar.classList.contains('-translate-x-full')) {
+                toggleSidebar();
+            }
+        }
+
+        const translations = {
+            en: { title: "Unlimited Media Downloader", subtitle: "Paste any link to download 4K videos, MP3 audio, HD thumbnails, or extract video tags instantly." },
+            bn: { title: "আনলিমিটেড মিডিয়া ডাউনলোডার", subtitle: "যেকোনো লিঙ্ক পেস্ট করে ভিডিও, এমপি৩ অডিও, এইচডি থাম্বনেল বা ট্যাগ ডাউনলোড করুন।" },
+            es: { title: "Descargador de Medios Ilimitado", subtitle: "Pega cualquier enlace para descargar videos en 4K, audio MP3 o extraer etiquetas al instante." },
+            ar: { title: "محمل الوسائط غير اللانهائي", subtitle: "الصق أي رابط لتنزيل فيديوهات 4K، صوت MP3، أو استخراج الوسوم فوراً." },
+            de: { title: "Unbegrenzter Media Downloader", subtitle: "Fügen Sie einen beliebigen Link ein, um 4K-Videos oder MP3-Audio herunterzuladen." },
+            fr: { title: "Téléchargeur de Médias Illimité", subtitle: "Collez n'importe quel lien pour télécharger des vidéos 4K ou audio MP3." },
+            hi: { title: "असीमित मीडिया डाउनलोडर", subtitle: "4K वीडियो, MP3 ऑडियो, एचडी थंबनेल डाउनलोड करने के लिए लिंक पेस्ट करें।" },
+            id: { title: "Pengunduh Media Tanpa Batas", subtitle: "Tempel tautan apa pun untuk mengunduh video 4K atau audio MP3." },
+            it: { title: "Scaricatore di Media Illimitato", subtitle: "Incolla qualsiasi link per scaricare video 4K o audio MP3." },
+            ja: { title: "無制限メディアダウンローダー", subtitle: "リンクを貼り付けて、4K動画やMP3音声をダウンロードします。" },
+            ko: { title: "무제한 미디어 다운로더", subtitle: "링크를 붙여넣어 4K 동영상이나 MP3 오디오를 다운로드하세요." },
+            pt: { title: "Baixador de Mídia Ilimitado", subtitle: "Cole qualquer link para baixar vídeos 4K ou áudio MP3." },
+            ru: { title: "Безлимитный загрузчик медиа", subtitle: "Вставьте любую ссылку для скачивания 4K видео или MP3 аудио." },
+            zh: { title: "无限媒体下载器", subtitle: "粘贴任意链接即可下载 4K 视频或 MP3 音频。" }
+        };
+
+        function changeLanguage(lang) {
+            const data = translations[lang] || translations['en'];
+            const pageTitle = document.getElementById('pageTitle');
+            const pageSubtitle = document.getElementById('pageSubtitle');
+            if(pageTitle) pageTitle.innerText = data.title;
+            if(pageSubtitle) pageSubtitle.innerText = data.subtitle;
+        }
+
+        async function handleProcess() {
+            const url = document.getElementById('videoUrl').value.trim();
+            if(!url) return alert('Please enter or paste a valid link!');
+            try {
+                document.getElementById('videoTitle').innerText = "Processed Media Stream (Ready for Backend)";
+                document.getElementById('videoDesc').innerText = "Linked via Oracle Cloud yt-dlp backend.";
+                document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
+                document.getElementById('resultSection').classList.remove('hidden');
+            } catch(e) {
+                alert('Backend server connection error.');
+            }
+        }
+
+        function openFeedbackModal() {
+            document.getElementById('feedbackModal').classList.remove('hidden');
+        }
+
+        function closeFeedbackModal() {
+            document.getElementById('feedbackModal').classList.add('hidden');
+        }
+    </script>
 </body>
                         </html>
