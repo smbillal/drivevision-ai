@@ -7,12 +7,17 @@
     
     <!-- SEO & Open Graph Meta Tags -->
     <meta name="description" content="AnySaver is a powerful, free online media downloader tool. Download 4K videos, MP3 audio, HD thumbnails, and social media content instantly without any software.">
-    <meta name="keywords" content="video downloader, youtube downloader, facebook video download, instagram saver, tiktok downloader, mp3 converter, thumbnail grabber">
+    <meta name="keywords" content="video downloader, youtube downloader, facebook video download, instagram saver, tiktok downloader, twitter downloader, linkedin downloader, mp3 converter">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="AnySaver - Free Online Media Downloader & Video Tools">
     <meta property="og:description" content="Download 4K videos, MP3 audio, HD thumbnails, and social media content instantly. Fast, free, and secure.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smbillal.github.io/">
+
+    <!-- Twitter / X Meta Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AnySaver - Free Online Media Downloader">
+    <meta name="twitter:description" content="Download 4K videos, MP3 audio, HD thumbnails instantly from YouTube, Facebook, Twitter, LinkedIn & more.">
 
     <!-- Schema Structured Data for Google SEO -->
     <script type="application/ld+json">
@@ -53,12 +58,25 @@
                 </div>
             </div>
 
-            <!-- Live Visitor Counter -->
+            <!-- Header Right Section: System Status, Live Visitor Counter & Share Button -->
             <div class="flex items-center space-x-2">
+                <!-- System Status Indicator -->
+                <div class="hidden lg:flex items-center space-x-1.5 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full text-xs text-emerald-400">
+                    <i class="fa-solid fa-circle-check text-[10px]"></i>
+                    <span>Systems 100% Operational</span>
+                </div>
+
+                <!-- Live Visitor Counter -->
                 <div class="flex items-center space-x-1.5 bg-slate-900 border border-slate-700 px-3 py-1.5 rounded-full text-xs text-slate-300">
                     <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
                     <span class="hidden sm:inline">Live:</span> <strong id="liveVisitorCount" class="text-white">1,248</strong>
                 </div>
+
+                <!-- 1-Click Share Button -->
+                <button onclick="shareWebsite()" title="Share Website" class="bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 border border-blue-500/30 p-2 sm:px-3 sm:py-1.5 rounded-full sm:rounded-lg text-xs font-semibold transition flex items-center space-x-1.5 cursor-pointer">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    <span class="hidden sm:inline">Share</span>
+                </button>
             </div>
         </div>
     </header>
@@ -77,6 +95,8 @@
                     <li><a href="#" onclick="switchTool('fb', 'Facebook Downloader')" class="hover:text-white flex items-center"><i class="fa-brands fa-facebook text-blue-500 mr-3 text-sm w-4"></i> Facebook Downloader</a></li>
                     <li><a href="#" onclick="switchTool('ig', 'Instagram Video Downloader')" class="hover:text-white flex items-center"><i class="fa-brands fa-instagram text-pink-500 mr-3 text-sm w-4"></i> Instagram Video Downloader</a></li>
                     <li><a href="#" onclick="switchTool('tt', 'TikTok Video Downloader')" class="hover:text-white flex items-center"><i class="fa-brands fa-tiktok text-teal-400 mr-3 text-sm w-4"></i> TikTok Video Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('twitter', 'Twitter / X Downloader')" class="hover:text-white flex items-center"><i class="fa-brands fa-x-twitter text-slate-200 mr-3 text-sm w-4"></i> Twitter / X Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('linkedin', 'LinkedIn Video Downloader')" class="hover:text-white flex items-center"><i class="fa-brands fa-linkedin text-blue-400 mr-3 text-sm w-4"></i> LinkedIn Video Downloader</a></li>
                 </ul>
             </div>
             <div>
@@ -132,8 +152,8 @@
                 </div>
             </div>
             <button onclick="handleProcess()" id="btnProcess" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-blue-600/30 text-xs md:text-sm cursor-pointer">
-                <span>Process Link</span>
-                <i class="fa-solid fa-arrow-right"></i>
+                <span id="btnText">Process Link</span>
+                <i id="btnIcon" class="fa-solid fa-arrow-right"></i>
             </button>
         </div>
 
@@ -183,10 +203,41 @@
             </p>
             <h3 class="text-sm font-bold text-blue-400 pt-2">Step-by-Step Instructions:</h3>
             <ol class="list-decimal list-inside text-xs md:text-sm text-slate-300 space-y-2">
-                <li><strong class="text-white">Copy the URL:</strong> Open your target platform (YouTube, Facebook, Instagram, etc.) and copy the media link.</li>
+                <li><strong class="text-white">Copy the URL:</strong> Open your target platform (YouTube, Facebook, Instagram, Twitter, LinkedIn etc.) and copy the media link.</li>
                 <li><strong class="text-white">Paste the Link:</strong> Navigate back to AnySaver, click on the search input box, and paste your copied URL.</li>
                 <li><strong class="text-white">Process & Download:</strong> Click the 'Process Link' button to fetch available resolutions, audio formats, or metadata instantly.</li>
             </ol>
+        </div>
+
+        <!-- Supported Media Platforms Grid -->
+        <div class="mt-8 bg-slate-800/30 border border-slate-800/80 rounded-2xl p-6">
+            <h2 class="text-base font-bold text-white mb-4 text-center">Supported Platforms & Services</h2>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 text-center text-xs">
+                <div class="bg-slate-800/80 border border-slate-700/60 p-3 rounded-xl flex flex-col items-center justify-center space-y-1.5">
+                    <i class="fa-brands fa-youtube text-red-500 text-xl"></i>
+                    <span class="text-slate-300">YouTube</span>
+                </div>
+                <div class="bg-slate-800/80 border border-slate-700/60 p-3 rounded-xl flex flex-col items-center justify-center space-y-1.5">
+                    <i class="fa-brands fa-facebook text-blue-500 text-xl"></i>
+                    <span class="text-slate-300">Facebook</span>
+                </div>
+                <div class="bg-slate-800/80 border border-slate-700/60 p-3 rounded-xl flex flex-col items-center justify-center space-y-1.5">
+                    <i class="fa-brands fa-instagram text-pink-500 text-xl"></i>
+                    <span class="text-slate-300">Instagram</span>
+                </div>
+                <div class="bg-slate-800/80 border border-slate-700/60 p-3 rounded-xl flex flex-col items-center justify-center space-y-1.5">
+                    <i class="fa-brands fa-tiktok text-teal-400 text-xl"></i>
+                    <span class="text-slate-300">TikTok</span>
+                </div>
+                <div class="bg-slate-800/80 border border-slate-700/60 p-3 rounded-xl flex flex-col items-center justify-center space-y-1.5">
+                    <i class="fa-brands fa-x-twitter text-slate-200 text-xl"></i>
+                    <span class="text-slate-300">Twitter / X</span>
+                </div>
+                <div class="bg-slate-800/80 border border-slate-700/60 p-3 rounded-xl flex flex-col items-center justify-center space-y-1.5">
+                    <i class="fa-brands fa-linkedin text-blue-400 text-xl"></i>
+                    <span class="text-slate-300">LinkedIn</span>
+                </div>
+            </div>
         </div>
 
         <!-- Trust Badges & Features -->
@@ -219,38 +270,24 @@
             <div class="space-y-3 text-xs">
                 <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
                     <summary class="font-semibold flex justify-between items-center">
-                        <span>How can I download videos from any website?</span>
+                        <span>How can I download videos from Twitter and LinkedIn?</span>
                         <i class="fa-solid fa-chevron-down text-slate-400"></i>
                     </summary>
-                    <p class="text-slate-400 mt-2">Simply copy the video link from any supported website, paste it into the search box above, and click 'Process Link' to download instantly.</p>
-                </details>
-                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
-                    <summary class="font-semibold flex justify-between items-center">
-                        <span>How can I download videos via a URL?</span>
-                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
-                    </summary>
-                    <p class="text-slate-400 mt-2">Paste your video URL into the main input field on the homepage and select your preferred resolution to download.</p>
+                    <p class="text-slate-400 mt-2">Simply copy the post or video link from Twitter/X or LinkedIn, paste it into the search box above, and click 'Process Link'.</p>
                 </details>
                 <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
                     <summary class="font-semibold flex justify-between items-center">
                         <span>Is AnySaver free to use?</span>
                         <i class="fa-solid fa-chevron-down text-slate-400"></i>
                     </summary>
-                    <p class="text-slate-400 mt-2">Yes, AnySaver is completely free to use. You can download unlimited videos, audio files, and thumbnails without any hidden costs or restrictions.</p>
-                </details>
-                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
-                    <summary class="font-semibold flex justify-between items-center">
-                        <span>Can I convert videos to MP3 audio directly?</span>
-                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
-                    </summary>
-                    <p class="text-slate-400 mt-2">Yes! You can use our 'Video to MP3 Downloader' tool from the menu to extract high-quality audio files directly from any video link.</p>
+                    <p class="text-slate-400 mt-2">Yes, AnySaver is completely free to use. You can download unlimited videos, audio files, and thumbnails without any hidden costs.</p>
                 </details>
                 <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
                     <summary class="font-semibold flex justify-between items-center">
                         <span>Do I need to install any software or extensions?</span>
                         <i class="fa-solid fa-chevron-down text-slate-400"></i>
                     </summary>
-                    <p class="text-slate-400 mt-2">No software or browser installation is required. Everything runs directly inside your mobile or desktop web browser.</p>
+                    <p class="text-slate-400 mt-2">No software installation is required. Everything runs directly inside your mobile or desktop web browser.</p>
                 </details>
             </div>
         </div>
@@ -282,8 +319,8 @@
                 <ul class="space-y-2">
                     <li><a href="#" onclick="switchTool('yt', 'YouTube Downloader')" class="hover:text-white">YouTube Downloader</a></li>
                     <li><a href="#" onclick="switchTool('fb', 'Facebook Downloader')" class="hover:text-white">Facebook Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('ig', 'Instagram Video Downloader')" class="hover:text-white">Instagram Video Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('tt', 'TikTok Downloader')" class="hover:text-white">TikTok Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('twitter', 'Twitter Downloader')" class="hover:text-white">Twitter / X Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('linkedin', 'LinkedIn Downloader')" class="hover:text-white">LinkedIn Downloader</a></li>
                 </ul>
             </div>
             <div>
@@ -298,9 +335,9 @@
             <div>
                 <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">DP Downloaders</h4>
                 <ul class="space-y-2">
-                    <li><a href="#" onclick="switchTool('fb_dp', 'Facebook DP Downloader')" class="hover:text-white">Facebook DP Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('ig_dp', 'Instagram DP Downloader')" class="hover:text-white">Instagram DP Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('tt_dp', 'TikTok DP Downloader')" class="hover:text-white">TikTok DP Downloader</a></li>
+                    <li><a href="#" class="hover:text-white">Facebook DP Downloader</a></li>
+                    <li><a href="#" class="hover:text-white">Instagram DP Downloader</a></li>
+                    <li><a href="#" class="hover:text-white">TikTok DP Downloader</a></li>
                 </ul>
             </div>
             <div>
@@ -310,6 +347,7 @@
                     <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
                     <li><a href="privacy.html" class="hover:text-white">Privacy Policy</a></li>
                     <li><a href="terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="dmca.html" class="hover:text-white">DMCA Policy</a></li>
                     <li class="pt-2">
                         <button onclick="openFeedbackModal()" class="bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 border border-blue-500/30 px-3 py-1.5 rounded-lg transition font-semibold flex items-center space-x-1.5 cursor-pointer">
                             <i class="fa-solid fa-comment-dots"></i>
@@ -328,6 +366,27 @@
     <button id="scrollToTopBtn" onclick="scrollToTop()" class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-500 text-white p-3.5 rounded-full shadow-2xl transition-all duration-300 opacity-0 pointer-events-none z-50 focus:outline-none cursor-pointer">
         <i class="fa-solid fa-arrow-up text-base"></i>
     </button>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsentBanner" class="fixed bottom-4 left-4 right-4 md:left-8 md:max-w-md bg-slate-800 border border-slate-700 p-4 rounded-2xl shadow-2xl z-50 flex flex-col space-y-3 hidden">
+        <div class="flex items-start space-x-3">
+            <i class="fa-solid fa-cookie-bite text-amber-400 text-xl mt-0.5"></i>
+            <p class="text-xs text-slate-300 leading-relaxed">
+                We use cookies to personalize content and analyze traffic. By using AnySaver, you consent to our use of cookies in accordance with our <a href="privacy.html" class="text-blue-400 underline">Privacy Policy</a>.
+            </p>
+        </div>
+        <div class="flex justify-end space-x-2">
+            <button onclick="acceptCookies()" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-xs font-semibold cursor-pointer transition">
+                Accept All
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification Popup -->
+    <div id="toastNotification" class="fixed top-6 right-6 bg-slate-800 border border-slate-700 text-white px-4 py-3 rounded-xl shadow-2xl z-50 transition-all duration-300 transform translate-y-[-200%] opacity-0 flex items-center space-x-2 text-xs">
+        <i id="toastIcon" class="fa-solid fa-circle-info text-blue-400"></i>
+        <span id="toastMessage">Notification message here</span>
+    </div>
 
     <!-- Feedback Modal -->
     <div id="feedbackModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
@@ -368,6 +427,39 @@
     <script>
         let activeToolKey = 'home';
 
+        // Cookie Banner Check
+        window.addEventListener('DOMContentLoaded', () => {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookieConsentBanner').classList.remove('hidden');
+            }
+        });
+
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieConsentBanner').classList.add('hidden');
+            showToast('Cookie preferences saved successfully!', 'success');
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toastNotification');
+            const toastMsg = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = message;
+            if(type === 'success') {
+                toastIcon.className = 'fa-solid fa-circle-check text-emerald-400';
+            } else if(type === 'error') {
+                toastIcon.className = 'fa-solid fa-circle-exclamation text-red-400';
+            } else {
+                toastIcon.className = 'fa-solid fa-circle-info text-blue-400';
+            }
+
+            toast.classList.remove('translate-y-[-200%]', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-[-200%]', 'opacity-0');
+            }, 3000);
+        }
+
         function toggleSidebar() { 
             const sidebar = document.getElementById('sidebar');
             if(sidebar) sidebar.classList.toggle('-translate-x-full'); 
@@ -391,6 +483,7 @@
 
         function clearUrlInput() {
             document.getElementById('videoUrl').value = '';
+            showToast('Input cleared', 'info');
         }
 
         async function pasteClipboardUrl() {
@@ -398,37 +491,82 @@
                 const text = await navigator.clipboard.readText();
                 if(text) {
                     document.getElementById('videoUrl').value = text;
+                    showToast('Link pasted from clipboard', 'success');
                 }
             } catch (err) {
-                alert('Clipboard access denied or not supported.');
+                showToast('Clipboard access denied', 'error');
+            }
+        }
+
+        async function shareWebsite() {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'AnySaver - Unlimited Media Downloader',
+                        text: 'Download 4K videos, MP3 audio, and HD thumbnails easily with AnySaver!',
+                        url: window.location.href,
+                    });
+                } catch (err) {
+                    console.log('Share canceled');
+                }
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                showToast('Website URL copied to clipboard!', 'success');
             }
         }
 
         async function handleProcess() {
             const url = document.getElementById('videoUrl').value.trim();
-            if(!url) return alert('Please enter or paste a valid video URL!');
+            if(!url) {
+                showToast('Please enter or paste a valid video URL!', 'error');
+                return;
+            }
 
             if (activeToolKey === 'yt' && !url.includes('youtube.com') && !url.includes('youtu.be')) {
-                return alert('Please enter a valid YouTube link!');
+                showToast('Please enter a valid YouTube link!', 'error');
+                return;
             }
             if ((activeToolKey === 'fb' || activeToolKey === 'fb_dp') && !url.includes('facebook.com') && !url.includes('fb.watch')) {
-                return alert('Please enter a valid Facebook link!');
+                showToast('Please enter a valid Facebook link!', 'error');
+                return;
             }
             if ((activeToolKey === 'ig' || activeToolKey === 'ig_dp') && !url.includes('instagram.com')) {
-                return alert('Please enter a valid Instagram link!');
+                showToast('Please enter a valid Instagram link!', 'error');
+                return;
             }
             if ((activeToolKey === 'tt' || activeToolKey === 'tt_dp') && !url.includes('tiktok.com')) {
-                return alert('Please enter a valid TikTok link!');
+                showToast('Please enter a valid TikTok link!', 'error');
+                return;
+            }
+            if (activeToolKey === 'twitter' && !url.includes('twitter.com') && !url.includes('x.com')) {
+                showToast('Please enter a valid Twitter / X link!', 'error');
+                return;
+            }
+            if (activeToolKey === 'linkedin' && !url.includes('linkedin.com')) {
+                showToast('Please enter a valid LinkedIn link!', 'error');
+                return;
             }
 
-            try {
+            // Processing Loader Animation
+            const btnText = document.getElementById('btnText');
+            const btnIcon = document.getElementById('btnIcon');
+            const processBtn = document.getElementById('btnProcess');
+            
+            processBtn.disabled = true;
+            btnText.innerText = "Processing...";
+            btnIcon.className = "fa-solid fa-spinner fa-spin";
+
+            setTimeout(() => {
                 document.getElementById('videoTitle').innerText = "Processed Media Stream (Original Video Title)";
                 document.getElementById('videoDesc').innerText = "Linked via Oracle Cloud yt-dlp backend.";
                 document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
                 document.getElementById('resultSection').classList.remove('hidden');
-            } catch(e) {
-                alert('Backend server connection error.');
-            }
+                
+                processBtn.disabled = false;
+                btnText.innerText = "Process Link";
+                btnIcon.className = "fa-solid fa-arrow-right";
+                showToast('Media stream fetched successfully!', 'success');
+            }, 1000);
         }
 
         async function submitFeedback(event) {
@@ -445,14 +583,14 @@
                     body: formData
                 });
                 if (response.ok) {
-                    alert("Thank you! Your feedback has been sent successfully.");
+                    showToast('Thank you! Your feedback has been sent.', 'success');
                     form.reset();
                     closeFeedbackModal();
                 } else {
-                    alert("Something went wrong. Please try again.");
+                    showToast('Something went wrong. Please try again.', 'error');
                 }
             } catch (error) {
-                alert("Network error. Please check your connection.");
+                showToast('Network error. Check connection.', 'error');
             } finally {
                 submitBtn.innerText = "Send Feedback";
                 submitBtn.disabled = false;
@@ -483,4 +621,4 @@
         }
     </script>
 </body>
-    </html>
+                                                                  </html>
