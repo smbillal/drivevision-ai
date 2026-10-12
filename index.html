@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnySaver - Unlimited Media Downloader & Video Tools</title>
+    <!-- Google AdSense & SEO Meta Tags -->
+    <meta name="description" content="AnySaver is a powerful, free online media downloader tool. Download 4K videos, MP3 audio, HD thumbnails, and social media content instantly without any software.">
+    <meta name="keywords" content="video downloader, youtube downloader, facebook video download, instagram saver, tiktok downloader, mp3 converter, thumbnail grabber">
+    <meta name="robots" content="index, follow">
+    
     <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS Rule: Hide Empty Ad Containers Automatically -->
+    <style>
+        .ad-container:empty {
+            display: none !important;
+        }
+    </style>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden relative">
 
@@ -76,6 +88,12 @@
 
     <!-- Main Content Area -->
     <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
+        
+        <!-- [AD LOCATION 1] Top Header Ad Slot -->
+        <div class="ad-container my-4 text-center overflow-hidden min-h-0">
+            <!-- Insert Google AdSense Code Here -->
+        </div>
+
         <div class="text-center mb-6">
             <h1 id="pageTitle" class="text-2xl md:text-5xl font-extrabold mb-3">Unlimited Media Downloader</h1>
             <p id="pageSubtitle" class="text-slate-400 text-xs md:text-base">Paste any link to download 4K videos, MP3 audio, HD thumbnails, or extract video tags instantly.</p>
@@ -129,53 +147,74 @@
             </div>
         </div>
 
+        <!-- [AD LOCATION 2] Above FAQ Section Ad Slot -->
+        <div class="ad-container my-6 text-center overflow-hidden min-h-0">
+            <!-- Insert Google AdSense Code Here -->
+        </div>
+
+        <!-- Informational Guide Section (Helps in AdSense Approval) -->
+        <div class="mt-8 bg-slate-800/50 border border-slate-700 rounded-2xl p-6 md:p-8 space-y-4">
+            <h2 class="text-lg md:text-xl font-bold text-white">How to Download Videos Online Using AnySaver</h2>
+            <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+                AnySaver is a cutting-edge web application designed to help creators, students, and social media enthusiasts save their favorite media files safely and quickly. Whether you want to archive educational videos, download high-definition thumbnails, or extract audio tracks, our platform streamlines the entire process.
+            </p>
+            <h3 class="text-sm font-bold text-blue-400 pt-2">Step-by-Step Instructions:</h3>
+            <ol class="list-decimal list-inside text-xs md:text-sm text-slate-300 space-y-2">
+                <li><strong class="text-white">Copy the URL:</strong> Open your target platform (YouTube, Facebook, Instagram, etc.) and copy the media link.</li>
+                <li><strong class="text-white">Paste the Link:</strong> Navigate back to AnySaver, click on the search input box, and paste your copied URL.</li>
+                <li><strong class="text-white">Process & Download:</strong> Click the 'Process Link' button to fetch available resolutions, audio formats, or metadata instantly.</li>
+            </ol>
+        </div>
+
         <!-- Frequently Asked Questions (FAQ) Section -->
-<div class="mt-12 bg-slate-800/40 border border-slate-800 rounded-2xl p-6">
-    <h2 class="text-xl font-bold mb-6 text-center text-white">Frequently Asked Questions</h2>
-    <div class="space-y-3 text-xs">
-        <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
-            <summary class="font-semibold flex justify-between items-center">
-                <span>How can I download videos from any website?</span>
-                <i class="fa-solid fa-chevron-down text-slate-400"></i>
-            </summary>
-            <p class="text-slate-400 mt-2">Simply copy the video link from any supported website, paste it into the search box above, and click 'Process Link' to download instantly.</p>
-        </details>
+        <div class="mt-8 bg-slate-800/40 border border-slate-800 rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-6 text-center text-white">Frequently Asked Questions</h2>
+            <div class="space-y-3 text-xs">
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>How can I download videos from any website?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">Simply copy the video link from any supported website, paste it into the search box above, and click 'Process Link' to download instantly.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>How can I download videos via a URL?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">Paste your video URL into the main input field on the homepage and select your preferred resolution to download.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>Is AnySaver free to use?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">Yes, AnySaver is completely free to use. You can download unlimited videos, audio files, and thumbnails without any hidden costs or restrictions.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>Can I convert videos to MP3 audio directly?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">Yes! You can use our 'Video to MP3 Downloader' tool from the menu to extract high-quality audio files directly from any video link.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>Do I need to install any software or extensions?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">No software or browser installation is required. Everything runs directly inside your mobile or desktop web browser.</p>
+                </details>
+            </div>
+        </div>
 
-        <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
-            <summary class="font-semibold flex justify-between items-center">
-                <span>How can I download videos via a URL?</span>
-                <i class="fa-solid fa-chevron-down text-slate-400"></i>
-            </summary>
-            <p class="text-slate-400 mt-2">Paste your video URL into the main input field on the homepage and select your preferred resolution to download.</p>
-        </details>
+        <!-- [AD LOCATION 3] Above Ratings Section Ad Slot -->
+        <div class="ad-container my-6 text-center overflow-hidden min-h-0">
+            <!-- Insert Google AdSense Code Here -->
+        </div>
 
-        <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
-            <summary class="font-semibold flex justify-between items-center">
-                <span>Is AnySaver free to use?</span>
-                <i class="fa-solid fa-chevron-down text-slate-400"></i>
-            </summary>
-            <p class="text-slate-400 mt-2">Yes, AnySaver is completely free to use. You can download unlimited videos, audio files, and thumbnails without any hidden costs or restrictions.</p>
-        </details>
-
-        <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
-            <summary class="font-semibold flex justify-between items-center">
-                <span>Can I convert videos to MP3 audio directly?</span>
-                <i class="fa-solid fa-chevron-down text-slate-400"></i>
-            </summary>
-            <p class="text-slate-400 mt-2">Yes! You can use our 'Video to MP3 Downloader' tool from the menu to extract high-quality audio files directly from any video link.</p>
-        </details>
-
-        <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
-            <summary class="font-semibold flex justify-between items-center">
-                <span>Do I need to install any software or extensions?</span>
-                <i class="fa-solid fa-chevron-down text-slate-400"></i>
-            </summary>
-            <p class="text-slate-400 mt-2">No software or browser installation is required. Everything runs directly inside your mobile or desktop web browser.</p>
-        </details>
-    </div>
-</div>
         <!-- User Reviews & Ratings Overall Counter -->
-        <div class="mt-12 bg-slate-800/60 border border-slate-700/80 rounded-2xl p-6 shadow-xl text-center">
+        <div class="mt-8 bg-slate-800/60 border border-slate-700/80 rounded-2xl p-6 shadow-xl text-center">
             <h2 class="text-lg font-bold text-white mb-2">User Reviews & Ratings</h2>
             <div class="flex items-center justify-center space-x-2 text-amber-400 text-xl">
                 <span>⭐⭐⭐⭐⭐</span>
@@ -185,6 +224,12 @@
                 Based on <span class="font-bold text-blue-400">65,196</span> verified real-time feedback.
             </p>
         </div>
+
+        <!-- [AD LOCATION 4] Above Footer Ad Slot -->
+        <div class="ad-container mt-8 text-center overflow-hidden min-h-0">
+            <!-- Insert Google AdSense Code Here -->
+        </div>
+
     </main>
 
     <!-- Footer -->
@@ -196,7 +241,7 @@
                     <li><a href="#" onclick="switchTool('yt', 'YouTube Downloader')" class="hover:text-white">YouTube Downloader</a></li>
                     <li><a href="#" onclick="switchTool('fb', 'Facebook Downloader')" class="hover:text-white">Facebook Downloader</a></li>
                     <li><a href="#" onclick="switchTool('ig', 'Instagram Video Downloader')" class="hover:text-white">Instagram Video Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('tt', 'TikTok Video Downloader')" class="hover:text-white">TikTok Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('tt', 'TikTok Downloader')" class="hover:text-white">TikTok Downloader</a></li>
                 </ul>
             </div>
             <div>
@@ -329,7 +374,6 @@
             }
         }
 
-        // Feedback AJAX Submission without page redirect
         async function submitFeedback(event) {
             event.preventDefault();
             const form = document.getElementById('feedbackForm');
@@ -358,7 +402,6 @@
             }
         }
 
-        // Scroll to Top Listener
         const scrollBtn = document.getElementById('scrollToTopBtn');
         window.onscroll = function() {
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
@@ -381,7 +424,6 @@
         function closeFeedbackModal() {
             document.getElementById('feedbackModal').classList.add('hidden');
         }
-   
     </script>
 </body>
-                        </html>
+    </html>
