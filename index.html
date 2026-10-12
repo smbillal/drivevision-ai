@@ -367,7 +367,6 @@ function changeLanguage(lang) {
     if(pageTitle) pageTitle.innerText = data.title;
     if(pageSubtitle) pageSubtitle.innerText = data.subtitle;
 }
-
 async function handleProcess() {
     const url = document.getElementById('videoUrl').value.trim();
     if(!url) return alert('দয়া করে একটি ভ্যালিড লিঙ্ক পেস্ট করুন!');
@@ -386,7 +385,9 @@ async function handleProcess() {
     }
 
     try {
-        document.getElementById('videoTitle').innerText = "Processed Media Stream (Ready for Backend)";
+        // এখানে ব্যাকএন্ড বা yt-dlp থেকে ভিডিওর অরিজিনাল টাইটেল ফেচ করা হবে। 
+        // ভিডিওর নিজস্ব ভাষা অনুযায়ী টাইটেলটি নিচের এলিমেন্টে সেট হবে:
+        document.getElementById('videoTitle').innerText = "Processed Media Stream (Original Video Title)";
         document.getElementById('videoDesc').innerText = "Linked via Oracle Cloud yt-dlp backend.";
         document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
         document.getElementById('resultSection').classList.remove('hidden');
@@ -394,14 +395,6 @@ async function handleProcess() {
         alert('ব্যাকএন্ড সার্ভার কানেকশন ত্রুটি।');
     }
 }
-
-function openFeedbackModal() {
-    document.getElementById('feedbackModal').classList.remove('hidden');
-}
-
-function closeFeedbackModal() {
-    document.getElementById('feedbackModal').classList.add('hidden');
-        }
     </script>
 </body>
                         </html>
