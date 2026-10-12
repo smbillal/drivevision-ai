@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnySaver - Unlimited Media Downloader & Video Tools</title>
-    <!-- Google AdSense & SEO Meta Tags -->
+    
+    <!-- SEO & Open Graph Meta Tags -->
     <meta name="description" content="AnySaver is a powerful, free online media downloader tool. Download 4K videos, MP3 audio, HD thumbnails, and social media content instantly without any software.">
     <meta name="keywords" content="video downloader, youtube downloader, facebook video download, instagram saver, tiktok downloader, mp3 converter, thumbnail grabber">
     <meta name="robots" content="index, follow">
+    <meta property="og:title" content="AnySaver - Free Online Media Downloader & Video Tools">
+    <meta property="og:description" content="Download 4K videos, MP3 audio, HD thumbnails, and social media content instantly. Fast, free, and secure.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smbillal.github.io/">
+
+    <!-- Schema Structured Data for Google SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AnySaver",
+      "url": "https://smbillal.github.io/",
+      "description": "Unlimited Media Downloader & Video Tools for downloading videos, thumbnails, and audio.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All"
+    }
+    </script>
     
     <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -88,25 +106,30 @@
 
     <!-- Main Content Area -->
     <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
-        
-        <!-- [AD LOCATION 1] Top Header Ad Slot -->
-        <div class="ad-container my-4 text-center overflow-hidden min-h-0">
-            <!-- Insert Google AdSense Code Here -->
-        </div>
 
         <div class="text-center mb-6">
             <h1 id="pageTitle" class="text-2xl md:text-5xl font-extrabold mb-3">Unlimited Media Downloader</h1>
             <p id="pageSubtitle" class="text-slate-400 text-xs md:text-base">Paste any link to download 4K videos, MP3 audio, HD thumbnails, or extract video tags instantly.</p>
         </div>
 
-        <!-- Input Box Section -->
+        <!-- Input Box Section with Paste & Clear Buttons -->
         <div class="bg-slate-800 p-3 md:p-4 rounded-2xl shadow-xl border border-slate-700 flex flex-col md:flex-row gap-3">
-            <div class="relative flex-grow">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
+            <div class="relative flex-grow flex items-center">
+                <span class="absolute left-4 text-slate-400">
                     <i class="fa-solid fa-link"></i>
                 </span>
                 <input type="url" id="videoUrl" placeholder="Paste link here..." 
-                    class="w-full pl-11 pr-4 py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-xs md:text-sm">
+                    class="w-full pl-11 pr-20 py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-xs md:text-sm">
+                
+                <div class="absolute right-2 flex items-center space-x-1">
+                    <button onclick="clearUrlInput()" title="Clear Text" class="px-2 py-1 text-xs text-slate-400 hover:text-white rounded hover:bg-slate-800 transition cursor-pointer">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <button onclick="pasteClipboardUrl()" title="Paste Link" class="px-2 py-1 text-xs bg-slate-800 hover:bg-slate-700 text-blue-400 font-medium rounded border border-slate-700 transition cursor-pointer flex items-center space-x-1">
+                        <i class="fa-solid fa-paste"></i>
+                        <span class="hidden sm:inline">Paste</span>
+                    </button>
+                </div>
             </div>
             <button onclick="handleProcess()" id="btnProcess" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-blue-600/30 text-xs md:text-sm cursor-pointer">
                 <span>Process Link</span>
@@ -147,8 +170,8 @@
             </div>
         </div>
 
-        <!-- [AD LOCATION 2] Above FAQ Section Ad Slot -->
-        <div class="ad-container my-6 text-center overflow-hidden min-h-0">
+        <!-- [AD LOCATION 1] Ad Container (Hidden when empty) -->
+        <div class="ad-container my-8 text-center overflow-hidden min-h-0">
             <!-- Insert Google AdSense Code Here -->
         </div>
 
@@ -164,6 +187,30 @@
                 <li><strong class="text-white">Paste the Link:</strong> Navigate back to AnySaver, click on the search input box, and paste your copied URL.</li>
                 <li><strong class="text-white">Process & Download:</strong> Click the 'Process Link' button to fetch available resolutions, audio formats, or metadata instantly.</li>
             </ol>
+        </div>
+
+        <!-- Trust Badges & Features -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 text-center">
+            <div class="bg-slate-800/40 border border-slate-800 p-4 rounded-xl">
+                <i class="fa-solid fa-shield-halved text-emerald-400 text-2xl mb-2"></i>
+                <h4 class="text-xs font-bold text-white mb-1">100% Safe & Secure</h4>
+                <p class="text-[11px] text-slate-400">No malware, no software installation needed.</p>
+            </div>
+            <div class="bg-slate-800/40 border border-slate-800 p-4 rounded-xl">
+                <i class="fa-solid fa-bolt text-amber-400 text-2xl mb-2"></i>
+                <h4 class="text-xs font-bold text-white mb-1">Ultra Fast Server</h4>
+                <p class="text-[11px] text-slate-400">Instant link processing and direct downloads.</p>
+            </div>
+            <div class="bg-slate-800/40 border border-slate-800 p-4 rounded-xl">
+                <i class="fa-solid fa-infinity text-blue-400 text-2xl mb-2"></i>
+                <h4 class="text-xs font-bold text-white mb-1">Unlimited Free Access</h4>
+                <p class="text-[11px] text-slate-400">No account required, completely free forever.</p>
+            </div>
+        </div>
+
+        <!-- [AD LOCATION 2] Ad Container (Hidden when empty) -->
+        <div class="ad-container my-8 text-center overflow-hidden min-h-0">
+            <!-- Insert Google AdSense Code Here -->
         </div>
 
         <!-- Frequently Asked Questions (FAQ) Section -->
@@ -208,8 +255,8 @@
             </div>
         </div>
 
-        <!-- [AD LOCATION 3] Above Ratings Section Ad Slot -->
-        <div class="ad-container my-6 text-center overflow-hidden min-h-0">
+        <!-- [AD LOCATION 3] Ad Container (Hidden when empty) -->
+        <div class="ad-container my-8 text-center overflow-hidden min-h-0">
             <!-- Insert Google AdSense Code Here -->
         </div>
 
@@ -223,11 +270,6 @@
             <p class="text-xs text-slate-400 mt-2">
                 Based on <span class="font-bold text-blue-400">65,196</span> verified real-time feedback.
             </p>
-        </div>
-
-        <!-- [AD LOCATION 4] Above Footer Ad Slot -->
-        <div class="ad-container mt-8 text-center overflow-hidden min-h-0">
-            <!-- Insert Google AdSense Code Here -->
         </div>
 
     </main>
@@ -345,6 +387,21 @@
             }
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function clearUrlInput() {
+            document.getElementById('videoUrl').value = '';
+        }
+
+        async function pasteClipboardUrl() {
+            try {
+                const text = await navigator.clipboard.readText();
+                if(text) {
+                    document.getElementById('videoUrl').value = text;
+                }
+            } catch (err) {
+                alert('Clipboard access denied or not supported.');
+            }
         }
 
         async function handleProcess() {
