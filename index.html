@@ -23,34 +23,17 @@
                 </div>
             </div>
 
-            <!-- Live Visitor Counter & Multi-Language -->
+            <!-- Live Visitor Counter -->
             <div class="flex items-center space-x-2">
-                <div class="flex items-center space-x-1.5 bg-slate-900 border border-slate-700 px-2 py-1 md:px-3 md:py-1 rounded-full text-[10px] md:text-[11px] text-slate-300">
-                    <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                <div class="flex items-center space-x-1.5 bg-slate-900 border border-slate-700 px-3 py-1.5 rounded-full text-xs text-slate-300">
+                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
                     <span class="hidden sm:inline">Live:</span> <strong id="liveVisitorCount" class="text-white">1,248</strong>
                 </div>
-
-                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-700 text-[10px] md:text-xs py-1.5 px-1.5 md:px-2 rounded-lg text-slate-200 border border-slate-600 focus:outline-none cursor-pointer">
-                    <option value="en">English</option>
-                    <option value="bn">বাংলা</option>
-                    <option value="es">Español</option>
-                    <option value="ar">العربية</option>
-                    <option value="de">Deutsch</option>
-                    <option value="fr">Français</option>
-                    <option value="hi">हिन्दी</option>
-                    <option value="id">Bahasa Indonesia</option>
-                    <option value="it">Italiano</option>
-                    <option value="ja">日本語</option>
-                    <option value="ko">한국어</option>
-                    <option value="pt">Português</option>
-                    <option value="ru">Русский</option>
-                    <option value="zh">简体中文</option>
-                </select>
             </div>
         </div>
     </header>
 
-    <!-- Sidebar Menu -->
+    <!-- Sidebar Menu (All Tools Included) -->
     <div id="sidebar" class="fixed inset-y-0 left-0 w-80 bg-slate-800 border-r border-slate-700 transform -translate-x-full transition-transform duration-300 z-50 p-6 overflow-y-auto shadow-2xl">
         <div class="flex justify-between items-center mb-6">
             <h3 class="font-bold text-lg text-white">All Tools & Services</h3>
@@ -69,23 +52,23 @@
             <div>
                 <p class="font-bold text-blue-400 uppercase tracking-wider mb-3">Video Tools & Utilities</p>
                 <ul class="space-y-2.5 pl-1">
-                    <li><a href="#" onclick="switchTool('copy_info', 'Video Title & Description Copy')" class="hover:text-white flex items-center"><i class="fa-solid fa-copy text-amber-400 mr-3 text-sm w-4"></i> Title & Description Copy</a></li>
-                    <li><a href="#" onclick="switchTool('inspector', 'Video Metadata & Duration Inspector')" class="hover:text-white flex items-center"><i class="fa-solid fa-circle-info text-cyan-400 mr-3 text-sm w-4"></i> Metadata & Duration Inspector</a></li>
-                    <li><a href="#" onclick="switchTool('watermark_free', 'TikTok & Shorts Watermark Free Downloader')" class="hover:text-white flex items-center"><i class="fa-solid fa-wand-magic-sparkles text-purple-400 mr-3 text-sm w-4"></i> Watermark Free Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('copy_info', 'Title & Description Copy')" class="hover:text-white flex items-center"><i class="fa-solid fa-copy text-amber-400 mr-3 text-sm w-4"></i> Title & Description Copy</a></li>
+                    <li><a href="#" onclick="switchTool('inspector', 'Metadata & Duration Inspector')" class="hover:text-white flex items-center"><i class="fa-solid fa-circle-info text-cyan-400 mr-3 text-sm w-4"></i> Metadata & Duration Inspector</a></li>
+                    <li><a href="#" onclick="switchTool('watermark_free', 'Watermark Free Downloader')" class="hover:text-white flex items-center"><i class="fa-solid fa-wand-magic-sparkles text-purple-400 mr-3 text-sm w-4"></i> Watermark Free Downloader</a></li>
                     <li><a href="#" onclick="switchTool('story_grabber', 'Story & Highlight Grabber')" class="hover:text-white flex items-center"><i class="fa-solid fa-layer-group text-emerald-400 mr-3 text-sm w-4"></i> Story & Highlight Grabber</a></li>
                     <li><a href="#" onclick="switchTool('tags_extractor', 'Video Tags Extractor')" class="hover:text-white flex items-center"><i class="fa-solid fa-tags text-orange-400 mr-3 text-sm w-4"></i> Video Tags Extractor</a></li>
-                    <li><a href="#" onclick="switchTool('mp3_downloader', 'Link Video to MP3 / Audio Downloader')" class="hover:text-white flex items-center"><i class="fa-solid fa-music text-yellow-400 mr-3 text-sm w-4"></i> Video to MP3 Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('mp3_downloader', 'Video to MP3 Downloader')" class="hover:text-white flex items-center"><i class="fa-solid fa-music text-yellow-400 mr-3 text-sm w-4"></i> Video to MP3 Downloader</a></li>
                     <li><a href="#" onclick="switchTool('multi_res', 'Multi-Resolution Downloader')" class="hover:text-white flex items-center"><i class="fa-solid fa-sliders text-indigo-400 mr-3 text-sm w-4"></i> Multi-Resolution Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('thumb_grabber', 'Link to HD Thumbnail Grabber')" class="hover:text-white flex items-center"><i class="fa-solid fa-image text-pink-400 mr-3 text-sm w-4"></i> HD Thumbnail Grabber</a></li>
+                    <li><a href="#" onclick="switchTool('thumb_grabber', 'HD Thumbnail Grabber')" class="hover:text-white flex items-center"><i class="fa-solid fa-image text-pink-400 mr-3 text-sm w-4"></i> HD Thumbnail Grabber</a></li>
                     <li><a href="#" onclick="switchTool('qr_gen', 'QR Code Generator')" class="hover:text-white flex items-center"><i class="fa-solid fa-qrcode text-blue-400 mr-3 text-sm w-4"></i> QR Code Generator</a></li>
                 </ul>
             </div>
             <div>
                 <p class="font-bold text-blue-400 uppercase tracking-wider mb-3">Profile Picture Downloaders</p>
                 <ul class="space-y-2.5 pl-1">
-                    <li><a href="#" onclick="switchTool('fb_dp', 'Facebook Profile Picture Downloader')" class="hover:text-white flex items-center"><i class="fa-brands fa-facebook text-blue-500 mr-3 text-sm w-4"></i> Facebook DP Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('ig_dp', 'Instagram Profile Picture Downloader')" class="hover:text-white flex items-center"><i class="fa-brands fa-instagram text-pink-500 mr-3 text-sm w-4"></i> Instagram DP Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('tt_dp', 'TikTok Profile Picture Downloader')" class="hover:text-white flex items-center"><i class="fa-brands fa-tiktok text-teal-400 mr-3 text-sm w-4"></i> TikTok DP Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('fb_dp', 'Facebook DP Downloader')" class="hover:text-white flex items-center"><i class="fa-brands fa-facebook text-blue-500 mr-3 text-sm w-4"></i> Facebook DP Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('ig_dp', 'Instagram DP Downloader')" class="hover:text-white flex items-center"><i class="fa-brands fa-instagram text-pink-500 mr-3 text-sm w-4"></i> Instagram DP Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('tt_dp', 'TikTok DP Downloader')" class="hover:text-white flex items-center"><i class="fa-brands fa-tiktok text-teal-400 mr-3 text-sm w-4"></i> TikTok DP Downloader</a></li>
                 </ul>
             </div>
         </div>
@@ -104,28 +87,12 @@
                 <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
                     <i class="fa-solid fa-link"></i>
                 </span>
-                <input type="url" id="videoUrl" placeholder="Paste link here (YouTube, Facebook, Instagram, TikTok)..." 
+                <input type="url" id="videoUrl" placeholder="Paste link here..." 
                     class="w-full pl-11 pr-4 py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-xs md:text-sm">
             </div>
-            <button onclick="handleProcess()" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-blue-600/30 text-xs md:text-sm cursor-pointer">
+            <button onclick="handleProcess()" id="btnProcess" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-blue-600/30 text-xs md:text-sm cursor-pointer">
                 <span>Process Link</span>
                 <i class="fa-solid fa-arrow-right"></i>
-            </button>
-        </div>
-
-        <!-- Quick Platform Shortcuts -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
-            <button onclick="switchTool('yt', 'YouTube Downloader')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2 transition cursor-pointer">
-                <i class="fa-brands fa-youtube text-red-500 text-lg"></i><span>YouTube</span>
-            </button>
-            <button onclick="switchTool('fb', 'Facebook Downloader')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2 transition cursor-pointer">
-                <i class="fa-brands fa-facebook text-blue-500 text-lg"></i><span>Facebook</span>
-            </button>
-            <button onclick="switchTool('ig', 'Instagram Video Downloader')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2 transition cursor-pointer">
-                <i class="fa-brands fa-instagram text-pink-500 text-lg"></i><span>Instagram</span>
-            </button>
-            <button onclick="switchTool('tt', 'TikTok Video Downloader')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-xs font-medium flex items-center space-x-2 transition cursor-pointer">
-                <i class="fa-brands fa-tiktok text-teal-400 text-lg"></i><span>TikTok</span>
             </button>
         </div>
 
@@ -134,12 +101,10 @@
             <div class="flex flex-col md:flex-row gap-6 items-start">
                 <div class="w-full md:w-1/3 bg-slate-900 rounded-xl overflow-hidden border border-slate-700 relative">
                     <img id="videoThumbnail" src="" class="w-full h-44 object-cover">
-                    <video id="mediaPlayer" controls class="w-full hidden h-44 bg-black"></video>
                 </div>
                 <div class="w-full md:w-2/3 space-y-3">
                     <h3 id="videoTitle" class="text-base font-bold text-white">Video Title</h3>
                     <p id="videoDesc" class="text-xs text-slate-400 line-clamp-2">Description...</p>
-                    <div class="space-y-2 pt-2" id="resolutionList"></div>
                 </div>
             </div>
         </div>
@@ -160,41 +125,8 @@
                         <span>How can I download videos via a URL?</span>
                         <i class="fa-solid fa-chevron-down text-slate-400"></i>
                     </summary>
-                    <p class="text-slate-400 mt-2">Paste your video URL into the main input field on the homepage and select your preferred resolution (1080p, 720p, or MP3) to download.</p>
+                    <p class="text-slate-400 mt-2">Paste your video URL into the main input field on the homepage and select your preferred resolution to download.</p>
                 </details>
-                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
-                    <summary class="font-semibold flex justify-between items-center">
-                        <span>What is the best video downloader for Chrome?</span>
-                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
-                    </summary>
-                    <p class="text-slate-400 mt-2">AnySaver works directly inside your Chrome browser as a web app, requiring no extensions while offering unlimited high-speed downloads.</p>
-                </details>
-                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
-                    <summary class="font-semibold flex justify-between items-center">
-                        <span>What is the best all-in-one video downloader?</span>
-                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
-                    </summary>
-                    <p class="text-slate-400 mt-2">AnySaver is the ultimate all-in-one media downloader supporting YouTube, Facebook, Instagram, TikTok, MP3 conversion, and advanced video tools.</p>
-                </details>
-            </div>
-        </div>
-
-        <!-- Trending Downloads Widget -->
-        <div class="mt-12 bg-slate-800/60 border border-slate-700/80 rounded-2xl p-6 shadow-xl">
-            <div class="flex justify-between items-center mb-4">
-                <div>
-                    <h2 class="text-lg font-bold text-white flex items-center">
-                        <i class="fa-solid fa-fire text-amber-500 mr-2"></i>
-                        Trending Downloads (Last 24 Hours)
-                    </h2>
-                    <p class="text-xs text-slate-400">Real-time live feed via Firebase Database Caching</p>
-                </div>
-                <span class="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded-full font-mono flex items-center">
-                    <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-1.5 animate-ping"></span> Live
-                </span>
-            </div>
-            <div id="trendingList" class="space-y-2.5 text-xs">
-                <p class="text-slate-500 text-center py-4">Connecting to Firebase Real-time Database...</p>
             </div>
         </div>
 
@@ -203,24 +135,24 @@
             <h2 class="text-lg font-bold text-white mb-2">User Reviews & Ratings</h2>
             <div class="flex items-center justify-center space-x-2 text-amber-400 text-xl">
                 <span>⭐⭐⭐⭐⭐</span>
-                <span id="averageScore" class="font-bold text-base text-white ml-1">4.9 / 5</span>
+                <span class="font-bold text-base text-white ml-1">4.9 / 5</span>
             </div>
             <p class="text-xs text-slate-400 mt-2">
-                Based on <span id="totalReviewCount" class="font-bold text-blue-400">65,196</span> verified real-time feedback.
+                Based on <span class="font-bold text-blue-400">65,196</span> verified real-time feedback.
             </p>
         </div>
     </main>
 
-    <!-- Extended Footer with Information & Legal Links -->
+    <!-- Footer -->
     <footer class="bg-slate-950 border-t border-slate-800 py-12 px-4 mt-12 text-xs text-slate-400">
-        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div>
                 <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">Primary Downloaders</h4>
                 <ul class="space-y-2">
                     <li><a href="#" onclick="switchTool('yt', 'YouTube Downloader')" class="hover:text-white">YouTube Downloader</a></li>
                     <li><a href="#" onclick="switchTool('fb', 'Facebook Downloader')" class="hover:text-white">Facebook Downloader</a></li>
                     <li><a href="#" onclick="switchTool('ig', 'Instagram Video Downloader')" class="hover:text-white">Instagram Video Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('tt', 'TikTok Video Downloader')" class="hover:text-white">TikTok Video Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('tt', 'TikTok Video Downloader')" class="hover:text-white">TikTok Downloader</a></li>
                 </ul>
             </div>
             <div>
@@ -235,9 +167,9 @@
             <div>
                 <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">DP Downloaders</h4>
                 <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-white">Facebook Profile Picture Downloader</a></li>
-                    <li><a href="#" class="hover:text-white">Instagram Profile Picture Downloader</a></li>
-                    <li><a href="#" class="hover:text-white">TikTok Profile Picture Downloader</a></li>
+                    <li><a href="#" class="hover:text-white">Facebook DP Downloader</a></li>
+                    <li><a href="#" class="hover:text-white">Instagram DP Downloader</a></li>
+                    <li><a href="#" class="hover:text-white">TikTok DP Downloader</a></li>
                 </ul>
             </div>
             <div>
@@ -256,13 +188,12 @@
                 </ul>
             </div>
         </div>
-
-        <div class="text-center mt-10 border-t border-slate-900 pt-6">
+        <div class="text-center border-t border-slate-900 pt-6">
             <p>&copy; 2026 AnySaver. Unlimited Media Downloader. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Direct Email Feedback Pop-up Modal -->
+    <!-- Feedback Modal -->
     <div id="feedbackModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-slate-800 border border-slate-700 w-full max-w-md rounded-2xl p-6 shadow-2xl relative">
             <div class="flex justify-between items-center mb-4">
@@ -271,11 +202,9 @@
                 </h3>
                 <button onclick="closeFeedbackModal()" class="text-slate-400 hover:text-white text-xl cursor-pointer">&times;</button>
             </div>
-            
             <form action="https://formsubmit.co/smshakilco@gmail.com" method="POST" class="space-y-3 text-xs">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_subject" value="New AnySaver Feedback Received!">
-
                 <div>
                     <label class="block text-slate-400 mb-1">Your Rating:</label>
                     <select name="Rating" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-lg text-amber-400 focus:outline-none">
@@ -287,15 +216,11 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-slate-400 mb-1">Your Email (Optional):</label>
-                    <input type="email" name="Email" placeholder="your@email.com" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-lg text-white focus:outline-none">
-                </div>
-                <div>
                     <label class="block text-slate-400 mb-1">Feedback Comment:</label>
                     <textarea name="Message" required rows="3" placeholder="Write your feedback..." class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-lg text-white focus:outline-none"></textarea>
                 </div>
                 <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-xl transition shadow-lg shadow-blue-600/30 cursor-pointer">
-                    Send to smshakilco@gmail.com
+                    Send Feedback
                 </button>
             </form>
         </div>
@@ -303,14 +228,18 @@
 
     <!-- JavaScript Controllers -->
     <script>
+        let activeToolKey = 'home';
+
         function toggleSidebar() { 
             const sidebar = document.getElementById('sidebar');
             if(sidebar) sidebar.classList.toggle('-translate-x-full'); 
         }
 
         function switchTool(id, name) {
+            activeToolKey = id;
             const pageTitle = document.getElementById('pageTitle');
             const videoUrl = document.getElementById('videoUrl');
+            
             if(pageTitle) pageTitle.innerText = name;
             if(videoUrl) videoUrl.placeholder = `Paste link for ${name}...`;
             
@@ -320,81 +249,41 @@
             }
         }
 
-        const translations = {
-            en: { title: "Unlimited Media Downloader", subtitle: "Paste any link to download 4K videos, MP3 audio, HD thumbnails, or extract video tags instantly." },
-            bn: { title: "আনলিমিটেড মিডিয়া ডাউনলোডার", subtitle: "যেকোনো লিঙ্ক পেস্ট করে ভিডিও, এমপি৩ অডিও, এইচডি থাম্বনেল বা ট্যাগ ডাউনলোড করুন।" },
-            es: { title: "Descargador de Medios Ilimitado", subtitle: "Pega cualquier enlace para descargar videos en 4K, audio MP3 o extraer etiquetas al instante." },
-            ar: { title: "محمل الوسائط غير اللانهائي", subtitle: "الصق أي رابط لتنزيل فيديوهات 4K، صوت MP3، أو استخراج الوسوم فوراً." },
-            de: { title: "Unbegrenzter Media Downloader", subtitle: "Fügen Sie einen beliebigen Link ein, um 4K-Videos oder MP3-Audio herunterzuladen." },
-            fr: { title: "Téléchargeur de Médias Illimité", subtitle: "Collez n'importe quel lien pour télécharger des vidéos 4K ou audio MP3." },
-            hi: { title: "असीमित मीडिया डाउनलोडर", subtitle: "4K वीडियो, MP3 ऑडियो, एचडी थंबनेल डाउनलोड करने के लिए लिंक पेस्ट करें।" },
-            id: { title: "Pengunduh Media Tanpa Batas", subtitle: "Tempel tautan apa pun untuk mengunduh video 4K atau audio MP3." },
-            it: { title: "Scaricatore di Media Illimitato", subtitle: "Incolla qualsiasi link per scaricare video 4K o audio MP3." },
-            ja: { title: "無制限メディアダウンローダー", subtitle: "リンクを貼り付けて、4K動画やMP3音声をダウンロードします。" },
-            ko: { title: "무제한 미디어 다운로더", subtitle: "링크를 붙여넣어 4K 동영상이나 MP3 오디오를 다운로드하세요." },
-            pt: { title: "Baixador de Mídia Ilimitado", subtitle: "Cole qualquer link para baixar vídeos 4K ou áudio MP3." },
-            ru: { title: "Безлимитный загрузчик медиа", subtitle: "Вставьте любую ссылку для скачивания 4K видео или MP3 аудио." },
-            zh: { title: "无限媒体下载器", subtitle: "粘贴任意链接即可下载 4K 视频或 MP3 音频。" }
-        };
+        async function handleProcess() {
+            const url = document.getElementById('videoUrl').value.trim();
+            if(!url) return alert('Please enter or paste a valid video URL!');
 
-        function changeLanguage(lang) {
-            const data = translations[lang] || translations['en'];
-            const pageTitle = document.getElementById('pageTitle');
-            const pageSubtitle = document.getElementById('pageSubtitle');
-            if(pageTitle) pageTitle.innerText = data.title;
-            if(pageSubtitle) pageSubtitle.innerText = data.subtitle;
+            // Strict Link Validation Rules
+            if (activeToolKey === 'yt' && !url.includes('youtube.com') && !url.includes('youtu.be')) {
+                return alert('Please enter a valid YouTube link!');
+            }
+            if ((activeToolKey === 'fb' || activeToolKey === 'fb_dp') && !url.includes('facebook.com') && !url.includes('fb.watch')) {
+                return alert('Please enter a valid Facebook link!');
+            }
+            if ((activeToolKey === 'ig' || activeToolKey === 'ig_dp') && !url.includes('instagram.com')) {
+                return alert('Please enter a valid Instagram link!');
+            }
+            if ((activeToolKey === 'tt' || activeToolKey === 'tt_dp') && !url.includes('tiktok.com')) {
+                return alert('Please enter a valid TikTok link!');
+            }
+
+            try {
+                document.getElementById('videoTitle').innerText = "Processed Media Stream (Original Video Title)";
+                document.getElementById('videoDesc').innerText = "Linked via Oracle Cloud yt-dlp backend.";
+                document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
+                document.getElementById('resultSection').classList.remove('hidden');
+            } catch(e) {
+                alert('Backend server connection error.');
+            }
         }
 
-        let activeToolKey = 'home';
+        function openFeedbackModal() {
+            document.getElementById('feedbackModal').classList.remove('hidden');
+        }
 
-function switchTool(id, name) {
-    activeToolKey = id;
-    const pageTitle = document.getElementById('pageTitle');
-    const videoUrl = document.getElementById('videoUrl');
-    if(pageTitle) pageTitle.innerText = name;
-    if(videoUrl) videoUrl.placeholder = `Paste link for ${name}...`;
-    
-    const sidebar = document.getElementById('sidebar');
-    if(sidebar && !sidebar.classList.contains('-translate-x-full')) {
-        toggleSidebar();
-    }
-}
-
-function changeLanguage(lang) {
-    const data = translations[lang] || translations['en'];
-    const pageTitle = document.getElementById('pageTitle');
-    const pageSubtitle = document.getElementById('pageSubtitle');
-    if(pageTitle) pageTitle.innerText = data.title;
-    if(pageSubtitle) pageSubtitle.innerText = data.subtitle;
-}
-async function handleProcess() {
-    const url = document.getElementById('videoUrl').value.trim();
-    if(!url) return alert('দয়া করে একটি ভ্যালিড লিঙ্ক পেস্ট করুন!');
-
-    if (activeToolKey === 'yt' && !url.includes('youtube.com') && !url.includes('youtu.be')) {
-        return alert('দয়া করে শুধুমাত্র সঠিক YouTube লিঙ্ক দিন!');
-    }
-    if ((activeToolKey === 'fb' || activeToolKey === 'fb_dp') && !url.includes('facebook.com') && !url.includes('fb.watch')) {
-        return alert('দয়া করে শুধুমাত্র সঠিক Facebook লিঙ্ক দিন!');
-    }
-    if ((activeToolKey === 'ig' || activeToolKey === 'ig_dp') && !url.includes('instagram.com')) {
-        return alert('দয়া করে শুধুমাত্র সঠিক Instagram লিঙ্ক দিন!');
-    }
-    if ((activeToolKey === 'tt' || activeToolKey === 'tt_dp') && !url.includes('tiktok.com')) {
-        return alert('দয়া করে শুধুমাত্র সঠিক TikTok লিঙ্ক দিন!');
-    }
-
-    try {
-        // এখানে ব্যাকএন্ড বা yt-dlp থেকে ভিডিওর অরিজিনাল টাইটেল ফেচ করা হবে। 
-        // ভিডিওর নিজস্ব ভাষা অনুযায়ী টাইটেলটি নিচের এলিমেন্টে সেট হবে:
-        document.getElementById('videoTitle').innerText = "Processed Media Stream (Original Video Title)";
-        document.getElementById('videoDesc').innerText = "Linked via Oracle Cloud yt-dlp backend.";
-        document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
-        document.getElementById('resultSection').classList.remove('hidden');
-    } catch(e) {
-        alert('ব্যাকএন্ড সার্ভার কানেকশন ত্রুটি।');
-    }
-}
+        function closeFeedbackModal() {
+            document.getElementById('feedbackModal').classList.add('hidden');
+        }
     </script>
 </body>
-                        </html>
+                </html>
