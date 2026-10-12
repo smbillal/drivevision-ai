@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden relative">
 
     <!-- Header & Sticky Navbar -->
     <header class="bg-slate-800/95 border-b border-slate-700 sticky top-0 z-40 py-3 px-3 md:px-8 shadow-md">
@@ -33,7 +33,7 @@
         </div>
     </header>
 
-    <!-- Sidebar Menu (All Tools Included) -->
+    <!-- Sidebar Menu -->
     <div id="sidebar" class="fixed inset-y-0 left-0 w-80 bg-slate-800 border-r border-slate-700 transform -translate-x-full transition-transform duration-300 z-50 p-6 overflow-y-auto shadow-2xl">
         <div class="flex justify-between items-center mb-6">
             <h3 class="font-bold text-lg text-white">All Tools & Services</h3>
@@ -93,6 +93,26 @@
             <button onclick="handleProcess()" id="btnProcess" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-blue-600/30 text-xs md:text-sm cursor-pointer">
                 <span>Process Link</span>
                 <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- Quick Platform Shortcut Buttons -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+            <button onclick="switchTool('yt', 'YouTube Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-red-500/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
+                <i class="fa-brands fa-youtube text-red-500 text-lg group-hover:scale-110 transition-transform"></i>
+                <span class="text-xs md:text-sm font-semibold text-slate-200">YouTube</span>
+            </button>
+            <button onclick="switchTool('fb', 'Facebook Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-blue-500/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
+                <i class="fa-brands fa-facebook text-blue-500 text-lg group-hover:scale-110 transition-transform"></i>
+                <span class="text-xs md:text-sm font-semibold text-slate-200">Facebook</span>
+            </button>
+            <button onclick="switchTool('ig', 'Instagram Video Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-pink-500/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
+                <i class="fa-brands fa-instagram text-pink-500 text-lg group-hover:scale-110 transition-transform"></i>
+                <span class="text-xs md:text-sm font-semibold text-slate-200">Instagram</span>
+            </button>
+            <button onclick="switchTool('tt', 'TikTok Video Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-teal-400/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
+                <i class="fa-brands fa-tiktok text-teal-400 text-lg group-hover:scale-110 transition-transform"></i>
+                <span class="text-xs md:text-sm font-semibold text-slate-200">TikTok</span>
             </button>
         </div>
 
@@ -167,9 +187,9 @@
             <div>
                 <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px] text-blue-400">DP Downloaders</h4>
                 <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-white">Facebook DP Downloader</a></li>
-                    <li><a href="#" class="hover:text-white">Instagram DP Downloader</a></li>
-                    <li><a href="#" class="hover:text-white">TikTok DP Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('fb_dp', 'Facebook DP Downloader')" class="hover:text-white">Facebook DP Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('ig_dp', 'Instagram DP Downloader')" class="hover:text-white">Instagram DP Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('tt_dp', 'TikTok DP Downloader')" class="hover:text-white">TikTok DP Downloader</a></li>
                 </ul>
             </div>
             <div>
@@ -192,6 +212,11 @@
             <p>&copy; 2026 AnySaver. Unlimited Media Downloader. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Scroll To Top Floating Arrow Button -->
+    <button id="scrollToTopBtn" onclick="scrollToTop()" class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-500 text-white p-3.5 rounded-full shadow-2xl transition-all duration-300 opacity-0 pointer-events-none z-50 focus:outline-none cursor-pointer">
+        <i class="fa-solid fa-arrow-up text-base"></i>
+    </button>
 
     <!-- Feedback Modal -->
     <div id="feedbackModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
@@ -247,13 +272,16 @@
             if(sidebar && !sidebar.classList.contains('-translate-x-full')) {
                 toggleSidebar();
             }
+            
+            // স্মুথলি পেজের উপরে স্ক্রোল করবে
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         async function handleProcess() {
             const url = document.getElementById('videoUrl').value.trim();
             if(!url) return alert('Please enter or paste a valid video URL!');
 
-            // Strict Link Validation Rules
+            // নির্দিষ্ট সোশ্যাল মিডিয়া প্ল্যাটফর্ম ভ্যালিডেশন
             if (activeToolKey === 'yt' && !url.includes('youtube.com') && !url.includes('youtu.be')) {
                 return alert('Please enter a valid YouTube link!');
             }
@@ -267,6 +295,7 @@
                 return alert('Please enter a valid TikTok link!');
             }
 
+            // ইউটিলিটি টুলস বা ডিফল্ট হোমে যেকোনো লিংক প্রসেস হবে
             try {
                 document.getElementById('videoTitle').innerText = "Processed Media Stream (Original Video Title)";
                 document.getElementById('videoDesc').innerText = "Linked via Oracle Cloud yt-dlp backend.";
@@ -275,6 +304,22 @@
             } catch(e) {
                 alert('Backend server connection error.');
             }
+        }
+
+        // Scroll to Top Listener
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollBtn.classList.remove('opacity-0', 'pointer-events-none');
+                scrollBtn.classList.add('opacity-100');
+            } else {
+                scrollBtn.classList.remove('opacity-100');
+                scrollBtn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function openFeedbackModal() {
@@ -286,4 +331,4 @@
         }
     </script>
 </body>
-                </html>
+                        </html>
