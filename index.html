@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,23 +42,54 @@
         }
     </script>
 
-    <!-- CSS Rule: Hide Empty Ad Containers Automatically -->
+    <!-- CSS Rule: Hide Empty Ad Containers Automatically & Light/Dark Color Fixes -->
     <style>
         .ad-container:empty {
             display: none !important;
         }
+        /* Custom Light Theme Overrides */
+        html:not(.dark) body {
+            background-color: #f8fafc !important;
+            color: #0f172a !important;
+        }
+        html:not(.dark) header {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            border-color: #e2e8f0 !important;
+        }
+        html:not(.dark) .bg-slate-800 {
+            background-color: #ffffff !important;
+            border-color: #e2e8f0 !important;
+            color: #0f172a !important;
+        }
+        html:not(.dark) .bg-slate-900 {
+            background-color: #f1f5f9 !important;
+            border-color: #cbd5e1 !important;
+            color: #0f172a !important;
+        }
+        html:not(.dark) .text-slate-100, 
+        html:not(.dark) .text-white {
+            color: #0f172a !important;
+        }
+        html:not(.dark) .text-slate-400, 
+        html:not(.dark) .text-slate-300 {
+            color: #475569 !important;
+        }
+        html:not(.dark) footer {
+            background-color: #0f172a !important;
+            color: #94a3b8 !important;
+        }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 dark:bg-slate-900 dark:text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden relative transition-colors duration-300" id="bodyRoot">
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden relative transition-colors duration-300" id="bodyRoot">
 
     <!-- Header & Sticky Navbar -->
-    <header class="bg-slate-800/95 dark:bg-slate-800/95 border-b border-slate-700 sticky top-0 z-40 py-3 px-3 md:px-8 shadow-md backdrop-blur-md">
+    <header class="bg-slate-800/95 border-b border-slate-700 sticky top-0 z-40 py-3 px-3 md:px-8 shadow-md backdrop-blur-md">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-2 md:space-x-3">
                 <button onclick="toggleSidebar()" class="text-slate-300 hover:text-white text-xl focus:outline-none p-1 cursor-pointer">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <div class="flex items-center space-x-2 cursor-pointer" onclick="switchTool('home', 'Unlimited 4K Media Downloader')">
+                <div class="flex items-center space-x-2 cursor-pointer" onclick="switchTool('home', 'Ultimate 4K Media Downloader')">
                     <i class="fa-solid fa-cloud-arrow-down text-blue-500 text-xl md:text-2xl"></i>
                     <span class="text-base md:text-2xl font-bold tracking-wide">Any<span class="text-blue-500">Saver</span></span>
                 </div>
@@ -168,14 +199,14 @@
             </button>
         </div>
 
-        <!-- Simulated Progress Bar (Hidden by default) -->
-        <div id="progressContainer" class="hidden mt-4 bg-slate-800 border border-slate-700 p-4 rounded-2xl space-y-2">
-            <div class="flex justify-between text-xs text-slate-300">
+        <!-- Simulated Interactive Progress Bar (0% to 100%) -->
+        <div id="progressContainer" class="hidden mt-4 bg-slate-800 border border-slate-700 p-4 rounded-2xl space-y-2 shadow-lg">
+            <div class="flex justify-between text-xs text-slate-300 font-medium">
                 <span id="progressStatusText">Connecting to streaming server...</span>
                 <span id="progressPercent">0%</span>
             </div>
-            <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-700">
-                <div id="progressBarFill" class="bg-blue-500 h-full w-0 transition-all duration-300"></div>
+            <div class="w-full bg-slate-900 h-2.5 rounded-full overflow-hidden border border-slate-700">
+                <div id="progressBarFill" class="bg-blue-500 h-full w-0 transition-all duration-300 rounded-full"></div>
             </div>
         </div>
 
@@ -254,13 +285,13 @@
             </p>
             <h3 class="text-sm font-bold text-blue-400 pt-2">Step-by-Step Instructions:</h3>
             <ol class="list-decimal list-inside text-xs md:text-sm text-slate-300 space-y-2">
-                <li><strong class="text-white">Copy the URL:</strong> Open your target platform (YouTube, Facebook, Instagram, Twitter, LinkedIn etc.) and copy the media link.</li>
+                <li><strong class="text-white">Copy the URL:</strong> Open your target platform (YouTube, Facebook, Instagram, Twitter/X, LinkedIn etc.) and copy the media link.</li>
                 <li><strong class="text-white">Paste the Link:</strong> Navigate back to AnySaver, click on the search input box, and paste your copied URL.</li>
                 <li><strong class="text-white">Process & Download:</strong> Click the 'Process Link' button to fetch available 4K resolutions, audio formats, or metadata instantly.</li>
             </ol>
         </div>
 
-        <!-- Supported Media Platforms Grid -->
+        <!-- Supported Media Platforms Grid (With Fixed Twitter / X Logo) -->
         <div class="mt-8 bg-slate-800/30 border border-slate-800/80 rounded-2xl p-6">
             <h2 class="text-base font-bold text-white mb-4 text-center">Supported Platforms & Services</h2>
             <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 text-center text-xs">
@@ -521,6 +552,9 @@
             if (localStorage.getItem('theme') === 'light') {
                 document.documentElement.classList.remove('dark');
                 document.getElementById('themeIcon').className = 'fa-solid fa-sun';
+            } else {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').className = 'fa-solid fa-moon';
             }
         });
 
@@ -653,7 +687,7 @@
                 return;
             }
 
-            // Simulated Progress Bar Animation (0% to 100%)
+            // Interactive Progress Bar Animation (0% to 100%)
             const btnText = document.getElementById('btnText');
             const btnIcon = document.getElementById('btnIcon');
             const processBtn = document.getElementById('btnProcess');
@@ -749,4 +783,4 @@
         }
     </script>
 </body>
-    </html>
+                    </html>
