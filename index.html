@@ -27,13 +27,11 @@
 
             <!-- Mobile & Desktop Responsive Live Visitor Counter & Language Selector -->
             <div class="flex items-center space-x-2">
-                <!-- Live Visitor Counter (Optimized for Mobile & Desktop) -->
                 <div class="flex items-center space-x-1.5 bg-slate-900 border border-slate-700 px-2 py-1 md:px-3 md:py-1 rounded-full text-[10px] md:text-[11px] text-slate-300">
                     <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-emerald-500 rounded-full animate-pulse"></span>
                     <span class="hidden sm:inline">Live:</span> <strong id="liveVisitorCount" class="text-white">1,248</strong>
                 </div>
 
-                <!-- Multi-Language Selector -->
                 <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-700 text-[10px] md:text-xs py-1.5 px-1.5 md:px-2 rounded-lg text-slate-200 border border-slate-600 focus:outline-none">
                     <option value="en">English</option>
                     <option value="bn">বাংলা</option>
@@ -148,6 +146,41 @@
             </div>
         </div>
 
+        <!-- Frequently Asked Questions (FAQ) Section -->
+        <div class="mt-12 bg-slate-800/40 border border-slate-800 rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-6 text-center text-white">Frequently Asked Questions</h2>
+            <div class="space-y-3 text-xs">
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>How can I download videos from any website?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">Simply copy the video link from any supported website, paste it into the search box above, and click 'Process Link' to download instantly.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>How can I download videos via a URL?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">Paste your video URL into the main input field on the homepage and select your preferred resolution (1080p, 720p, or MP3) to download.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>What is the best video downloader for Chrome?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">AnySaver works directly inside your Chrome browser as a web app, requiring no extensions while offering unlimited high-speed downloads.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>What is the best all-in-one video downloader?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">AnySaver is the ultimate all-in-one media downloader supporting YouTube, Facebook, Instagram, TikTok, MP3 conversion, and advanced video tools.</p>
+                </details>
+            </div>
+        </div>
+
         <!-- Trending Downloads Widget -->
         <div class="mt-12 bg-slate-800/60 border border-slate-700/80 rounded-2xl p-6 shadow-xl">
             <div class="flex justify-between items-center mb-4">
@@ -198,9 +231,8 @@
                 <button onclick="submitRealtimeReview()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-lg transition shadow">Submit Review</button>
             </div>
 
-            <!-- Review Cards Container (Shows 2 initially, More on click) -->
+            <!-- Review Cards Container -->
             <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                <!-- Initial 2 Reviews -->
                 <div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
                     <div class="flex justify-between items-center mb-1">
                         <span class="font-bold text-slate-200">Alex M.</span>
@@ -217,7 +249,6 @@
                 </div>
             </div>
 
-            <!-- Load More Reviews Button -->
             <div class="text-center mt-5">
                 <button onclick="loadMoreReviews()" id="moreReviewsBtn" class="bg-slate-700 hover:bg-slate-600 text-white font-semibold text-xs px-5 py-2 rounded-xl transition">
                     Load More Reviews
@@ -292,16 +323,8 @@
             document.getElementById('pageSubtitle').innerText = data.subtitle;
         }
 
-        // ==========================================
-        // FIREBASE & ORACLE CLOUD HOOKS
-        // ==========================================
-        function fetchFirebaseTrending() {
-            // TODO: Firebase Real-time Database থেকে ট্রেন্ডিং ডেটা ফেচ করার কোড এখানে যুক্ত হবে।
-        }
-
-        function fetchLiveVisitors() {
-            // TODO: ফায়ারবেজ থেকে লাইভ ভিজিটর কাউন্ট এনে #liveVisitorCount আপডেট করার কোড।
-        }
+        function fetchFirebaseTrending() {}
+        function fetchLiveVisitors() {}
 
         async function handleProcess() {
             const url = document.getElementById('videoUrl').value.trim();
