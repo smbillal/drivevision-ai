@@ -700,6 +700,32 @@
                 return;
             }
 
+            // Strict Platform-Specific Link Validation Rule
+            if (activeToolKey === 'yt' && !url.includes('youtube.com') && !url.includes('youtu.be')) {
+                showToast('Error: Please enter a valid YouTube link!', 'error');
+                return;
+            }
+            if ((activeToolKey === 'fb' || activeToolKey === 'fb_dp') && !url.includes('facebook.com') && !url.includes('fb.watch')) {
+                showToast('Error: Please enter a valid Facebook link!', 'error');
+                return;
+            }
+            if ((activeToolKey === 'ig' || activeToolKey === 'ig_dp') && !url.includes('instagram.com')) {
+                showToast('Error: Please enter a valid Instagram link!', 'error');
+                return;
+            }
+            if ((activeToolKey === 'tt' || activeToolKey === 'tt_dp') && !url.includes('tiktok.com')) {
+                showToast('Error: Please enter a valid TikTok link!', 'error');
+                return;
+            }
+            if (activeToolKey === 'twitter' && !url.includes('twitter.com') && !url.includes('x.com')) {
+                showToast('Error: Please enter a valid Twitter / X link!', 'error');
+                return;
+            }
+            if (activeToolKey === 'linkedin' && !url.includes('linkedin.com')) {
+                showToast('Error: Please enter a valid LinkedIn link!', 'error');
+                return;
+            }
+
             // Interactive Progress Bar Animation (0% to 100%)
             const btnText = document.getElementById('btnText');
             const btnIcon = document.getElementById('btnIcon');
@@ -810,4 +836,4 @@
         }
     </script>
 </body>
-                                                                                                                                       </html>
+    </html>
