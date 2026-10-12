@@ -186,16 +186,16 @@
                     class="w-full pl-11 pr-20 py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-xs md:text-sm">
                 
                 <div class="absolute right-2 flex items-center space-x-1">
-                    <button onclick="clearUrlInput()" title="Clear Text" class="px-2 py-1 text-xs text-slate-400 hover:text-white rounded hover:bg-slate-800 transition cursor-pointer">
+                    <button type="button" onclick="clearUrlInput()" title="Clear Text" class="px-2 py-1 text-xs text-slate-400 hover:text-white rounded hover:bg-slate-800 transition cursor-pointer">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
-                    <button onclick="pasteClipboardUrl()" title="Paste Link" class="px-2 py-1 text-xs bg-slate-800 hover:bg-slate-700 text-blue-400 font-medium rounded border border-slate-700 transition cursor-pointer flex items-center space-x-1">
+                    <button type="button" onclick="pasteClipboardUrl()" title="Paste Link" class="px-2 py-1 text-xs bg-slate-800 hover:bg-slate-700 text-blue-400 font-medium rounded border border-slate-700 transition cursor-pointer flex items-center space-x-1">
                         <i class="fa-solid fa-paste"></i>
                         <span class="hidden sm:inline">Paste</span>
                     </button>
                 </div>
             </div>
-            <button onclick="handleProcess()" id="btnProcess" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-blue-600/30 text-xs md:text-sm cursor-pointer">
+            <button type="button" onclick="handleProcess()" id="btnProcess" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold px-8 py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-blue-600/30 text-xs md:text-sm cursor-pointer">
                 <span id="btnText">Process Link</span>
                 <i id="btnIcon" class="fa-solid fa-arrow-right"></i>
             </button>
@@ -214,19 +214,19 @@
 
         <!-- Quick Platform Shortcut Buttons -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
-            <button onclick="switchTool('yt', 'YouTube Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-red-500/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
+            <button type="button" onclick="switchTool('yt', 'YouTube Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-red-500/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
                 <i class="fa-brands fa-youtube text-red-500 text-lg group-hover:scale-110 transition-transform"></i>
                 <span class="text-xs md:text-sm font-semibold text-slate-200">YouTube</span>
             </button>
-            <button onclick="switchTool('fb', 'Facebook Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-blue-500/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
+            <button type="button" onclick="switchTool('fb', 'Facebook Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-blue-500/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
                 <i class="fa-brands fa-facebook text-blue-500 text-lg group-hover:scale-110 transition-transform"></i>
                 <span class="text-xs md:text-sm font-semibold text-slate-200">Facebook</span>
             </button>
-            <button onclick="switchTool('ig', 'Instagram Video Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-pink-500/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
+            <button type="button" onclick="switchTool('ig', 'Instagram Video Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-pink-500/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
                 <i class="fa-brands fa-instagram text-pink-500 text-lg group-hover:scale-110 transition-transform"></i>
                 <span class="text-xs md:text-sm font-semibold text-slate-200">Instagram</span>
             </button>
-            <button onclick="switchTool('tt', 'TikTok Video Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-teal-400/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
+            <button type="button" onclick="switchTool('tt', 'TikTok Video Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-teal-400/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
                 <i class="fa-brands fa-tiktok text-teal-400 text-lg group-hover:scale-110 transition-transform"></i>
                 <span class="text-xs md:text-sm font-semibold text-slate-200">TikTok</span>
             </button>
@@ -254,21 +254,21 @@
                             <strong class="text-white block">MP4 - 4K Ultra HD</strong>
                             <span class="text-[10px] text-slate-400">3840x2160 (High Quality)</span>
                         </div>
-                        <button onclick="triggerDownload('4K')" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg font-semibold cursor-pointer transition">Download</button>
+                        <button type="button" onclick="triggerDownload('4K')" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg font-semibold cursor-pointer transition">Download</button>
                     </div>
                     <div class="bg-slate-900 border border-slate-700 p-3 rounded-xl flex justify-between items-center">
                         <div>
                             <strong class="text-white block">MP4 - 1080p FHD</strong>
                             <span class="text-[10px] text-slate-400">1920x1080 (Standard)</span>
                         </div>
-                        <button onclick="triggerDownload('1080p')" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg font-semibold cursor-pointer transition">Download</button>
+                        <button type="button" onclick="triggerDownload('1080p')" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg font-semibold cursor-pointer transition">Download</button>
                     </div>
                     <div class="bg-slate-900 border border-slate-700 p-3 rounded-xl flex justify-between items-center">
                         <div>
                             <strong class="text-white block">MP3 Audio</strong>
                             <span class="text-[10px] text-slate-400">320kbps High Audio</span>
                         </div>
-                        <button onclick="triggerDownload('MP3')" class="bg-amber-600 hover:bg-amber-500 text-white px-3 py-1.5 rounded-lg font-semibold cursor-pointer transition">Download</button>
+                        <button type="button" onclick="triggerDownload('MP3')" class="bg-amber-600 hover:bg-amber-500 text-white px-3 py-1.5 rounded-lg font-semibold cursor-pointer transition">Download</button>
                     </div>
                 </div>
             </div>
@@ -488,7 +488,7 @@
                     <li><a href="terms.html" class="hover:text-white">Terms of Service</a></li>
                     <li><a href="dmca.html" class="hover:text-white">DMCA Policy</a></li>
                     <li class="pt-2">
-                        <button onclick="openFeedbackModal()" class="bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 border border-blue-500/30 px-3 py-1.5 rounded-lg transition font-semibold flex items-center space-x-1.5 cursor-pointer">
+                        <button type="button" onclick="openFeedbackModal()" class="bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 border border-blue-500/30 px-3 py-1.5 rounded-lg transition font-semibold flex items-center space-x-1.5 cursor-pointer">
                             <i class="fa-solid fa-comment-dots"></i>
                             <span>Send Direct Feedback</span>
                         </button>
@@ -497,12 +497,12 @@
             </div>
         </div>
         <div class="text-center border-t border-slate-900 pt-6">
-            <p>&copy; 2026 AnySaver. SM Billal ‌‌| Ultimate 4K Media Downloader. All rights reserved.</p>
+            <p>&copy; 2026 AnySaver.SM Billal | Ultimate 4K Media Downloader. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Scroll To Top Floating Arrow Button -->
-    <button id="scrollToTopBtn" onclick="scrollToTop()" class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-500 text-white p-3.5 rounded-full shadow-2xl transition-all duration-300 opacity-0 pointer-events-none z-50 focus:outline-none cursor-pointer">
+    <button type="button" id="scrollToTopBtn" onclick="scrollToTop()" class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-500 text-white p-3.5 rounded-full shadow-2xl transition-all duration-300 opacity-0 pointer-events-none z-50 focus:outline-none cursor-pointer">
         <i class="fa-solid fa-arrow-up text-base"></i>
     </button>
 
@@ -515,7 +515,7 @@
             </p>
         </div>
         <div class="flex justify-end space-x-2">
-            <button onclick="acceptCookies()" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-xs font-semibold cursor-pointer transition">
+            <button type="button" onclick="acceptCookies()" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-xs font-semibold cursor-pointer transition">
                 Accept All
             </button>
         </div>
@@ -534,7 +534,7 @@
                 <h3 class="text-sm font-bold text-white flex items-center">
                     <i class="fa-solid fa-envelope text-blue-500 mr-2"></i> Send Feedback to Email
                 </h3>
-                <button onclick="closeFeedbackModal()" class="text-slate-400 hover:text-white text-xl cursor-pointer">&times;</button>
+                <button type="button" onclick="closeFeedbackModal()" class="text-slate-400 hover:text-white text-xl cursor-pointer">&times;</button>
             </div>
             <form id="feedbackForm" onsubmit="submitFeedback(event)" class="space-y-3 text-xs">
                 <div>
@@ -569,14 +569,17 @@
         // Cookie Banner & Theme Initialization
         window.addEventListener('DOMContentLoaded', () => {
             if (!localStorage.getItem('cookiesAccepted')) {
-                document.getElementById('cookieConsentBanner').classList.remove('hidden');
+                const banner = document.getElementById('cookieConsentBanner');
+                if(banner) banner.classList.remove('hidden');
             }
             if (localStorage.getItem('theme') === 'light') {
                 document.documentElement.classList.remove('dark');
-                document.getElementById('themeIcon').className = 'fa-solid fa-sun';
+                const themeIcon = document.getElementById('themeIcon');
+                if(themeIcon) themeIcon.className = 'fa-solid fa-sun';
             } else {
                 document.documentElement.classList.add('dark');
-                document.getElementById('themeIcon').className = 'fa-solid fa-moon';
+                const themeIcon = document.getElementById('themeIcon');
+                if(themeIcon) themeIcon.className = 'fa-solid fa-moon';
             }
         });
 
@@ -586,19 +589,20 @@
             if (html.classList.contains('dark')) {
                 html.classList.remove('dark');
                 localStorage.setItem('theme', 'light');
-                icon.className = 'fa-solid fa-sun';
+                if(icon) icon.className = 'fa-solid fa-sun';
                 showToast('Light mode activated', 'info');
             } else {
                 html.classList.add('dark');
                 localStorage.setItem('theme', 'dark');
-                icon.className = 'fa-solid fa-moon';
+                if(icon) icon.className = 'fa-solid fa-moon';
                 showToast('Dark mode activated', 'info');
             }
         }
 
         function acceptCookies() {
             localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookieConsentBanner').classList.add('hidden');
+            const banner = document.getElementById('cookieConsentBanner');
+            if(banner) banner.classList.add('hidden');
             showToast('Cookie preferences saved successfully!', 'success');
         }
 
@@ -606,6 +610,7 @@
             const toast = document.getElementById('toastNotification');
             const toastMsg = document.getElementById('toastMessage');
             const toastIcon = document.getElementById('toastIcon');
+            if(!toast || !toastMsg || !toastIcon) return;
 
             toastMsg.innerText = message;
             if(type === 'success') {
@@ -644,12 +649,14 @@
         }
 
         function clearUrlInput() {
-            document.getElementById('videoUrl').value = '';
+            const input = document.getElementById('videoUrl');
+            if(input) input.value = '';
             showToast('Input cleared', 'info');
         }
 
         async function pasteClipboardUrl() {
             const inputField = document.getElementById('videoUrl');
+            if(!inputField) return;
             try {
                 if (navigator.clipboard && navigator.clipboard.readText) {
                     const text = await navigator.clipboard.readText();
@@ -685,34 +692,11 @@
         }
 
         async function handleProcess() {
-            const url = document.getElementById('videoUrl').value.trim();
+            const urlInput = document.getElementById('videoUrl');
+            if(!urlInput) return;
+            const url = urlInput.value.trim();
             if(!url) {
                 showToast('Please enter or paste a valid video URL!', 'error');
-                return;
-            }
-
-            if (activeToolKey === 'yt' && !url.includes('youtube.com') && !url.includes('youtu.be')) {
-                showToast('Please enter a valid YouTube link!', 'error');
-                return;
-            }
-            if ((activeToolKey === 'fb' || activeToolKey === 'fb_dp') && !url.includes('facebook.com') && !url.includes('fb.watch')) {
-                showToast('Please enter a valid Facebook link!', 'error');
-                return;
-            }
-            if ((activeToolKey === 'ig' || activeToolKey === 'ig_dp') && !url.includes('instagram.com')) {
-                showToast('Please enter a valid Instagram link!', 'error');
-                return;
-            }
-            if ((activeToolKey === 'tt' || activeToolKey === 'tt_dp') && !url.includes('tiktok.com')) {
-                showToast('Please enter a valid TikTok link!', 'error');
-                return;
-            }
-            if (activeToolKey === 'twitter' && !url.includes('twitter.com') && !url.includes('x.com')) {
-                showToast('Please enter a valid Twitter / X link!', 'error');
-                return;
-            }
-            if (activeToolKey === 'linkedin' && !url.includes('linkedin.com')) {
-                showToast('Please enter a valid LinkedIn link!', 'error');
                 return;
             }
 
@@ -725,19 +709,36 @@
             const progressPercent = document.getElementById('progressPercent');
             const progressStatusText = document.getElementById('progressStatusText');
 
-            processBtn.disabled = true;
-            btnText.innerText = "Processing...";
-            btnIcon.className = "fa-solid fa-spinner fa-spin";
-            progressContainer.classList.remove('hidden');
-            progressBarFill.style.width = '0%';
-            progressPercent.innerText = '0%';
+            if(processBtn) processBtn.disabled = true;
+            if(btnText) btnText.innerText = "Processing...";
+            if(btnIcon) btnIcon.className = "fa-solid fa-spinner fa-spin";
+            if(progressContainer) progressContainer.classList.remove('hidden');
+            if(progressBarFill) progressBarFill.style.width = '0%';
+            if(progressPercent) progressPercent.innerText = '0%';
 
             let progress = 0;
             const interval = setInterval(() => {
                 progress += 20;
-                progressBarFill.style.width = progress + '%';
-                progressPercent.innerText = progress + '%';
-                if(progress === 40) progressStatusText.innerText = "Extracting 4K streams & metadata...";
-                if(progress === 80) progressStatusText.innerText = "Preparing download links...";
+                if(progressBarFill) progressBarFill.style.width = progress + '%';
+                if(progressPercent) progressPercent.innerText = progress + '%';
+                if(progress === 40 && progressStatusText) progressStatusText.innerText = "Extracting 4K streams & metadata...";
+                if(progress === 80 && progressStatusText) progressStatusText.innerText = "Preparing download links...";
                 
-                if (progress >=
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    if(progressContainer) progressContainer.classList.add('hidden');
+                    
+                    const vTitle = document.getElementById('videoTitle');
+                    const vDesc = document.getElementById('videoDesc');
+                    const vThumb = document.getElementById('videoThumbnail');
+                    const resSec = document.getElementById('resultSection');
+
+                    if(vTitle) vTitle.innerText = "Processed 4K Ultra HD Media Stream";
+                    if(vDesc) vDesc.innerText = "High-definition streams fetched successfully via backend engine.";
+                    if(vThumb) vThumb.src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
+                    if(resSec) resSec.classList.remove('hidden');
+                    
+                    if(processBtn) processBtn.disabled = false;
+                    if(btnText) btnText.innerText = "Process Link";
+                    if(btnIcon) btnIcon.className = "fa-solid fa-arrow-right";
+                    showToast('4K Media
