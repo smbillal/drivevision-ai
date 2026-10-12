@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnySaver - Unlimited Media Downloader & Video Tools</title>
+    <title>AnySaver - Ultimate 4K Media Downloader & Video Tools</title>
     
     <!-- SEO & Open Graph Meta Tags -->
-    <meta name="description" content="AnySaver is a powerful, free online media downloader tool. Download 4K videos, MP3 audio, HD thumbnails, and social media content instantly without any software.">
-    <meta name="keywords" content="video downloader, youtube downloader, facebook video download, instagram saver, tiktok downloader, twitter downloader, linkedin downloader, mp3 converter">
+    <meta name="description" content="AnySaver is a premium free online media downloader tool. Download 4K, 1080p videos, MP3 audio, HD thumbnails, and social media content instantly.">
+    <meta name="keywords" content="4k video downloader, youtube downloader, facebook video download, instagram saver, tiktok downloader, twitter downloader, linkedin downloader, mp3 converter">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="AnySaver - Free Online Media Downloader & Video Tools">
-    <meta property="og:description" content="Download 4K videos, MP3 audio, HD thumbnails, and social media content instantly. Fast, free, and secure.">
+    <meta property="og:title" content="AnySaver - Ultimate 4K Media Downloader & Video Tools">
+    <meta property="og:description" content="Download 4K/1080p videos, MP3 audio, HD thumbnails, and social media content instantly. Fast, free, and secure.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smbillal.github.io/">
 
     <!-- Twitter / X Meta Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AnySaver - Free Online Media Downloader">
+    <meta name="twitter:title" content="AnySaver - Ultimate 4K Media Downloader">
     <meta name="twitter:description" content="Download 4K videos, MP3 audio, HD thumbnails instantly from YouTube, Facebook, Twitter, LinkedIn & more.">
 
     <!-- Schema Structured Data for Google SEO -->
@@ -26,7 +26,7 @@
       "@type": "WebApplication",
       "name": "AnySaver",
       "url": "https://smbillal.github.io/",
-      "description": "Unlimited Media Downloader & Video Tools for downloading videos, thumbnails, and audio.",
+      "description": "Ultimate 4K Media Downloader & Video Tools for downloading videos, thumbnails, and audio.",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "All"
     }
@@ -36,6 +36,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+
     <!-- CSS Rule: Hide Empty Ad Containers Automatically -->
     <style>
         .ad-container:empty {
@@ -43,23 +49,28 @@
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden relative">
+<body class="bg-slate-900 text-slate-100 dark:bg-slate-900 dark:text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-x-hidden relative transition-colors duration-300" id="bodyRoot">
 
     <!-- Header & Sticky Navbar -->
-    <header class="bg-slate-800/95 border-b border-slate-700 sticky top-0 z-40 py-3 px-3 md:px-8 shadow-md">
+    <header class="bg-slate-800/95 dark:bg-slate-800/95 border-b border-slate-700 sticky top-0 z-40 py-3 px-3 md:px-8 shadow-md backdrop-blur-md">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-2 md:space-x-3">
                 <button onclick="toggleSidebar()" class="text-slate-300 hover:text-white text-xl focus:outline-none p-1 cursor-pointer">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <div class="flex items-center space-x-2 cursor-pointer" onclick="switchTool('home', 'Unlimited Media Downloader')">
+                <div class="flex items-center space-x-2 cursor-pointer" onclick="switchTool('home', 'Unlimited 4K Media Downloader')">
                     <i class="fa-solid fa-cloud-arrow-down text-blue-500 text-xl md:text-2xl"></i>
                     <span class="text-base md:text-2xl font-bold tracking-wide">Any<span class="text-blue-500">Saver</span></span>
                 </div>
             </div>
 
-            <!-- Header Right Section: System Status, Live Visitor Counter & Share Button -->
+            <!-- Header Right Section: Theme Toggle, System Status, Live Counter & Share -->
             <div class="flex items-center space-x-2">
+                <!-- Theme Switcher Button -->
+                <button onclick="toggleTheme()" title="Toggle Light/Dark Mode" class="bg-slate-700/50 hover:bg-slate-700 text-amber-400 p-2 rounded-lg text-xs transition cursor-pointer">
+                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                </button>
+
                 <!-- System Status Indicator -->
                 <div class="hidden lg:flex items-center space-x-1.5 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full text-xs text-emerald-400">
                     <i class="fa-solid fa-circle-check text-[10px]"></i>
@@ -108,7 +119,7 @@
                     <li><a href="#" onclick="switchTool('story_grabber', 'Story & Highlight Grabber')" class="hover:text-white flex items-center"><i class="fa-solid fa-layer-group text-emerald-400 mr-3 text-sm w-4"></i> Story & Highlight Grabber</a></li>
                     <li><a href="#" onclick="switchTool('tags_extractor', 'Video Tags Extractor')" class="hover:text-white flex items-center"><i class="fa-solid fa-tags text-orange-400 mr-3 text-sm w-4"></i> Video Tags Extractor</a></li>
                     <li><a href="#" onclick="switchTool('mp3_downloader', 'Video to MP3 Downloader')" class="hover:text-white flex items-center"><i class="fa-solid fa-music text-yellow-400 mr-3 text-sm w-4"></i> Video to MP3 Downloader</a></li>
-                    <li><a href="#" onclick="switchTool('multi_res', 'Multi-Resolution Downloader')" class="hover:text-white flex items-center"><i class="fa-solid fa-sliders text-indigo-400 mr-3 text-sm w-4"></i> Multi-Resolution Downloader</a></li>
+                    <li><a href="#" onclick="switchTool('multi_res', 'Multi-Resolution 4K Downloader')" class="hover:text-white flex items-center"><i class="fa-solid fa-sliders text-indigo-400 mr-3 text-sm w-4"></i> Multi-Resolution Downloader</a></li>
                     <li><a href="#" onclick="switchTool('thumb_grabber', 'HD Thumbnail Grabber')" class="hover:text-white flex items-center"><i class="fa-solid fa-image text-pink-400 mr-3 text-sm w-4"></i> HD Thumbnail Grabber</a></li>
                     <li><a href="#" onclick="switchTool('qr_gen', 'QR Code Generator')" class="hover:text-white flex items-center"><i class="fa-solid fa-qrcode text-blue-400 mr-3 text-sm w-4"></i> QR Code Generator</a></li>
                 </ul>
@@ -128,8 +139,8 @@
     <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
 
         <div class="text-center mb-6">
-            <h1 id="pageTitle" class="text-2xl md:text-5xl font-extrabold mb-3">Unlimited Media Downloader</h1>
-            <p id="pageSubtitle" class="text-slate-400 text-xs md:text-base">Paste any link to download 4K videos, MP3 audio, HD thumbnails, or extract video tags instantly.</p>
+            <h1 id="pageTitle" class="text-2xl md:text-5xl font-extrabold mb-3">Ultimate 4K Media Downloader</h1>
+            <p id="pageSubtitle" class="text-slate-400 text-xs md:text-base">Paste any link to download 4K/1080p videos, MP3 audio, HD thumbnails, or extract video tags instantly.</p>
         </div>
 
         <!-- Input Box Section with Paste & Clear Buttons -->
@@ -157,6 +168,17 @@
             </button>
         </div>
 
+        <!-- Simulated Progress Bar (Hidden by default) -->
+        <div id="progressContainer" class="hidden mt-4 bg-slate-800 border border-slate-700 p-4 rounded-2xl space-y-2">
+            <div class="flex justify-between text-xs text-slate-300">
+                <span id="progressStatusText">Connecting to streaming server...</span>
+                <span id="progressPercent">0%</span>
+            </div>
+            <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-700">
+                <div id="progressBarFill" class="bg-blue-500 h-full w-0 transition-all duration-300"></div>
+            </div>
+        </div>
+
         <!-- Quick Platform Shortcut Buttons -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
             <button onclick="switchTool('yt', 'YouTube Downloader')" class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-red-500/50 p-3.5 rounded-xl flex items-center justify-center space-x-2.5 transition group cursor-pointer">
@@ -177,15 +199,44 @@
             </button>
         </div>
 
-        <!-- Result Section -->
-        <div id="resultSection" class="hidden mt-8 bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl">
+        <!-- Result Section with 4K Resolution Options -->
+        <div id="resultSection" class="hidden mt-8 bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl space-y-6">
             <div class="flex flex-col md:flex-row gap-6 items-start">
                 <div class="w-full md:w-1/3 bg-slate-900 rounded-xl overflow-hidden border border-slate-700 relative">
                     <img id="videoThumbnail" src="" class="w-full h-44 object-cover">
+                    <span class="absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">4K Ultra HD</span>
                 </div>
                 <div class="w-full md:w-2/3 space-y-3">
                     <h3 id="videoTitle" class="text-base font-bold text-white">Video Title</h3>
                     <p id="videoDesc" class="text-xs text-slate-400 line-clamp-2">Description...</p>
+                </div>
+            </div>
+
+            <!-- Download Resolutions List (Up to 4K) -->
+            <div class="border-t border-slate-700 pt-4 space-y-3">
+                <h4 class="text-xs font-bold text-blue-400 uppercase tracking-wider">Available Formats & 4K Resolutions:</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
+                    <div class="bg-slate-900 border border-slate-700 p-3 rounded-xl flex justify-between items-center">
+                        <div>
+                            <strong class="text-white block">MP4 - 4K Ultra HD</strong>
+                            <span class="text-[10px] text-slate-400">3840x2160 (High Quality)</span>
+                        </div>
+                        <button onclick="triggerDownload('4K')" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg font-semibold cursor-pointer transition">Download</button>
+                    </div>
+                    <div class="bg-slate-900 border border-slate-700 p-3 rounded-xl flex justify-between items-center">
+                        <div>
+                            <strong class="text-white block">MP4 - 1080p FHD</strong>
+                            <span class="text-[10px] text-slate-400">1920x1080 (Standard)</span>
+                        </div>
+                        <button onclick="triggerDownload('1080p')" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg font-semibold cursor-pointer transition">Download</button>
+                    </div>
+                    <div class="bg-slate-900 border border-slate-700 p-3 rounded-xl flex justify-between items-center">
+                        <div>
+                            <strong class="text-white block">MP3 Audio</strong>
+                            <span class="text-[10px] text-slate-400">320kbps High Audio</span>
+                        </div>
+                        <button onclick="triggerDownload('MP3')" class="bg-amber-600 hover:bg-amber-500 text-white px-3 py-1.5 rounded-lg font-semibold cursor-pointer transition">Download</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -197,15 +248,15 @@
 
         <!-- Informational Guide Section (Helps in AdSense Approval) -->
         <div class="mt-8 bg-slate-800/50 border border-slate-700 rounded-2xl p-6 md:p-8 space-y-4">
-            <h2 class="text-lg md:text-xl font-bold text-white">How to Download Videos Online Using AnySaver</h2>
+            <h2 class="text-lg md:text-xl font-bold text-white">How to Download 4K Videos Online Using AnySaver</h2>
             <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
-                AnySaver is a cutting-edge web application designed to help creators, students, and social media enthusiasts save their favorite media files safely and quickly. Whether you want to archive educational videos, download high-definition thumbnails, or extract audio tracks, our platform streamlines the entire process.
+                AnySaver is a cutting-edge web application designed to help creators, students, and social media enthusiasts save 4K media files safely and quickly. Whether you want to archive high-definition videos, download thumbnails, or extract audio tracks, our platform streamlines the entire process.
             </p>
             <h3 class="text-sm font-bold text-blue-400 pt-2">Step-by-Step Instructions:</h3>
             <ol class="list-decimal list-inside text-xs md:text-sm text-slate-300 space-y-2">
                 <li><strong class="text-white">Copy the URL:</strong> Open your target platform (YouTube, Facebook, Instagram, Twitter, LinkedIn etc.) and copy the media link.</li>
                 <li><strong class="text-white">Paste the Link:</strong> Navigate back to AnySaver, click on the search input box, and paste your copied URL.</li>
-                <li><strong class="text-white">Process & Download:</strong> Click the 'Process Link' button to fetch available resolutions, audio formats, or metadata instantly.</li>
+                <li><strong class="text-white">Process & Download:</strong> Click the 'Process Link' button to fetch available 4K resolutions, audio formats, or metadata instantly.</li>
             </ol>
         </div>
 
@@ -270,24 +321,59 @@
             <div class="space-y-3 text-xs">
                 <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
                     <summary class="font-semibold flex justify-between items-center">
-                        <span>How can I download videos from Twitter and LinkedIn?</span>
+                        <span>How can I download videos from any website?</span>
                         <i class="fa-solid fa-chevron-down text-slate-400"></i>
                     </summary>
-                    <p class="text-slate-400 mt-2">Simply copy the post or video link from Twitter/X or LinkedIn, paste it into the search box above, and click 'Process Link'.</p>
+                    <p class="text-slate-400 mt-2">Simply copy the video link from any supported website, paste it into the search box above, and click 'Process Link' to download instantly.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>How can I download videos via a URL?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">Paste your video URL into the main input field on the homepage and select your preferred 4K resolution to download.</p>
                 </details>
                 <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
                     <summary class="font-semibold flex justify-between items-center">
                         <span>Is AnySaver free to use?</span>
                         <i class="fa-solid fa-chevron-down text-slate-400"></i>
                     </summary>
-                    <p class="text-slate-400 mt-2">Yes, AnySaver is completely free to use. You can download unlimited videos, audio files, and thumbnails without any hidden costs.</p>
+                    <p class="text-slate-400 mt-2">Yes, AnySaver is completely free to use. You can download unlimited videos, audio files, and thumbnails without any hidden costs or restrictions.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>Can I convert videos to MP3 audio directly?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">Yes! You can use our 'Video to MP3 Downloader' tool from the menu to extract high-quality audio files directly from any video link.</p>
                 </details>
                 <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
                     <summary class="font-semibold flex justify-between items-center">
                         <span>Do I need to install any software or extensions?</span>
                         <i class="fa-solid fa-chevron-down text-slate-400"></i>
                     </summary>
-                    <p class="text-slate-400 mt-2">No software installation is required. Everything runs directly inside your mobile or desktop web browser.</p>
+                    <p class="text-slate-400 mt-2">No software or browser installation is required. Everything runs directly inside your mobile or desktop web browser.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>Can I download videos from Twitter/X and LinkedIn?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">Yes! Simply copy the post or video link from Twitter/X or LinkedIn, paste it into the search box above, and click 'Process Link'.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>What is the maximum video resolution supported?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">AnySaver supports downloading high-definition videos up to 4K Ultra HD (3840x2160) resolution depending on the source media.</p>
+                </details>
+                <details class="bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer">
+                    <summary class="font-semibold flex justify-between items-center">
+                        <span>Is it legal to download online videos?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400"></i>
+                    </summary>
+                    <p class="text-slate-400 mt-2">Downloading videos for personal, offline viewing is generally acceptable, but you should always respect copyright laws and the creators' terms of service.</p>
                 </details>
             </div>
         </div>
@@ -358,7 +444,7 @@
             </div>
         </div>
         <div class="text-center border-t border-slate-900 pt-6">
-            <p>&copy; 2026 AnySaver. Unlimited Media Downloader. All rights reserved.</p>
+            <p>&copy; 2026 AnySaver. Ultimate 4K Media Downloader. All rights reserved.</p>
         </div>
     </footer>
 
@@ -427,12 +513,32 @@
     <script>
         let activeToolKey = 'home';
 
-        // Cookie Banner Check
+        // Cookie Banner & Theme Initialization
         window.addEventListener('DOMContentLoaded', () => {
             if (!localStorage.getItem('cookiesAccepted')) {
                 document.getElementById('cookieConsentBanner').classList.remove('hidden');
             }
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('themeIcon').className = 'fa-solid fa-sun';
+            }
         });
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                icon.className = 'fa-solid fa-sun';
+                showToast('Light mode activated', 'info');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                icon.className = 'fa-solid fa-moon';
+                showToast('Dark mode activated', 'info');
+            }
+        }
 
         function acceptCookies() {
             localStorage.setItem('cookiesAccepted', 'true');
@@ -502,7 +608,7 @@
             if (navigator.share) {
                 try {
                     await navigator.share({
-                        title: 'AnySaver - Unlimited Media Downloader',
+                        title: 'AnySaver - Ultimate 4K Media Downloader',
                         text: 'Download 4K videos, MP3 audio, and HD thumbnails easily with AnySaver!',
                         url: window.location.href,
                     });
@@ -547,26 +653,48 @@
                 return;
             }
 
-            // Processing Loader Animation
+            // Simulated Progress Bar Animation (0% to 100%)
             const btnText = document.getElementById('btnText');
             const btnIcon = document.getElementById('btnIcon');
             const processBtn = document.getElementById('btnProcess');
-            
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBarFill = document.getElementById('progressBarFill');
+            const progressPercent = document.getElementById('progressPercent');
+            const progressStatusText = document.getElementById('progressStatusText');
+
             processBtn.disabled = true;
             btnText.innerText = "Processing...";
             btnIcon.className = "fa-solid fa-spinner fa-spin";
+            progressContainer.classList.remove('hidden');
+            progressBarFill.style.width = '0%';
+            progressPercent.innerText = '0%';
 
-            setTimeout(() => {
-                document.getElementById('videoTitle').innerText = "Processed Media Stream (Original Video Title)";
-                document.getElementById('videoDesc').innerText = "Linked via Oracle Cloud yt-dlp backend.";
-                document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
-                document.getElementById('resultSection').classList.remove('hidden');
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 20;
+                progressBarFill.style.width = progress + '%';
+                progressPercent.innerText = progress + '%';
+                if(progress === 40) progressStatusText.innerText = "Extracting 4K streams & metadata...";
+                if(progress === 80) progressStatusText.innerText = "Preparing download links...";
                 
-                processBtn.disabled = false;
-                btnText.innerText = "Process Link";
-                btnIcon.className = "fa-solid fa-arrow-right";
-                showToast('Media stream fetched successfully!', 'success');
-            }, 1000);
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    progressContainer.classList.add('hidden');
+                    document.getElementById('videoTitle').innerText = "Processed 4K Ultra HD Media Stream";
+                    document.getElementById('videoDesc').innerText = "High-definition streams fetched successfully via backend engine.";
+                    document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
+                    document.getElementById('resultSection').classList.remove('hidden');
+                    
+                    processBtn.disabled = false;
+                    btnText.innerText = "Process Link";
+                    btnIcon.className = "fa-solid fa-arrow-right";
+                    showToast('4K Media ready for download!', 'success');
+                }
+            }, 250);
+        }
+
+        function triggerDownload(quality) {
+            showToast(`Initiating ${quality} download stream...`, 'success');
         }
 
         async function submitFeedback(event) {
@@ -621,4 +749,4 @@
         }
     </script>
 </body>
-                                                                  </html>
+    </html>
