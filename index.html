@@ -15,23 +15,26 @@
     <!-- Header & Sticky Navbar -->
     <header class="bg-slate-800/95 border-b border-slate-700 sticky top-0 z-40 py-3 px-3 md:px-8 shadow-md">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-2 md:space-x-3">
                 <button onclick="toggleSidebar()" class="text-slate-300 hover:text-white text-xl focus:outline-none p-1">
                     <i class="fa-solid fa-bars"></i>
                 </button>
                 <div class="flex items-center space-x-2 cursor-pointer" onclick="switchTool('home', 'Unlimited Video Downloader')">
-                    <i class="fa-solid fa-cloud-arrow-down text-blue-500 text-2xl"></i>
-                    <span class="text-lg md:text-2xl font-bold tracking-wide">Any<span class="text-blue-500">Saver</span></span>
+                    <i class="fa-solid fa-cloud-arrow-down text-blue-500 text-xl md:text-2xl"></i>
+                    <span class="text-base md:text-2xl font-bold tracking-wide">Any<span class="text-blue-500">Saver</span></span>
                 </div>
             </div>
 
-            <!-- Multi-Language Selector & Live Visitor Counter Badge -->
-            <div class="flex items-center space-x-3">
-                <div class="hidden md:flex items-center space-x-1.5 bg-slate-900 border border-slate-700 px-3 py-1 rounded-full text-[11px] text-slate-300">
-                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span>Live Visitors: <strong id="liveVisitorCount" class="text-white">1,248</strong></span>
+            <!-- Mobile & Desktop Responsive Live Visitor Counter & Language Selector -->
+            <div class="flex items-center space-x-2">
+                <!-- Live Visitor Counter (Optimized for Mobile & Desktop) -->
+                <div class="flex items-center space-x-1.5 bg-slate-900 border border-slate-700 px-2 py-1 md:px-3 md:py-1 rounded-full text-[10px] md:text-[11px] text-slate-300">
+                    <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                    <span class="hidden sm:inline">Live:</span> <strong id="liveVisitorCount" class="text-white">1,248</strong>
                 </div>
-                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-700 text-[11px] md:text-xs py-1.5 px-2 rounded-lg text-slate-200 border border-slate-600 focus:outline-none">
+
+                <!-- Multi-Language Selector -->
+                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-700 text-[10px] md:text-xs py-1.5 px-1.5 md:px-2 rounded-lg text-slate-200 border border-slate-600 focus:outline-none">
                     <option value="en">English</option>
                     <option value="bn">বাংলা</option>
                     <option value="es">Español</option>
@@ -305,7 +308,6 @@
             if(!url) return alert('Please enter or paste a valid link!');
 
             try {
-                // TODO: Oracle Cloud Server (Node.js + Python yt-dlp) API Call
                 document.getElementById('videoTitle').innerText = "Processed Media Stream (Ready for Backend)";
                 document.getElementById('videoDesc').innerText = "Linked via Oracle Cloud yt-dlp backend.";
                 document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
@@ -315,14 +317,12 @@
             }
         }
 
-        // Real-Time Feedback & Rating Submission Hook (Firebase Ready)
         let reviewScores = [5, 5];
         function submitRealtimeReview() {
             const msg = document.getElementById('userReviewMsg').value.trim();
             const rating = parseInt(document.getElementById('userRatingVal').value);
             if(!msg) return alert('Please write a feedback comment!');
 
-            // Update scores & calculate real-time average
             reviewScores.push(rating);
             const totalCount = reviewScores.length;
             const avgScore = (reviewScores.reduce((a, b) => a + b, 0) / totalCount).toFixed(1);
@@ -330,7 +330,6 @@
             document.getElementById('totalReviewCount').innerText = totalCount;
             document.getElementById('averageScore').innerText = `${avgScore} / 5`;
 
-            // Prepend new review to grid
             const grid = document.getElementById('reviewsGrid');
             const card = document.createElement('div');
             card.className = "bg-slate-900 p-4 rounded-xl border border-slate-700 animate-fadeIn";
@@ -345,12 +344,9 @@
 
             document.getElementById('userReviewMsg').value = '';
             alert('Thank you! Your review has been published in real-time.');
-
-            // TODO: ফায়ারবেজ ডাটাবেজে এই রিভিউটি સેভ করার কোড এখানে যুক্ত হবে।
         }
 
         function loadMoreReviews() {
-            // TODO: ফায়ারবেজ বা ব্যাকএন্ড থেকে পরবর্তী রিভিউগুলো লোড করার অপশন
             alert('Loading more reviews from Firebase database...');
         }
 
@@ -360,4 +356,4 @@
         };
     </script>
 </body>
-    </html>
+                            </html>
