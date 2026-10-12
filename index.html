@@ -345,25 +345,62 @@
             if(pageSubtitle) pageSubtitle.innerText = data.subtitle;
         }
 
-        async function handleProcess() {
-            const url = document.getElementById('videoUrl').value.trim();
-            if(!url) return alert('Please enter or paste a valid link!');
-            try {
-                document.getElementById('videoTitle').innerText = "Processed Media Stream (Ready for Backend)";
-                document.getElementById('videoDesc').innerText = "Linked via Oracle Cloud yt-dlp backend.";
-                document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
-                document.getElementById('resultSection').classList.remove('hidden');
-            } catch(e) {
-                alert('Backend server connection error.');
-            }
-        }
+        let activeToolKey = 'home';
 
-        function openFeedbackModal() {
-            document.getElementById('feedbackModal').classList.remove('hidden');
-        }
+function switchTool(id, name) {
+    activeToolKey = id;
+    const pageTitle = document.getElementById('pageTitle');
+    const videoUrl = document.getElementById('videoUrl');
+    if(pageTitle) pageTitle.innerText = name;
+    if(videoUrl) videoUrl.placeholder = `Paste link for ${name}...`;
+    
+    const sidebar = document.getElementById('sidebar');
+    if(sidebar && !sidebar.classList.contains('-translate-x-full')) {
+        toggleSidebar();
+    }
+}
 
-        function closeFeedbackModal() {
-            document.getElementById('feedbackModal').classList.add('hidden');
+function changeLanguage(lang) {
+    const data = translations[lang] || translations['en'];
+    const pageTitle = document.getElementById('pageTitle');
+    const pageSubtitle = document.getElementById('pageSubtitle');
+    if(pageTitle) pageTitle.innerText = data.title;
+    if(pageSubtitle) pageSubtitle.innerText = data.subtitle;
+}
+
+async function handleProcess() {
+    const url = document.getElementById('videoUrl').value.trim();
+    if(!url) return alert('দয়া করে একটি ভ্যালিড লিঙ্ক পেস্ট করুন!');
+
+    if (activeToolKey === 'yt' && !url.includes('youtube.com') && !url.includes('youtu.be')) {
+        return alert('দয়া করে শুধুমাত্র সঠিক YouTube লিঙ্ক দিন!');
+    }
+    if ((activeToolKey === 'fb' || activeToolKey === 'fb_dp') && !url.includes('facebook.com') && !url.includes('fb.watch')) {
+        return alert('দয়া করে শুধুমাত্র সঠিক Facebook লিঙ্ক দিন!');
+    }
+    if ((activeToolKey === 'ig' || activeToolKey === 'ig_dp') && !url.includes('instagram.com')) {
+        return alert('দয়া করে শুধুমাত্র সঠিক Instagram লিঙ্ক দিন!');
+    }
+    if ((activeToolKey === 'tt' || activeToolKey === 'tt_dp') && !url.includes('tiktok.com')) {
+        return alert('দয়া করে শুধুমাত্র সঠিক TikTok লিঙ্ক দিন!');
+    }
+
+    try {
+        document.getElementById('videoTitle').innerText = "Processed Media Stream (Ready for Backend)";
+        document.getElementById('videoDesc').innerText = "Linked via Oracle Cloud yt-dlp backend.";
+        document.getElementById('videoThumbnail').src = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop";
+        document.getElementById('resultSection').classList.remove('hidden');
+    } catch(e) {
+        alert('ব্যাকএন্ড সার্ভার কানেকশন ত্রুটি।');
+    }
+}
+
+function openFeedbackModal() {
+    document.getElementById('feedbackModal').classList.remove('hidden');
+}
+
+function closeFeedbackModal() {
+    document.getElementById('feedbackModal').classList.add('hidden');
         }
     </script>
 </body>
